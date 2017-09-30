@@ -1,0 +1,355 @@
+/*Importanting Required Fonts for Project*/
+@font-face {
+	src: url('fonts/Montserrat-ExtraLight.otf');
+	font-family: 'Montserrat';
+}
+@font-face {
+	src: url('fonts/ProximaNovaAlt_Regular-webfont.ttf');
+	font-family: 'Proxima Nova';
+}
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+
+/*Declaring Colors*/
+/*How to use: color: var(--main-blue) */
+:root {
+	--main-blue: #ADD9F4;
+	--primary-gray: #95989A;
+	--secondary-gray: #C8C8C8;
+	--tertiary-gray: #F1F1F1;
+	--footer-gray: #525666;
+	--footer-special: #525666;
+}
+
+body {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+
+header#landing { display: none; }
+
+section#wrapper {
+	width: 100%;
+	position: relative;
+}
+
+div#mainHeader {
+	width: 100%;
+	height: 69px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #ffffff;
+	border-bottom: 1px solid var(--secondary-gray);
+	z-index: 2;
+}
+
+div#mainHeader_overlay {
+	width: 100%;
+	height: 69px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: transparent;
+	border-bottom: 1px solid var(--secondary-gray);
+	z-index: 3;
+}
+
+div#mainHeader h1 {
+	display: block;
+	position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+	margin: 0 0 20px 20px;
+	font-family: 'Montserrat';
+	font-size: 1.5em;
+	font-weight: 100;
+	color: var(--secondary-gray);
+	transition: opacity ease-out 0.4s;
+}
+
+div#mainHeader p {
+	display: none;
+	position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+	margin: 0 0 20px 20px;
+	font-family: 'Open Sans';
+	font-size: 1em;
+	font-weight: 300;
+	color: var(--main-blue);
+	transition: opacity ease-out 0.4s;
+	opacity: 0;
+}
+
+nav#controls {
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+	position: fixed;
+	bottom: 0;
+	background-color: #ffffff;
+	z-index: 2;
+}
+
+nav#controls ul#iconList {
+	display: table;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	margin: 0;
+	background-color: transparent;
+	padding: 0;
+	list-style-type: none;
+}
+
+nav#controls ul#iconList li {
+	display: inline-block;
+	margin: 10px 10px 7px;
+}
+
+nav#controls ul#iconList li svg {
+	width: 40px;
+	height: 40px;
+	transition: all ease-out 0.5s;
+}
+
+nav#controls ul#iconList li svg:hover {
+	background-color: var(--primary-gray);
+	border-color: #ffffff;
+}
+
+nav#controls ul#iconList li svg:hover .inner {
+	stroke: #ffffff !important;
+}
+
+nav#controls ul#iconList li svg * {
+	transition: stroke ease-out 0.45s;
+	stroke: var(--primary-gray);
+}
+
+nav#controls ul#iconList li:first-child svg { border-top: 2px solid var(--primary-gray); }
+nav#controls ul#iconList li:nth-child(2n) svg { border-bottom: 2px solid var(--primary-gray); } 
+
+nav#controls ul#iconList li:nth-child(3n) {
+	width: 47px;
+	height: 47px;
+	margin-bottom: 0px;
+}
+
+nav#controls ul#iconList li:nth-child(3n) svg { 
+	width: 28px;
+	height: 28px;
+	position: relative;
+	stroke: #ffffff;
+	border-radius: 50px;
+	/*border: 2px solid var(--main-blue);*/
+	/*background-color: var(--main-blue); */
+	padding: 7px;
+	transition: all ease-out 0.5s;
+}
+
+/*nav#controls ul#iconList li:nth-child(3n) svg:before {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: antiquewhite;
+	content: "";
+}*/
+
+
+nav#overlay {
+	display: none;
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	background-color: #ffffff;
+	transition: opacity ease-out 0.5s;
+	opacity: 0;
+	z-index: 3;
+}
+
+nav#overlay.active {
+	opacity: 1;
+}
+
+nav#overlay.nonActive {
+	opacity: 0;
+}
+
+nav#overlay ul {
+	list-style-type: none;
+	margin-right: 20px;
+	position: absolute;
+	right: 0px;
+}
+
+nav#overlay ul#menuList {
+
+}
+
+nav#overlay ul#menuList li {
+	display: block;
+	margin: 30px 0;
+	text-align: right;
+}
+
+nav#overlay ul#menuList li:first-child { margin: 20px -10px 0 0; }
+nav#overlay ul#menuList li:nth-child(2n) { margin-top: 10px; }
+
+nav#overlay ul#menuList li a {
+	position: relative;
+	text-decoration: none;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.5em;
+	font-weight: 300;
+	color: var(--primary-gray);
+	padding-bottom: 5px;
+	padding-left: 50px;
+	transition: color ease-out 0.5s;
+}
+
+nav#overlay ul#menuList li a:hover {
+	color: var(--main-blue);
+}
+
+nav#overlay ul#menuList li a:before {
+	height: 1px;
+	position: absolute;
+	left: 100%;
+	right: 0;
+	bottom: 0;
+	background-color: var(--main-blue);
+	transition: left ease-out 0.3s;
+	content: "";
+}
+
+nav#overlay ul#menuList li a.active:before {
+	left: 0;
+}
+
+nav#overlay ul#menuList li svg {
+	position: relative;
+	fill: var(--primary-gray);
+	transition: all ease-out 0.5s;
+}
+
+nav#overlay ul#menuList li svg:hover {
+	fill: var(--main-blue);
+}
+
+nav#overlay ul#scmList {
+	display: table;
+	bottom: 100px;
+	border: 2px solid var(--secondary-gray);
+	border-radius: 2px;
+	padding: 0;
+}
+
+nav#overlay ul#scmList li {
+	display: inline-block;
+	margin: 0 10px;
+	padding: 10px 0px;
+}
+
+nav#overlay ul#scmList li:first-child {padding-left: 30px}
+nav#overlay ul#scmList li:last-child {padding-right: 30px;}
+
+nav#overlay ul#scmList li a {
+	text-decoration: none;
+	font-family: 'Proxima Nova';
+	font-size: 1.25em;
+	color: var(--secondary-gray);
+	border-bottom: 4px solid transparent;
+	padding: 10px 10px 7px;
+	transition: all ease-out 0.5s;
+}
+
+nav#overlay ul#scmList li a:hover {
+	color: var(--main-blue);
+	border-color: var(--main-blue);
+}
+
+
+
+
+
+
+
+
+
+section.main {
+	display: none;
+	width: 100%;
+	height: 100vh;
+	position: relative;
+	transition: opacity ease-out 0.4s;
+	z-index: 1;
+	opacity: 0;
+}
+
+section.main h1 {
+	display: inline-block;
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	font-family: 'Montserrat';
+	font-size: 2em;
+	font-weight: 100;
+	color: white;
+	background-color: var(--footer-special);
+	padding: 10px 15px;
+}
+
+
+
+
+
+
+
+
+
+section#introduction {}
+
+section#introduction div#headerImage {
+	display: block;
+	width: 90%;
+	height: 30vh;
+	margin: 0 auto 20px;
+	padding-top: 70px;
+
+	background-image: url('images/alexBoyd.jpg');
+	background-size: cover;
+	background-position: center -30px;
+	background-repeat: no-repeat;
+}
+
+section#introduction article {
+	width: 90%;
+	margin: 20px auto;
+
+	font-family: 'Open Sans', sans-serif;
+	font-size: 0.95em;
+	font-weight: 300;
+	line-height: 24px;  
+	color: var(--primary-gray);
+}
+
+section#introduction article p {
+	margin-bottom: 20px;
+}
+
+@media screen and (max-width: 440px) {
+	section#introduction div#headerImage {
+		height: 20vh;
+		background-position: center 40px;
+	}
+
+	section#introduction article {
+		margin-bottom: 80px;
+	}
+}
