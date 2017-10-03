@@ -96,17 +96,18 @@ var sections = document.getElementsByClassName('main'),
 		},
 		{
 			title: 'Connections',
-			description: 'Shoot me a message and ways to connect with me, along with what I do there'
+			description: 'Shoot me a message and ways to connect with me online, along with what I do there'
 		}
 	];
 
-var initialLoad = () => {
-	sections[current].style.display = 'block';
-	sections[current].style.opacity = 1;
-	headerH1.innerText = headerInfo[current].title;
-	headerText.innerText = headerInfo[current].description;
+var initialLoad = (index) => {
+	sections[index].style.display = 'block';
+	sections[index].style.opacity = 1;
+	headerH1.innerText = headerInfo[index].title;
+	headerText.innerText = headerInfo[index].description;
+	current = index;
 }
-initialLoad();
+initialLoad(2);
 
 var changeHeaderInfo = (index) => {
 	headerH1.style.opacity = 0;
@@ -229,3 +230,144 @@ if(window.innerWidth < 768) {
 		}, 3550)
 	});
 	};
+
+
+
+
+const slides = document.getElementById('slides'),
+	  fade = document.getElementById('fade'),
+	  slideHeader = document.querySelector('.infoWrapper h1'),
+	  slideDescription = document.querySelector('.infoWrapper p'),
+	  tellerWrapper = document.getElementsByClassName('tellerWrapper')[0],
+	  currentSlide = document.getElementById('current'),
+	  prevSlide = document.querySelector('#slides #left'),
+	  nextSlide = document.querySelector('#slides #right'),
+	  aspirations = [
+	      {
+	      	bgImage: 'url(\'resources/images/tommyTaipeiTaiwan.jpg\')',
+	      	title: "Learn Taiwanese",
+	      	description: "Suspendisse a dictum lectus. Donec aliquet rhoncus fermentum. Etiam tellus sapien, elementum gravida dictum ut, imperdiet quis enim",
+	      },
+	      {
+	      	bgImage: 'url(\'resources/images/ehmirBautista_elNido.jpg\')',
+	      	title: "Canooeing in the Lagoon of El Nido",
+	      	description: "Nullam at elementum nisl, vel elementum orci. Nullam ut lacinia mi, eget condimentum velit. Maecenas posuere sagittis nunc, ut faucibus lorem. Nam tristique leo ac nisi varius blandit.",
+	      },
+	      {
+	      	bgImage: 'url(\'resources/images/mandyBeerley_kilauea.jpg\')',
+	      	title: "Experience Kilauea",
+	      	description: "Donec ac nisi auctor, blandit ex vitae, aliquam orci. Nam at metus non augue aliquam bibendum. Phasellus tincidunt ipsum sed eros vulputate, quis sodales nunc sagittis.",
+	      },
+	      {
+	      	bgImage: 'url(\'resources/images/amarYashlaha_lion.jpg \')',
+	      	title: "Walk with the Lions",
+	      	description: "Sed vitae dolor a enim dapibus maximus. Pellentesque aliquet pretium metus, ac tempor lorem.In commodo ligula in dolor egestas pulvinar eu vel arcu. Nunc ultrices turpis quis mattis vehicula. In in ornare tortor.",
+	      },
+	      {
+	      	bgImage: 'url(\'resources/images/clayBanks_japan.jpg\')',
+	      	title: "Enjoy a bowl of Ramen in Japan",
+	      	description: "Donec eget lectus nec dolor pellentesque placerat non ac odio. Nulla vitae ligula nec lacus vestibulum faucibus eu gravida massa. Fusce ornare sit amet dui et tempus.",
+	      }
+	  ]
+var _current = 0,
+	trueNumber, 
+	place;
+
+var loadInitial_slides = (num) => {
+	slides.style.backgroundImage = aspirations[num].bgImage;
+	slideHeader.innerText = aspirations[num].title;
+	slideDescription.innerText = aspirations[num].description;
+	trueNumber = num + 1,
+	place = '0' + trueNumber.toString();
+	currentSlide.innerText = place;
+}
+loadInitial_slides(0);
+
+var load_nextSlide = () => {
+	fade.style.backgroundColor = 'rgb(247, 247, 247)';
+	slideHeader.style.opacity = 0;
+	slideDescription.style.opacity = 0;
+	tellerWrapper.style.opacity = 0;
+	_current++;
+	trueNumber = _current + 1;
+	place = '0' + trueNumber.toString();
+	setTimeout(_=> {
+		slides.style.backgroundImage = aspirations[_current].bgImage;
+		slideHeader.innerText = aspirations[_current].title;
+		slideDescription.innerText = aspirations[_current].description;
+		currentSlide.innerText = place;
+	}, 420);
+	setTimeout(_=> {
+		fade.style.backgroundColor = 'rgba(255, 255, 255, 0.4)';
+		slideHeader.style.opacity = 1;
+		slideDescription.style.opacity = 1;
+		tellerWrapper.style.opacity = 1;
+	}, 500);
+}
+nextSlide.addEventListener('click', load_nextSlide);
+
+var load_prevSlide = () => {
+	fade.style.backgroundColor = 'rgb(247, 247, 247)';
+	slideHeader.style.opacity = 0;
+	slideDescription.style.opacity = 0;
+	tellerWrapper.style.opacity = 0;
+	_current--;
+	trueNumber = _current + 1;
+	place = '0' + trueNumber.toString();
+	setTimeout(_=> {
+		slides.style.backgroundImage = aspirations[_current].bgImage;
+		slideHeader.innerText = aspirations[_current].title;
+		slideDescription.innerText = aspirations[_current].description;
+		currentSlide.innerText = place;
+	}, 420);
+	setTimeout(_=> {
+		fade.style.backgroundColor = 'rgba(255, 255, 255, 0.4)';
+		slideHeader.style.opacity = 1;
+		slideDescription.style.opacity = 1;
+		tellerWrapper.style.opacity = 1;
+	}, 500);
+}
+prevSlide.addEventListener('click', load_prevSlide);
+
+
+
+
+var mainWrapper = document.getElementsByClassName('mainWrapper')[0],
+	story = document.getElementsByClassName('story')[0],
+	storyNumber = document.querySelector('.aboutStory h1 span'),
+	storyHeader = document.querySelector('.aboutStory h1'),
+	storyAbout = document.querySelector('.aboutStory p'),
+	exitStory = document.querySelector('.aboutStory #exit'),
+	anExp = document.querySelectorAll('.anExp'),
+	exploreStory_buttons = document.querySelectorAll('.anExp button'),
+	stories = [
+		{
+			number: '01',
+			title: 'Long Walks On the Beach',
+			about: 'Sed quis vehicula ex. Nulla porta nisi eu posuere suscipit. Suspendisse potenti. Maecenas condimentum hendrerit lobortis. Cras quis lorem sapien. Aenean lacus lectus, facilisis et sapien at, lacinia semper dolor.'
+		}
+	]
+
+function hover(elements, onenter, onleave) {
+	elements.forEach(el => {
+		el.addEventListener('mouseenter', onenter);
+		el.addEventListener('mouseleave', onleave);
+	});
+}
+
+hover(exploreStory_buttons, function () {
+	this.classList.add('active');
+}, function () {
+	this.classList.remove('active');
+});
+
+anExp.forEach((current, index) => {
+	current.addEventListener('mouseover', _=> {
+		exploreStory_buttons[index].style.opacity = 1;
+	})
+	current.addEventListener('mouseout', _=> {
+		exploreStory_buttons[index].style.opacity = 0;
+	})
+});
+
+

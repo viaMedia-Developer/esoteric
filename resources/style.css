@@ -20,6 +20,11 @@
 	--footer-special: #525666;
 }
 
+button:focus {
+	outline: none;
+}
+
+
 body {
 	width: 100%;
 	margin: 0;
@@ -31,6 +36,8 @@ header#landing { display: none; }
 
 section#wrapper {
 	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
 	position: relative;
 }
 
@@ -88,6 +95,8 @@ nav#controls {
 	width: 100%;
 	margin: 0 auto;
 	position: fixed;
+	left: 50%;
+	transform: translateX(-50%);
 	bottom: 0;
 	background-color: #ffffff;
 	z-index: 2;
@@ -150,13 +159,8 @@ nav#controls ul#iconList li:nth-child(3n) svg {
 	transition: all ease-out 0.5s;
 }
 
-/*nav#controls ul#iconList li:nth-child(3n) svg:before {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background-color: antiquewhite;
-	content: "";
-}*/
+
+
 
 
 nav#overlay {
@@ -167,7 +171,7 @@ nav#overlay {
 	background-color: #ffffff;
 	transition: opacity ease-out 0.5s;
 	opacity: 0;
-	z-index: 3;
+	z-index: 4;
 }
 
 nav#overlay.active {
@@ -185,9 +189,7 @@ nav#overlay ul {
 	right: 0px;
 }
 
-nav#overlay ul#menuList {
-
-}
+nav#overlay ul#menuList {}
 
 nav#overlay ul#menuList li {
 	display: block;
@@ -282,14 +284,14 @@ nav#overlay ul#scmList li a:hover {
 section.main {
 	display: none;
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
 	position: relative;
 	transition: opacity ease-out 0.4s;
 	z-index: 1;
 	opacity: 0;
 }
 
-section.main h1 {
+/*section.main h1 {
 	display: inline-block;
 	margin: 0;
 	position: absolute;
@@ -303,7 +305,7 @@ section.main h1 {
 	color: white;
 	background-color: var(--footer-special);
 	padding: 10px 15px;
-}
+}*/
 
 
 
@@ -353,3 +355,307 @@ section#introduction article p {
 		margin-bottom: 80px;
 	}
 }
+
+@media screen and (min-width: 1100px) {
+	section#introduction div#headerImage {
+		height: 40vh;
+	}
+}
+
+
+
+
+
+
+
+
+
+section#aspirations {}
+
+section#aspirations article {
+	width: 100%;
+	margin-left: -20px;
+	margin-bottom: 60px;
+	font-family: 'Open Sans', sans-serif;
+	text-align: right;
+	font-weight: 300 !important;
+	line-height: 24px;  
+	color: var(--primary-gray);
+	padding-top: 110px;
+}
+
+section#aspirations article h1 {
+	margin: 20px 0;
+	font-size: 1.9em;
+	font-weight: 300;
+}
+section#aspirations article p {
+	margin-left: auto;
+	width: 80%;
+	font-size: 0.95em;
+}
+
+
+
+
+section#aspirations div#slides {
+	width: 100%;
+	height: 50vh;
+	margin-bottom: 70px;
+	position: relative;
+
+	background-image: url('images/tommyTaipeiTaiwan.jpg');
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+section#aspirations div#slides * { transition: all ease-out 0.4s; }
+
+div#slides div#fade {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.4);
+}
+
+div#slides div.infoWrapper {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+
+    text-align: center;
+    font-weight: 300;
+    color: var(--primary-gray);
+}
+
+
+div#slides div.infoWrapper h1 {
+	width: 95%;
+	margin: 20px auto 10px;
+	font-family: 'Montserrat';
+	font-weight: 300;
+	font-size: 1.9em;
+}
+div#slides div.infoWrapper p {
+	width: 98%;
+	margin: 10px auto 30px;
+	font-family: 'Open Sans';
+	font-size: 0.9em;
+}
+
+div#slides div.infoWrapper div.tellerWrapper {
+	margin-bottom: 10px
+}
+div#slides div.infoWrapper div.tellerWrapper p {
+	margin: 0;
+}
+div#slides div.infoWrapper div.tellerWrapper p#current{
+	margin-left: -15px;
+}
+div#slides div.infoWrapper div.tellerWrapper p#total{
+	margin-left: 15px;
+}
+div#slides div.infoWrapper div.tellerWrapper div.divider{
+	width: 40px;
+    border: 0.5px solid var(--primary-gray);
+    position: relative;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-60%) rotate(-45deg);
+}
+
+div#slides div.infoWrapper svg {
+	width: 40px;
+    height: 40px;
+	margin-bottom: 10px;
+	position: absolute;
+	bottom: 0;
+}
+
+div#slides div.infoWrapper svg:hover {
+	background-color: var(--primary-gray);
+	border-color: #ffffff;
+}
+
+div#slides div.infoWrapper svg:hover * {
+	stroke: #ffffff !important;
+}
+
+div#slides div.infoWrapper svg#left {
+	left: 0;
+	margin-left: 10px;
+	border-left: 1px solid var(--primary-gray);
+}
+div#slides div.infoWrapper svg#right {
+	right: 0;
+	margin-right: 10px;
+	border-right: 1px solid var(--primary-gray);
+}
+
+
+div#slides div.infoWrapper svg * {
+	transition: stroke ease-out 0.45s;
+	stroke: var(--primary-gray);
+}
+
+
+
+
+
+
+
+
+
+section#experiences {}
+
+section#experiences div.mainWrapper {
+	width: 85%;
+	float: left;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/*While Designing div.story*/
+section#experiences div.mainWrapper {
+	height: 345px;
+}
+
+section#experiences div.mainWrapper div.anExp {
+	display: inline-block;
+	display: none; /*temporary, so that I can design div.story*/
+	width: 50%;
+	margin-bottom: 5px;
+	position: relative;
+	float: left;
+	text-align: center;
+	font-family: 'Open Sans';
+	padding: 30px 0 50px;
+	transition: box-shadow ease-out 0.4s;
+	cursor: initial;
+}
+
+section#experiences div.mainWrapper div.anExp:hover {
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+section#experiences div.mainWrapper div.anExp h3 {
+	display: inline-block;
+	margin: 10px auto 5px;
+	font-size: 1.25em;
+	font-weight: 300;
+	color: var(--main-blue);
+	border-bottom: 1px solid var(--main-blue);
+	padding-bottom: 2px;
+}
+
+section#experiences div.mainWrapper div.anExp h1 {
+	margin: 5px auto 10px;
+	font-size: 1.25em;
+	color: var(--primary-gray);
+	font-weight: 300;
+}
+
+section#experiences div.mainWrapper div.anExp button {
+	position: absolute;
+    top: 125px;
+    transform: translateX(-50%);	
+	
+	font-family: 'Open Sans';
+	font-weight: 300;
+	font-size: 0.9em;
+    color: var(--main-blue);
+    border: none;
+	background-color: white;
+	padding-bottom: 5px;
+	transition: all ease-out 0.3s;
+	opacity: 0;
+}
+
+section#experiences div.mainWrapper div.anExp button:focus {
+	color: white;
+	background-color: var(--main-blue);
+}
+
+section#experiences div.mainWrapper div.anExp button:before {
+	height: 1px;
+	position: absolute;
+	left: 100%;
+	right: 0;
+	bottom: 0;
+	background-color: var(--main-blue);
+	transition: left ease-out 0.3s;
+	content: "";
+}
+
+section#experiences div.mainWrapper div.anExp button.active:before {
+	left: 0;
+}
+
+
+section#experiences div.mainWrapper div.story {
+	width: 100%;
+	height: 100%;
+	/*margin-top: -20px;*/
+	position: relative;
+	background-image: url('images/paulJarvis.jpg');
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	
+}
+
+section#experiences div.mainWrapper div.story div.fade {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.4);
+	z-index: 2;
+}
+
+section#experiences div.mainWrapper div.story div.aboutStory {
+	width: 90%;
+	margin: 0;
+	margin-bottom: 20px;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	font-family: 'Open Sans';
+	background-color: rgba(255, 255, 255, 0.8);
+	z-index: 3;
+}
+
+
+section#experiences div.mainWrapper div.story div.aboutStory h1 {
+	margin: 20px 0 5px 10px;
+	font-size: 1.75em;
+	font-weight: 300;
+	color: #000000;
+	padding: 3px 0;
+}
+
+section#experiences div.mainWrapper div.story div.aboutStory h1 span {
+	color: var(--main-blue);
+	border-right: 2px solid var(--main-blue);
+	padding-right: 10px;
+}
+
+section#experiences div.mainWrapper div.story div.aboutStory p {
+	width: 75%;
+	margin: 0 0 20px 70px;
+	font-size: 1em;
+	font-weight: 300;
+	line-height: 24px;
+	color: var(--primary-gray);
+}
+
+section#experiences div.mainWrapper div.story div.aboutStory svg {
+	margin: 10px 10px 0 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+

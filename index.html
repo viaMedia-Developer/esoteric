@@ -28,17 +28,7 @@
 </header>
 
 
-
-
-<section id="wrapper">
-	<div id="mainHeader">
-		<!--- Header Text to be changed dynamically with js -->
-		<h1></h1> <!-- placeholder text -->
-		<p></p>
-	</div>
-	<div id="mainHeader_overlay"></div>
-
-	<nav id="overlay">
+<nav id="overlay">
 		<ul id="menuList">
 			<li>
 				<svg id="closeNav" xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" viewBox="0 0 64 64">
@@ -60,6 +50,17 @@
 			<li><a href="#">Db</a></li>
 		</ul>
 	</nav>
+
+
+<section id="wrapper">
+	<div id="mainHeader">
+		<!--- Header Text to be changed dynamically with js -->
+		<h1></h1> <!-- placeholder text -->
+		<p></p>
+	</div>
+	<div id="mainHeader_overlay"></div>
+
+	
 
 	<nav id="controls">
 		<ul id="iconList">
@@ -99,11 +100,84 @@
 		</section>
 
 		<section class="main" id="aspirations">
-			<h1>This is the Aspirations Section</h1>
+			<article>
+				<h1>Dreams that Guide Me</h1>
+				<p>
+					Suspendisse a dictum lectus. Donec aliquet rhoncus fermentum. Etiam tellus sapien, elementum gravida dictum ut, imperdiet quis enim. Integer vel ultricies mauris, ac dapibus ipsum. Sed pulvinar ipsum tristique est eleifend, vestibulum elementum lorem auctor. Vestibulum dignissim lacus at neque posuere, nec vulputate purus posuere.
+				</p>	
+			</article>
+
+			<div id="slides">
+				<div id="fade"></div>
+
+				<div class="infoWrapper">
+					<h1>Learn Taiwanese</h1>
+					<p>Suspendisse a dictum lectus. Donec aliquet rhoncus fermentum. Etiam tellus sapien, elementum gravida dictum ut, imperdiet quis enim</p>
+
+					<div class="tellerWrapper">
+						<p id="current">01</p>
+						<p id="total">05</p>
+						<div class="divider"></div>
+					</div>
+					
+					<!-- Arrow Left -->
+					<svg id="left" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+ 						<path d="M29 20H5l8-7" fill="none" stroke="#000"/>
+					</svg>
+
+
+					<!-- Arrow Right -->
+					<svg id="right" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  						<path d="M4 13h24l-8 7" fill="none" stroke="#000"/>
+					</svg>
+
+				</div>
+			</div>
+			
 		</section>
 
-		<section class="main" id="experience">
-			<h1>This is the Experience Section</h1>
+		<section class="main" id="experiences">
+			
+			<div class="mainWrapper">
+				<div class="story">
+					<div class="fade"></div>
+					<div class="aboutStory">
+						<h1><span>01</span>&nbsp; Long Walks on the Beach</h1>
+						<p>
+							Sed quis vehicula ex. Nulla porta nisi eu posuere suscipit. Suspendisse potenti. Maecenas condimentum hendrerit lobortis. Cras quis lorem sapien. Aenean lacus lectus, facilisis et sapien at, lacinia semper dolor.
+						</p>
+						<svg id="exit" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  							<path d="M44.237 16.351L31.99 28.69 19.651 16.443l-1.408 1.42 12.339 12.246-12.247 12.34 1.42 1.409 12.247-12.339 12.339 12.247 1.408-1.42L33.41 30.1l12.247-12.34"/>
+						</svg>
+					</div>
+				</div>
+
+				<div class="anExp">
+					<h3>01</h3>
+					<h1>Long Walks On The Beach</h1>
+					<button>Explore</button>
+				</div>
+
+				<div class="anExp">
+					<h3>02</h3>
+					<h1>Openness in the Netherlands</h1>
+					<button>Explore</button>
+				</div>
+
+				<div class="anExp">
+					<h3>03</h3>
+					<h1>Rejuvenation in the Alps</h1>
+					<button>Explore</button>
+				</div>
+
+				<div class="anExp">
+					<h3>04</h4>
+					<h1>Hustle Across Multiple Cities</h1>
+					<button>Explore</button>
+				</div>
+				
+			</div>
+
 		</section>
 
 		<section class="main" id="recollections">

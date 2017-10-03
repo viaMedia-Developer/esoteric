@@ -1,5 +1,23 @@
 ###### Commit Entry
 {
+	Date: 10.3.17
+	Commit: 2nd Commit
+	Project Version: v0 Uncompleted
+}
+
++ So far, Introduction and Aspiration Sections have been built. 
+	- As of now, layouts for those sections have not been given queries for mobile
++ Currently working on Experiences section
+	- Addition of elements and their styling has been completed 
++ (toDo) Build and implement functionality for loading stories upon their selection
+
+###### Dev Notes
++ Limit section's .mainWrapper max width
++ Decide whether I wish to keep mainHeader's click and timeout as opposed to hover at desktop widths
+
+
+###### Commit Entry
+{
 	Date: 9.30.17
 	Commit: Initial Commit
 	Project Version: v0 Uncompleted
