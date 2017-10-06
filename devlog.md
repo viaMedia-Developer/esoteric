@@ -1,5 +1,16 @@
 ###### Commit Entry
 {
+	Date: 10.6.17
+	Commit: 3rd Commit
+	Project Version: v0 Uncompleted
+}
+
++ Since last commit, development for Introduction, Aspirations, Experiences and Recollection sections has been completed (minus implementing queries and design for mobile)
++ Nothing in Dev Notes has been done yet: saving for later, after main development is completed
+
+
+###### Commit Entry
+{
 	Date: 10.3.17
 	Commit: 2nd Commit
 	Project Version: v0 Uncompleted

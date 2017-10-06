@@ -35,11 +35,11 @@
   					<path d="M44.237 16.351L31.99 28.69 19.651 16.443l-1.408 1.42 12.339 12.246-12.247 12.34 1.42 1.409 12.247-12.339 12.339 12.247 1.408-1.42L33.41 30.1l12.247-12.34"/>
 				</svg>
 			</li>
-			<li><a href="#">Introduction</a></li>
-			<li><a href="#">Aspirations</a></li>
-			<li><a href="#">Experience</a></li>
-			<li><a href="#">Recollections</a></li>
-			<li><a href="#">Connections</a></li>
+			<li><a href="#" class="moveLeft">Introduction</a></li>
+			<li><a href="#" class="moveLeft">Aspirations</a></li>
+			<li><a href="#" class="moveLeft">Experience</a></li>
+			<li><a href="#" class="moveLeft">Recollections</a></li>
+			<li><a href="#" class="moveLeft">Connections</a></li>
 		</ul>
 
 		<ul id="scmList">
@@ -142,9 +142,11 @@
 				<div class="story">
 					<div class="fade"></div>
 					<div class="aboutStory">
-						<h1><span>01</span>&nbsp; Long Walks on the Beach</h1>
+						<h1><span id="number"></span>
+							<span id="title"></span> 
+						</h1>
 						<p>
-							Sed quis vehicula ex. Nulla porta nisi eu posuere suscipit. Suspendisse potenti. Maecenas condimentum hendrerit lobortis. Cras quis lorem sapien. Aenean lacus lectus, facilisis et sapien at, lacinia semper dolor.
+							
 						</p>
 						<svg id="exit" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
   							<path d="M44.237 16.351L31.99 28.69 19.651 16.443l-1.408 1.42 12.339 12.246-12.247 12.34 1.42 1.409 12.247-12.339 12.339 12.247 1.408-1.42L33.41 30.1l12.247-12.34"/>
@@ -181,7 +183,124 @@
 		</section>
 
 		<section class="main" id="recollections">
-			<h1>This is the Recollections Section</h1>
+			
+			<article>
+				<nav id="menu">
+					<ul>
+						<li><a href="#">Fb</a></li>
+						<li><a href="#">Tw</a></li>
+						<li><a href="#">Gp</a></li>
+						<li><a href="#">Ln</a></li>
+						<li><a href="#">Em</a></li>
+						<li><a href="#" id="closeMenu">Close</a></li>
+					</ul>
+				</nav>
+
+				<div class="controlWrapper">
+					<ul id="controls">
+						<li id="close">
+							<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 32 32">
+  								<g fill="none" stroke="#000">
+   									<path class="inner" d="M32 0L0 32" stroke-width="1.75"/>
+    								<path class="inner" d="M32.407 31.972L-.008.028" stroke-width="1.75"/>
+  								</g>
+							</svg>
+						</li>
+						<li id="toggleMenu">
+							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+	  							<circle class="inner" cx="16.0092" cy="16.0422" r="15.0434" fill="#fff" stroke="#000" stroke-width="1.7132"/>
+							</svg>
+						</li>
+					</ul>
+				</div>
+				
+				<div id="mainArticle_wrapper">
+					<h1>The Paradigm of Technology in the Country</h1>
+					<h3>March 25, 2018</h3>
+
+					<p>
+						Cras molestie non ligula viverra venenatis. Donec in accumsan nunc, id sollicitudin dui. Curabitur eget neque molestie, blandit urna id, sollicitudin odio. Pellentesque sit amet dolor pretium, laoreet risus id, vulputate risus. Vivamus eu arcu nulla. Pellentesque sagittis porttitor quam nec maximus. Duis imperdiet diam vitae convallis suscipit. Duis vel feugiat libero, at interdum nisl. Curabitur tristique, lacus at malesuada lobortis, risus dolor tincidunt ante, sit amet scelerisque ipsum turpis quis lorem. 
+						<br><br>
+						Donec mi ex, efficitur sed tellus nec, semper finibus ipsum. Nulla vel est dolor. Fusce et efficitur ipsum. Quisque bibendum, tortor vitae luctus imperdiet, neque mi lobortis mi, vel egestas magna nibh eget felis. Praesent elementum vestibulum lectus, sed scelerisque enim scelerisque nec. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed ornare nunc lorem, vitae efficitur nulla finibus sit amet.
+						<br><br>
+						Quisque dui justo, lobortis iaculis velit at, malesuada aliquam odio. Suspendisse ullamcorper felis non imperdiet faucibus. Proin mollis quam sit amet pulvinar scelerisque. Duis nec viverra nibh, quis dignissim risus. Mauris nibh lacus, bibendum et mauris in, malesuada vehicula eros. Morbi blandit eros in diam dapibus, a ullamcorper nulla auctor. Mauris auctor convallis dignissim. Donec ullamcorper augue erat, ac cursus enim tristique vel. Sed nec feugiat dolor. Nam ligula felis, pellentesque fermentum porta vel, ultricies imperdiet orci. Vivamus dapibus mauris sed ipsum molestie feugiat. Fusce sem leo, fringilla vel erat in, fermentum semper lorem. Etiam molestie metus vitae purus auctor, vitae ultricies turpis iaculis.
+						<br><br>
+						In pulvinar urna et est volutpat gravida eget id leo. Nulla viverra condimentum urna ac bibendum. Curabitur eget sagittis risus, malesuada ultrices purus. Mauris sit amet est efficitur, venenatis purus ac, ultrices augue. Quisque feugiat, ex tempus aliquet mattis, massa mi condimentum dui, sed commodo lorem turpis sed nisl. Quisque non lacus rutrum, placerat mi non, pulvinar magna. Fusce vulputate felis magna, quis tempus velit rhoncus a. In et placerat leo. Curabitur et massa leo. In ultricies eros ut tincidunt porta. Mauris tincidunt nec risus quis elementum. Nulla libero nunc, faucibus eu convallis non, molestie vitae sapien. Curabitur luctus efficitur vestibulum. Nam quis lacus turpis. Aenean tincidunt a quam nec aliquam. Praesent ut sapien tincidunt, congue eros vel, dictum tellus.
+					</p>
+				</div>
+				
+			</article>
+
+
+			<ul id="upNdown">	
+				<li>
+					<svg id="arrowUp" xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" viewBox="0 0 32 32">
+  						<g fill="none" stroke="#000">
+    						<path d="M50 4v23l7-8"/>
+    						<path d="M16 28.38v-23l-7 8.625" stroke-width=".979"/>
+  						</g>
+					</svg>
+				</li>
+
+				<li>
+					<svg id="arrowDown" xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" viewBox="0 0 32 32">
+  						<path d="M16 4v23l7-8" fill="none" stroke="#000"/>
+					</svg>
+				</li>
+			</ul>
+			<div id="entryWrapper">
+				<ul id="entries">
+					<li class="entry">
+						<h1>The Paradigm of Technology in the Country Side</h1>
+						<h3>March 25, 2018</h3>
+						<button class="peruseEntry moveLeft">Peruse Entry</button>
+					</li>
+
+					<li class="entry">
+						<h1>Discovering the Asian Cuisine of Austrailia</h1>
+						<h3>March 1st, 2018</h3>
+						<button class="peruseEntry moveLeft">Peruse Entry</button>
+					</li>
+
+					<li class="entry">
+						<h1>Reflecting Forward + Trip Preperation</h1>
+						<h3>February 20th, 2018</h3>
+						<button class="peruseEntry moveLeft">Peruse Entry</button>
+					</li>
+
+					<li class="entry">
+						<h1>My Unique Experience Visiting San Francisco</h1>
+						<h3>January 12th, 2018</h3>
+						<button class="peruseEntry moveLeft">Peruse Entry</button>
+					</li>
+
+					<li class="entry">
+						<h1>New Year, New Ways to Experience it</h1>
+						<h3>December 27th, 2017</h3>
+						<button class="peruseEntry moveLeft">Peruse Entry</button>
+					</li>
+
+					<li class="entry">
+						<h1>Lorem Ipsum Something Goes Here</h1>
+						<h3>Month Day, Year</h3>
+						<button class="peruseEntry moveLeft">Peruse Entry</button>
+					</li>
+
+					<li class="entry">
+						<h1>Lorem Ipsum Something Goes Here</h1>
+						<h3>Month Day, Year</h3>
+						<button class="peruseEntry moveLeft">Peruse Entry</button>
+					</li>
+
+					<li class="entry">
+						<h1>Lorem Ipsum Something Goes Here</h1>
+						<h3>Month Day, Year</h3>
+						<button class="peruseEntry moveLeft">Peruse Entry</button>
+					</li>
+				</ul>
+
+			</div>
+			
 		</section>
 
 		<section class="main" id="connections">

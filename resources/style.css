@@ -13,6 +13,7 @@
 /*How to use: color: var(--main-blue) */
 :root {
 	--main-blue: #ADD9F4;
+	--cancel-orange: #ff8000;
 	--primary-gray: #95989A;
 	--secondary-gray: #C8C8C8;
 	--tertiary-gray: #F1F1F1;
@@ -200,23 +201,19 @@ nav#overlay ul#menuList li {
 nav#overlay ul#menuList li:first-child { margin: 20px -10px 0 0; }
 nav#overlay ul#menuList li:nth-child(2n) { margin-top: 10px; }
 
-nav#overlay ul#menuList li a {
+.moveLeft {
 	position: relative;
-	text-decoration: none;
 	font-family: 'Open Sans', sans-serif;
-	font-size: 1.5em;
 	font-weight: 300;
-	color: var(--primary-gray);
 	padding-bottom: 5px;
-	padding-left: 50px;
 	transition: color ease-out 0.5s;
 }
 
-nav#overlay ul#menuList li a:hover {
+.moveLeft:hover {
 	color: var(--main-blue);
 }
 
-nav#overlay ul#menuList li a:before {
+.moveLeft:before {
 	height: 1px;
 	position: absolute;
 	left: 100%;
@@ -227,8 +224,20 @@ nav#overlay ul#menuList li a:before {
 	content: "";
 }
 
-nav#overlay ul#menuList li a.active:before {
+.moveLeft.active:before {
 	left: 0;
+}
+
+nav#overlay ul#menuList li a {
+	position: relative;
+	text-decoration: none;
+	font-size: 1.5em;
+	color: var(--primary-gray);
+	padding-left: 50px;
+}
+
+nav#overlay ul#menuList li a:hover {
+	color: var(--main-blue);
 }
 
 nav#overlay ul#menuList li svg {
@@ -238,7 +247,7 @@ nav#overlay ul#menuList li svg {
 }
 
 nav#overlay ul#menuList li svg:hover {
-	fill: var(--main-blue);
+	fill: var(--cancel-orange);
 }
 
 nav#overlay ul#scmList {
@@ -526,7 +535,7 @@ section#experiences div.mainWrapper {
 
 section#experiences div.mainWrapper div.anExp {
 	display: inline-block;
-	display: none; /*temporary, so that I can design div.story*/
+	/*display: none; temporary, so that I can design div.story*/
 	width: 50%;
 	margin-bottom: 5px;
 	position: relative;
@@ -534,7 +543,7 @@ section#experiences div.mainWrapper div.anExp {
 	text-align: center;
 	font-family: 'Open Sans';
 	padding: 30px 0 50px;
-	transition: box-shadow ease-out 0.4s;
+	transition: box-shadow ease-out 0.7s, opacity ease-out 1s;
 	cursor: initial;
 }
 
@@ -597,15 +606,15 @@ section#experiences div.mainWrapper div.anExp button.active:before {
 
 
 section#experiences div.mainWrapper div.story {
+	display: none;
 	width: 100%;
 	height: 100%;
-	/*margin-top: -20px;*/
 	position: relative;
-	background-image: url('images/paulJarvis.jpg');
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
-	
+	transition: opacity ease-out 1s;
+	opacity: 0;
 }
 
 section#experiences div.mainWrapper div.story div.fade {
@@ -637,10 +646,14 @@ section#experiences div.mainWrapper div.story div.aboutStory h1 {
 	padding: 3px 0;
 }
 
-section#experiences div.mainWrapper div.story div.aboutStory h1 span {
+section#experiences div.mainWrapper div.story div.aboutStory h1 #number {
 	color: var(--main-blue);
 	border-right: 2px solid var(--main-blue);
 	padding-right: 10px;
+}
+
+section#experiences div.mainWrapper div.story div.aboutStory h1 #title {
+	padding-left: 10px;
 }
 
 section#experiences div.mainWrapper div.story div.aboutStory p {
@@ -657,5 +670,279 @@ section#experiences div.mainWrapper div.story div.aboutStory svg {
 	position: absolute;
 	top: 0;
 	right: 0;
+	transition: fill ease-out 0.3s;
 }
 
+section#experiences div.mainWrapper div.story div.aboutStory svg:hover {
+	fill: var(--cancel-orange);
+}
+
+
+
+
+section#recollections {}
+
+section#recollections ul#upNdown {
+	width: 30px;
+	height: 60vh;
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	padding: 0;
+    transform: translateY(-50%);
+    list-style-type: none;
+    opacity: 1;
+    transition: opacity ease-out 0.5s;
+}
+
+section#recollections ul#upNdown li {
+	display: block;
+	margin: 0 auto;
+	position: absolute;
+}
+
+section#recollections ul#upNdown li:first-child {
+	top: 0;
+	left: -14px;
+}
+
+section#recollections ul#upNdown li:nth-child(2) {
+	bottom: 0;
+	left: -20px;
+}
+
+section#recollections ul#upNdown li svg {
+	transform: scale(0.8);
+}
+
+section#recollections ul#upNdown li svg * {
+	transition: stroke ease-out 0.3s;
+	stroke: var(--main-blue);
+}
+
+section#recollections ul#upNdown svg#arrowUp * {
+	stroke: #ffffff;
+}
+
+/*section#recollections ul#upNdown svg#arrowDown {
+}*/
+
+section#recollections div#entryWrapper {
+	width: 80%;
+    height: 60vh;
+    margin: 0 0 0 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 1px solid var(--main-blue);
+    padding: 0;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity ease-out 0.5s;
+}
+
+
+section#recollections ul#entries {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	overflow-y: auto;
+}
+
+section#recollections ul#entries li {
+	display: block;
+	margin: 30px 0px 30px 15px;
+	font-family: 'Montserrat';
+	color: var(--primary-gray);
+}
+
+section#recollections ul#entries li h1 {
+	margin: 0 0 5px;
+	font-size: 1.25em;
+	font-weight: 300;
+}
+
+section#recollections ul#entries li h3 {
+	margin: 5px 0 0;
+	font-size: 0.88em;
+	font-weight: 300;
+}
+
+section#recollections ul#entries li button {
+	margin: 20px 0 0 -5px;
+	font-size: 0.9em;
+    color: var(--main-blue);
+    border: none;
+	background-color: white;
+	padding: 5px;
+	transition: all ease-out 0.3s;
+}
+
+section#recollections ul#entries li button:focus {
+	color: #ffffff;
+	background-color: var(--main-blue);
+}
+
+
+
+
+section#recollections article {
+	display: none;
+	width: 80%;
+	height: 60vh;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+	overflow: hidden;
+	opacity: 0;
+	transition: opacity ease-out 0.5s;
+}
+
+section#recollections article nav#menu {
+	display: table;
+	width: 100%;
+	height: 60px;
+	position: relative;
+	top: 0;
+	right: 100%;
+	background-color: white;
+	border-bottom: 1px solid var(--tertiary-gray);
+	transition: all ease-out 0.5s;
+	z-index: 4;
+}
+
+section#recollections article nav#menu.active {
+	right: 0;
+}
+
+section#recollections article nav#menu ul {
+	display: table;
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 0;
+	list-style-type: none;
+}
+
+section#recollections article nav#menu ul li {
+	display: inline-block;
+	margin: 0 10px;
+}
+
+section#recollections article nav#menu ul li a {
+	text-decoration: none;
+	font-family: 'Proxima Nova';
+	font-size: 1em;
+	color: var(--secondary-gray);
+	border-bottom: 2px solid transparent;
+	padding: 5px;
+	transition: all ease-out 0.5s;
+}
+
+section#recollections article nav#menu ul li a:hover {
+	color: var(--main-blue);
+	border-bottom-color: var(--main-blue);
+}
+
+section#recollections article nav#menu ul li a#closeMenu {
+	font-family: 'Open Sans';
+	font-weight: 300;
+	border: none;
+	padding: none;
+}
+
+section#recollections article nav#menu ul li a#closeMenu:hover {
+	color: var(--cancel-orange);
+}
+
+section#recollections article div.controlWrapper {
+	width: 90%;
+	height: 60px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	border-bottom: 1px solid var(--tertiary-gray);
+	z-index: 2;
+}
+
+section#recollections article ul#controls {
+	/*width: 100%;*/
+	/*height: 60px;*/
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 0;
+	list-style-type: none;
+}
+
+section#recollections article ul#controls li {
+	display: inline-block;
+	margin: 5px 20px 0;
+} 
+
+section#recollections article ul#controls li svg {}
+
+section#recollections article ul#controls li svg * {
+	transition: stroke ease-out 0.5s;
+	stroke: var(--primary-gray);
+}  
+
+section#recollections article ul#controls li#close svg:hover .inner {
+	stroke: var(--cancel-orange);
+}
+
+section#recollections article ul#controls li#toggleMenu svg:hover .inner{
+	stroke: var(--main-blue);
+}
+
+
+
+
+section#recollections article h1,
+section#recollections article h3 {
+	margin: 0;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	color: var(--primary-gray);
+}
+
+section#recollections div#mainArticle_wrapper {
+	width: 100%;
+	height: calc(100% - 60px);
+	/*margin-top: 60px;*/
+	overflow-y: auto;
+	/*opacity: 0;*/
+}
+
+section#recollections article h1 {
+	margin-top: 20px;
+	margin-bottom: 5px;
+	font-size: 1.25em;
+	font-weight: 300;
+}
+
+section#recollections article h3 {
+	margin-top: 5px;
+	font-size: 1em;
+	font-weight: 300;
+}
+
+section#recollections article p {
+	width: 95%;
+	margin: 20px auto;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 0.85em;
+	line-height: 24px;
+	color: var(--primary-gray);
+}

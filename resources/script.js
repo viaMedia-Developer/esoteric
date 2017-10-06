@@ -1,17 +1,18 @@
 var overlay = document.getElementById('overlay'),
 	openNav = document.getElementById('openNav'),
 	closeNav = document.getElementById('closeNav'),
-	navlinks = document.querySelectorAll('#menuList li a');
+	navlinks = document.querySelectorAll('#menuList li a'),
+	moveLeft = document.querySelectorAll('.moveLeft');
 
 
 /*
 	JS for a links hover animation in main navigation menu overlay
 */
-navlinks.forEach(el => el.addEventListener('mouseover', function() {
+moveLeft.forEach(el => el.addEventListener('mouseover', function() {
 	(this.classList.contains('active') === true) ? this.classList.remove('active') & this.classList.add('active') : this.classList.add('active');
 	// console.log('hovering over element');
 }));
-navlinks.forEach(el => el.addEventListener('mouseout', function() {
+moveLeft.forEach(el => el.addEventListener('mouseout', function() {
 	this.classList.remove('active');
 	// console.log('hovering ceased');
 }));
@@ -107,7 +108,7 @@ var initialLoad = (index) => {
 	headerText.innerText = headerInfo[index].description;
 	current = index;
 }
-initialLoad(2);
+initialLoad(3);
 
 var changeHeaderInfo = (index) => {
 	headerH1.style.opacity = 0;
@@ -233,7 +234,11 @@ if(window.innerWidth < 768) {
 
 
 
+/*______________________________________________________________________
 
+	Aspirations Area 
+________________________________________________________________________
+*/
 const slides = document.getElementById('slides'),
 	  fade = document.getElementById('fade'),
 	  slideHeader = document.querySelector('.infoWrapper h1'),
@@ -331,20 +336,43 @@ prevSlide.addEventListener('click', load_prevSlide);
 
 
 
+/*______________________________________________________________________
 
+	Experiences Area 
+________________________________________________________________________
+*/
 var mainWrapper = document.getElementsByClassName('mainWrapper')[0],
 	story = document.getElementsByClassName('story')[0],
-	storyNumber = document.querySelector('.aboutStory h1 span'),
-	storyHeader = document.querySelector('.aboutStory h1'),
+	storyNumber = document.querySelector('.aboutStory h1 #number'),
+	storyHeader = document.querySelector('.aboutStory h1 #title'),
 	storyAbout = document.querySelector('.aboutStory p'),
 	exitStory = document.querySelector('.aboutStory #exit'),
 	anExp = document.querySelectorAll('.anExp'),
 	exploreStory_buttons = document.querySelectorAll('.anExp button'),
 	stories = [
-		{
+		{	
+			bgImage: 'resources/images/paulJarvis.jpg',
 			number: '01',
 			title: 'Long Walks On the Beach',
 			about: 'Sed quis vehicula ex. Nulla porta nisi eu posuere suscipit. Suspendisse potenti. Maecenas condimentum hendrerit lobortis. Cras quis lorem sapien. Aenean lacus lectus, facilisis et sapien at, lacinia semper dolor.'
+		},
+		{
+			bgImage: 'resources/images/piotrChrobot_netherlands.jpg',
+			number: '02',
+			title: 'Openness in the Netherlands',
+			about: 'Nullam at elementum nisl, vel elementum orci. Nullam ut lacinia mi, eget condimentum velit. Maecenas posuere sagittis nunc, ut faucibus lorem. Nam tristique leo ac nisi varius blandit. Donec ac nisi auctor, blandit ex vitae, aliquam orci. Nam at metus non augue aliquam bibendum.'
+		},
+		{
+			bgImage: 'resources/images/romanSchurte_alps.jpg',
+			number: '03',
+			title: 'Rejuventation in the Alps',
+			about: 'Phasellus tincidunt ipsum sed eros vulputate, quis sodales nunc sagittis. Sed vitae dolor a enim dapibus maximus. Pellentesque aliquet pretium metus, ac tempor lorem. In commodo ligula in dolor egestas pulvinar eu vel arcu. Nunc ultrices turpis quis mattis vehicula. In in ornare tortor.'
+		},
+		{
+			bgImage: 'resources/images/rezaulKarim_sanFran.jpg',
+			number: '04',
+			title: 'Hustling Quickly in a New City',
+			about: 'Cras ultrices mattis nibh nec sodales. Nam eget mauris eu risus vehicula rutrum vitae id arcu. Donec eget lectus nec dolor pellentesque placerat non ac odio. Nulla vitae ligula nec lacus vestibulum faucibus eu gravida massa.'
 		}
 	]
 
@@ -371,3 +399,152 @@ anExp.forEach((current, index) => {
 });
 
 
+exploreStory_buttons.forEach((el, index) => {
+	el.addEventListener('click', _=> {
+		anExp.forEach((el) => { el.style.opacity = 0; });
+		setTimeout(_=> {
+			anExp.forEach((el) => { el.style.display = 'none'; });
+		}, 1020);
+		setTimeout(_=> {
+			story.style.backgroundImage = 'url(' +stories[index].bgImage+')';
+			storyNumber.innerText = stories[index].number;
+			storyHeader.innerText = stories[index].title;
+			storyAbout.innerText = stories[index].about;
+		}, 1050);
+		setTimeout(_=> {
+			story.style.display = 'block';
+		}, 1100);
+		setTimeout(_=> {
+			story.style.opacity = 1;
+		}, 1120);
+	})
+});
+
+exitStory.addEventListener('click', _=> {
+	story.style.opacity = 0;
+	setTimeout(_=> {
+		story.style.display = 'none';
+		story.style.backgroundImage = '';
+		storyNumber.innerText = '';
+		storyHeader.innerText = '';
+		storyAbout.innerText = '';
+	}, 1020);
+	setTimeout(_=> {
+		anExp.forEach((el) => {
+			el.style.display = 'block';
+		})
+	}, 1050);
+	setTimeout(_=> {
+		anExp.forEach((el) => {
+			el.style.opacity = 1;
+		})
+	}, 1100);
+});
+
+
+
+
+/*______________________________________________________________________
+
+	Recollections Area 
+________________________________________________________________________
+*/
+var upNdown = document.getElementById('upNdown'),
+	arrowUp = document.querySelectorAll('#upNdown #arrowUp path')[1],
+	arrowDown = document.querySelector('#upNdown #arrowDown path'),
+	entries = document.getElementById('entries'),
+	entryWrapper = document.getElementById('entryWrapper'),
+	entryHeader = document.querySelectorAll('.entry h1'),
+	entryDate = document.querySelectorAll('.entry h3'),
+	articleBody = document.querySelector('#recollections article'),
+	articleWrapper = document.getElementById('mainArticle_wrapper'),
+	articleTitle = document.querySelector('#recollections article h1'),
+	articleDate = document.querySelector('#recollections article h3'),
+	launchEntry = document.querySelectorAll('#recollections .entry .peruseEntry'),
+	closeArticle = document.querySelector('#controls #close svg'),
+	toggleMenu = document.querySelector('#controls #toggleMenu svg'),
+	articleMenu = document.querySelector('#recollections article #menu'),
+	closeMenu = document.querySelector('#menu #closeMenu');
+
+entries.style.paddingRight = entries.offsetWidth - entries.clientWidth + "px";
+
+entries.addEventListener('scroll', function(){
+	var scrollAmount = this.scrollTop,
+		max = (this.scrollHeight - this.clientHeight) - 150;	
+
+	// console.log(this.scrollHeight);
+	// console.log(scrollAmount);
+	if (scrollAmount <= 150) {
+		arrowUp.style.stroke = 'rgba(255, 255, 255, 1)';
+	}
+	if (scrollAmount > 100) {
+		arrowUp.style.stroke = '#ADD9F4';
+	}
+	if (scrollAmount >= max) {
+		arrowDown.style.stroke = 'rgba(255, 255, 255, 1)';
+	}
+	if (scrollAmount > 0 && scrollAmount < max){
+		arrowUp.style.stroke = '#ADD9F4';
+		arrowDown.style.stroke = '#ADD9F4';
+	}
+});
+
+
+
+/* 
+	Takes entry title and date from list items, entries,
+	injects them into main article's h1 and h3 
+	and opens main article body
+*/
+launchEntry.forEach((current, index) => {
+	current.addEventListener('click', _=> {
+		articleTitle.innerText = entryHeader[index].innerText;
+		articleDate.innerText = entryDate[index].innerText;
+		setTimeout(_=> {
+			upNdown.style.opacity = 0;
+			entryWrapper.style.opacity = 0;
+		}, 400)
+		setTimeout(_=> {
+			upNdown.style.display = 'none';
+			entryWrapper.style.display = 'none';
+		}, 950)
+		setTimeout(_=> {
+			articleBody.style.display = 'block';
+			articleWrapper.style.paddingRight = articleWrapper.offsetWidth - articleWrapper.clientWidth + "px";
+		}, 1050)
+		setTimeout(_=> {
+			articleBody.style.opacity = 1;
+		}, 1150)
+	});
+});
+
+/*
+	Closes article body,
+	redisplays entries
+*/
+closeArticle.addEventListener('click', _=> {
+	articleBody.style.opacity = 0;
+	setTimeout(_=> {
+		articleBody.style.display = 'none';
+	}, 550)
+	setTimeout(_=> {
+		upNdown.style.display = 'block';
+		entryWrapper.style.display = 'block';
+	}, 600)
+	setTimeout(_=> {
+		upNdown.style.opacity = 1;
+		entryWrapper.style.opacity = 1;
+	}, 650)
+});
+
+/*
+	Button to toggle menu open,
+	Button to close menu
+*/
+toggleMenu.addEventListener('click', _=> {
+	articleMenu.classList.add('active');
+});
+
+closeMenu.addEventListener('click', _=> {
+	articleMenu.classList.remove('active');
+});	
