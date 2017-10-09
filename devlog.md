@@ -1,3 +1,13 @@
+###### Commit Entry 
+{
+	Date: 10.9.17
+	Commit: 4th Commit
+	Project Version: v0 Uncompleted 
+}
+
++ Decided to go with the mainHeader's click to switch for both mobile and desktop
++ All main sections Desktop site designs and functionality completed
+
 ###### Commit Entry
 {
 	Date: 10.6.17

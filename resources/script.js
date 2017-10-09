@@ -2,7 +2,8 @@ var overlay = document.getElementById('overlay'),
 	openNav = document.getElementById('openNav'),
 	closeNav = document.getElementById('closeNav'),
 	navlinks = document.querySelectorAll('#menuList li a'),
-	moveLeft = document.querySelectorAll('.moveLeft');
+	moveLeft = document.querySelectorAll('.moveLeft'),
+	scmLinks = document.querySelectorAll('#scmList li a');
 
 
 /*
@@ -16,6 +17,17 @@ moveLeft.forEach(el => el.addEventListener('mouseout', function() {
 	this.classList.remove('active');
 	// console.log('hovering ceased');
 }));
+
+scmLinks.forEach((el) => {
+	el.addEventListener('click', _=> {
+		el.style.backgroundColor = 'var(--main-blue)';
+		el.style.color = '#ffffff';
+		setTimeout(_=> {
+			el.style.backgroundColor = 'transparent';
+			el.style.color = 'var(--secondary-gray)';
+		}, 510);
+	})
+});
 
 //functionality for navlinks to peruse sections
 navlinks.forEach((el, index) => {
@@ -108,7 +120,7 @@ var initialLoad = (index) => {
 	headerText.innerText = headerInfo[index].description;
 	current = index;
 }
-initialLoad(3);
+initialLoad(4);
 
 var changeHeaderInfo = (index) => {
 	headerH1.style.opacity = 0;
@@ -174,36 +186,7 @@ prevSection.addEventListener('click', loadPrev);
 
 
 //Functionality for transitioning between header title and summary
-if(window.innerWidth >= 768) {
-	header.addEventListener('mouseover', _ => {
-		headerH1.style.opacity = 0;
-		setTimeout(_=> {
-			headerH1.style.display = 'none';
-		}, 450)
-		setTimeout(_=> {
-			headerText.style.display = 'block';
-		}, 500)
-		setTimeout(_=> {
-			headerText.style.opacity = 1;
-		}, 550)
-	});
-
-	header.addEventListener('mouseout', _ => {
-		headerText.style.opacity = 0;
-		setTimeout(_=> {
-			headerText.style.display = 'none';
-		}, 450)
-		setTimeout(_=> {
-			headerH1.style.display = 'block';
-		}, 500)
-		setTimeout(_=> {
-			headerH1.style.opacity = 1;
-		}, 550)
-	});
-}
-//For devices with below certain widths: which would be mobile devices: tapping header switches to description: t
-//this bit of code sets it to fade back automatically as there is no mouse hover on mobile. 
-if(window.innerWidth < 768) {
+//on click
 	header.addEventListener('click', _ => {
 		headerH1.style.opacity = 0;
 		setTimeout(_=> {
@@ -230,8 +213,6 @@ if(window.innerWidth < 768) {
 			headerH1.style.opacity = 1;
 		}, 3550)
 	});
-	};
-
 
 
 /*______________________________________________________________________
@@ -452,7 +433,7 @@ ________________________________________________________________________
 var upNdown = document.getElementById('upNdown'),
 	arrowUp = document.querySelectorAll('#upNdown #arrowUp path')[1],
 	arrowDown = document.querySelector('#upNdown #arrowDown path'),
-	entries = document.getElementById('entries'),
+	entries = document.querySelector('#recollections #entries'),
 	entryWrapper = document.getElementById('entryWrapper'),
 	entryHeader = document.querySelectorAll('.entry h1'),
 	entryDate = document.querySelectorAll('.entry h3'),
@@ -466,7 +447,14 @@ var upNdown = document.getElementById('upNdown'),
 	articleMenu = document.querySelector('#recollections article #menu'),
 	closeMenu = document.querySelector('#menu #closeMenu');
 
-entries.style.paddingRight = entries.offsetWidth - entries.clientWidth + "px";
+// Doesn't work due to fact that this code runs upon pageLoad. On page load, entries has no properties as it's not displaying, thus result of the math = 0.
+// var hidePadding = () => {
+// 	console.log(entries.style.paddingRight);
+// 	entries.style.paddingRight = entries.offsetWidth - entries.clientWidth + "px";
+// 	console.log(entries.style.paddingRight);
+// };
+// hidePadding();
+
 
 entries.addEventListener('scroll', function(){
 	var scrollAmount = this.scrollTop,
@@ -548,3 +536,107 @@ toggleMenu.addEventListener('click', _=> {
 closeMenu.addEventListener('click', _=> {
 	articleMenu.classList.remove('active');
 });	
+
+
+
+
+/*______________________________________________________________________
+
+	Connections Area 
+________________________________________________________________________
+*/
+
+var inputs = document.querySelectorAll('#connections form .input'),
+	message = document.querySelector('#connections form .message'),
+	socialLinks = document.querySelectorAll('#connections #socialMedia a'),
+	whatIdoThere = document.querySelector('#connections #socialMedia p'),
+	captions = [
+		"Where I Connect with Friends and Family",
+		"Where I Rant about Cats and Retweet Old Memes",
+		"Where I Share Photos of Relevant and Current things In my Life",
+		"Where I Go to Catch Up on the News (and Procrastinate)",
+		"Where I Keep in Contact with My Career Peers and Associates",
+		"Where I Share My Work: Both Recreational and Professional"
+	];
+
+// Setting the first input to display
+inputs[0].style.display = "block";
+inputs[0].style.opacity = 1;
+
+inputs.forEach((current, index) => {
+	
+	current.addEventListener('keydown', function(event) {
+		if(event.which === 13) {
+			console.log(index === 3);
+			if(index == 3) {
+				inputs[3].addEventListener('keydown', function(event) {
+					if(event.which === 13) {
+						inputs[3].style.opacity = 0;
+						setTimeout(_=> {
+							inputs[3].style.display = 'none';
+						}, 520)
+						setTimeout(_=> {
+							message.style.display = 'block';
+						}, 530)
+						setTimeout(_=> {
+							message.style.opacity = 1;
+						}, 550)
+					}
+				})
+			}
+			else {
+				current.style.opacity = 0;
+				setTimeout(_=> {
+					current.style.display = 'none';
+				}, 520);
+				setTimeout(_=> {
+					inputs[index + 1].style.display = 'block';
+				}, 530);
+				setTimeout(_=> {
+					inputs[index + 1].style.opacity = '1';
+				}, 550);
+			}
+		}
+	})
+})
+
+
+
+socialLinks.forEach((current, index, array) => {
+
+	current.addEventListener('mouseover', _=> {
+		current.classList.add('active');
+
+		//gets siblings of current, all other elements in array other than current
+		var siblings = [];
+		for(let i = 0; i < array.length; i++) {
+			siblings.push(socialLinks[i]);
+			if (i == index) {
+				var thePos = i;
+				siblings.splice(thePos, 1);
+			}
+		}
+		
+		siblings.forEach((el) => { el.classList.remove('active'); })
+
+		whatIdoThere.innerText = captions[index];
+		setTimeout(_=> {
+			whatIdoThere.style.opacity = 1;
+		}, 50)
+		// setTimeout(_=> {
+		// 	whatIdoThere.style.opacity = 0;
+		// }, 3050)
+		// setTimeout(_=> {
+		// 	whatIdoThere.innerText = "";
+		// }, 3560)
+	})
+	current.addEventListener('click', _=> {
+		current.style.backgroundColor = 'var(--main-blue)';
+		current.style.color = '#ffffff';
+		setTimeout(_=> {
+			current.style.backgroundColor = 'transparent';
+			current.style.color = 'var(--secondary-gray)';
+			current.style.borderBottomColor = "rgba(0, 0, 0, 0)";
+		}, 550)
+	});
+})
