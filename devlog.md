@@ -1,5 +1,39 @@
 ###### Commit Entry 
 {
+	Date: 10.17.17
+	Commit: 5th Commit
+	Project Version: v0 Uncompleted
+}
+
++ JS code organized
++ Fixed issue with headerInfo being changed on section change
++ After page section is selected from landing section, the chosen section is remembered upon page reload. 
+
+
+###### Dev Notes @ 10.15.17
++ Need to hurry up and organize JS code: things are in abit of dissarray causing the file to be difficult to peruse.
++ Finished up with the Landing Section
+	- Navigation links on the section work as intended
+	- After selecting a link, choice is remembered upon page reload and landing section DOESN'T load.
++ Need to fix issue with header info being changed for the first time 
++ When hovering over social media links in navigation menu, show full name of sc site underneath box
++ After link is selected from Landing Section: make sure section currently being viewed is the one that appears upon page reload. 
+	- Works for the most part. There's currently an issue with how 'current' variable is being set
+
+###### Dev Notes @ 10.11.17 
++ Finished implementing landing section
++ set up :before element for #logoSide so that onpageload animation can be 
+done with it
++ Need to work on way to ensure that once an option is selected from the landing page for which section to go to, that upon page reload, that section is one that appears: instead of the landing section reappearing.
+	- May most likely require use of cookie
+
+
+###### Dev Notes @ 10.10.17 
++ Move all variables, consts and arrays to top of JS file during organization
+
+
+###### Commit Entry 
+{
 	Date: 10.9.17
 	Commit: 4th Commit
 	Project Version: v0 Uncompleted 
