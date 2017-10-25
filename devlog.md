@@ -1,5 +1,28 @@
 ###### Commit Entry 
 {
+	Date 10.24.17
+	Commit: 6th Commit
+	Project Verion: v0 Uncompleted
+}
+
++ Never made the original commit on the 20th :/
++ This project is past officially taking too long for me to complete
++ Completed adding all the media queries for all sections
++ Made some revisions to the JS, smoother transitions and animations now
+
+
+###### Commit Entry 
+{
+	Date 10.20.17
+	Commit: 6th Commit
+	Project Version: v0 Uncompleted
+}
+
++ Got around having to add 'noScroll' once overlay nav is open by simply having the main section's wrapper display: none while the navigation menu is open.
+	- This quick fix was made a hell of a lot easier due to having organized the JS file and setting up those quick, often used functions.
+
+###### Commit Entry 
+{
 	Date: 10.17.17
 	Commit: 5th Commit
 	Project Version: v0 Uncompleted

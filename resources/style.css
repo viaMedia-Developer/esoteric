@@ -8,6 +8,7 @@
 	font-family: 'Proxima Nova';
 }
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300');
 
 /*Declaring Colors*/
 /*How to use: color: var(--main-blue) */
@@ -352,7 +353,7 @@ nav#controls ul#iconList {
 
 nav#controls ul#iconList li {
 	display: inline-block;
-	margin: 10px 10px 7px;
+	margin: 15px 10px 15px;
 }
 
 nav#controls ul#iconList li svg {
@@ -518,6 +519,44 @@ nav#overlay ul#scmList li a:hover {
 	border-color: var(--main-blue);
 }
 
+nav#overlay div#toggleAbout {
+	display: table;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	margin: 0 0 20px 20px;
+
+	font-family: 'Open Sans';
+	font-size: 2em;
+	color: var(--secondary-gray);
+
+	border: 3.5px solid var(--secondary-gray);
+	border-radius: 100%;
+	padding: 5px 22px;
+
+	transition: all ease-out 0.5s;
+}
+
+nav#overlay div#toggleAbout:hover {
+	color: var(--main-blue);
+	border-color: var(--main-blue);
+}
+
+
+
+
+@media screen and (max-width: 440px) {
+	nav#overlay ul#scmList {
+		margin-right: -20px;
+		transform: scale(0.8);
+		bottom: 80px;
+	}
+
+	nav#overlay div#toggleAbout {
+		margin: 0 0 10px 10px;
+		transform: scale(0.7);
+	}
+}
 
 
 
@@ -525,6 +564,10 @@ nav#overlay ul#scmList li a:hover {
 
 
 
+
+section#wrapper {
+	transition: all ease-out 0.5s;
+}
 
 
 section.main {
@@ -567,7 +610,7 @@ section#introduction div#headerImage {
 	display: block;
 	width: 90%;
 	height: 30vh;
-	margin: 0 auto 20px;
+	margin: 70px auto 40px;
 	padding-top: 70px;
 
 	background-image: url('images/alexBoyd.jpg');
@@ -608,7 +651,12 @@ section#introduction article p {
 	}
 }
 
-
+@media screen and (min-width: 1024px) {
+	section#introduction div#headerImage {
+		height: 30vh;
+		background-position: center -110px;
+	}
+}
 
 
 
@@ -649,7 +697,7 @@ section#aspirations article p {
 section#aspirations div#slides {
 	width: 100%;
 	height: 50vh;
-	margin-bottom: 70px;
+	margin-bottom: 90px;
 	position: relative;
 
 	background-image: url('images/tommyTaipeiTaiwan.jpg');
@@ -751,6 +799,26 @@ div#slides div.infoWrapper svg * {
 
 
 
+@media screen and (max-width: 440px) {
+	section#aspirations article h1 {
+		font-size: 1.5em;
+	}
+
+	section#aspirations article p {
+		font-size: 0.85em;
+    	line-height: 22px;
+	}
+
+	/*section#aspirations div#slides {}*/
+
+	div#slides div.infoWrapper {
+		width: 90%;
+	}
+}
+
+
+
+
 
 
 
@@ -767,10 +835,14 @@ section#experiences div.mainWrapper {
 	transform: translate(-50%, -50%);
 }
 
-/*While Designing div.story*/
-section#experiences div.mainWrapper {
+section#experiences div.mainWrapper.storyActive_desktop {
 	height: 345px;
 }
+
+/*While Designing div.story*/
+/*section#experiences div.mainWrapper {
+	height: 345px;
+}*/
 
 section#experiences div.mainWrapper div.anExp {
 	display: inline-block;
@@ -918,6 +990,69 @@ section#experiences div.mainWrapper div.story div.aboutStory svg:hover {
 
 
 
+@media screen and (max-width: 440px) {
+	section#experiences div.mainWrapper {
+		width: 100%;
+		margin: 90px auto;
+		top: 0;
+		transform: translateX(-50%);
+	}
+
+	section#experiences div.mainWrapper.storyActive {
+		margin-top: -10px;
+		margin-bottom: 0;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}	
+
+	section#experiences div.mainWrapper div.story div.aboutStory {
+		display: table;
+		margin-bottom: 0;
+		top: 50%;
+    	transform: translate(-50%, -50%);
+	}
+
+	section#experiences div.mainWrapper div.story div.aboutStory svg {
+		margin: 20px 0;
+    	left: 50%;
+    	transform: translateX(-50%);
+	}
+
+	section#experiences div.mainWrapper div.story div.aboutStory h1 {
+		max-width: 300px;
+		margin-top: 100px;
+		font-size: 1.5em;
+	}
+
+	section#experiences div.mainWrapper div.story div.aboutStory h1 #number {
+		display: table;
+    	float: left;
+    	height: 64px;
+    	margin-right: 10px;
+	}
+
+	section#experiences div.mainWrapper div.story div.aboutStory h1 #title {
+		padding-left: 0px;
+	}
+
+	section#experiences div.mainWrapper div.story div.aboutStory p {
+		margin-left: 60px;
+	}
+
+	section#experiences div.mainWrapper div.anExp {
+		display: table;
+		width: 80%;
+    	margin: 5px auto;
+    	float: none;
+	}
+}
+
+
+
+
+
+
+
 
 section#recollections {}
 
@@ -987,7 +1122,7 @@ section#recollections ul#entries {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	padding-right: 16px;
+	padding-right: 17px;
 	list-style-type: none;
 	overflow-y: auto;
 }
@@ -1160,6 +1295,7 @@ section#recollections div#mainArticle_wrapper {
 	width: 100%;
 	height: calc(100% - 60px);
 	/*margin-top: 60px;*/
+	padding-right: 17px;
 	overflow-y: auto;
 	/*opacity: 0;*/
 }
@@ -1185,6 +1321,28 @@ section#recollections article p {
 	font-size: 0.85em;
 	line-height: 24px;
 	color: var(--primary-gray);
+}
+
+
+
+
+@media screen and (max-width: 440px) {
+	section#recollections article {
+		width: 90%;
+    	height: 70vh;
+	}
+
+	section#recollections div#mainArticle_wrapper {
+		/*margin-left: 10px;*/
+	}
+
+	section#recollections article ul#controls li {
+    	margin: 5px 15px 0;
+    }
+
+    section#recollections article ul#controls li svg {
+    	transform: scale(0.85);
+	}
 }
 
 
@@ -1359,4 +1517,273 @@ section#connections div#socialMedia p#whatIdoThere {
 	color: var(--main-blue);
 	transition: opacity ease-out 0.5s;
 	opacity: 0;
+}
+
+
+
+
+@media screen and (max-width: 440px) {
+	section#connections h1 {
+		width: 90%;
+		margin: 0 auto 30px;
+		text-align: center;
+		padding-top: 140px;
+	}
+
+	section#connections div#formWrapper {
+		width: 90%;
+		margin: 40px auto 60px;
+	}
+
+	section#connections div#socialMedia {
+		margin: 0 auto;
+	}
+
+	section#connections div#socialMedia ul {
+		margin: 0 auto;
+	}
+
+	section#connections div#socialMedia ul li {
+		margin: 0 7px;
+	}
+}
+
+
+
+
+
+
+
+
+
+ /*______________________________________________________________________
+
+	Footer Area / About Project
+________________________________________________________________________
+*/
+
+footer {
+	display: none;
+	width: 100%;
+	min-height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	z-index: 5;
+	transition: all ease-out 0.5s;
+}
+
+footer div#backToMenu {
+	display: table;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 20px 20px 0 0;
+
+	font-family: 'Open Sans';
+	font-weight: 300;
+	font-size: 1.5em;
+	color: var(--primary-gray);
+	transition: all ease-out 0.5s;
+}
+
+footer div#backToMenu:hover {
+	color: var(--cancel-orange);
+	cursor: default;
+}
+
+footer div#projectInfo_wrapper {
+	display: table;
+	margin: 0 0 80px 40px;
+	padding-top: 140px;
+}
+
+footer div#projectInfo_wrapper h3.subtitle {
+	margin: 0;
+	font-family: 'Montserrat';
+	font-weight: 300;
+	font-size: 1.25em;
+	color: var(--primary-gray);
+}
+
+footer div#projectInfo_wrapper h1 {
+	margin: 0;
+	margin-left: -4px;
+	font-family: 'Montserrat';
+	font-size: 3.5em;
+	color: var(--tertiary-gray);
+}
+
+footer div#projectInfo_wrapper h5.version {
+	margin: 0;
+	font-family: 'Open Sans';
+	font-weight: 300;
+	font-size: 0.8em;
+	color: var(--main-blue);
+
+}
+
+footer div#projectInfo_wrapper p.aboutProject {
+	width: 60%;
+	max-width: 800px;
+	margin-top: 20px;
+	font-family: 'Open Sans';
+	font-weight: 300;
+	font-size: 0.8em;
+	line-height: 22px;
+	color: var(--primary-gray);
+}
+
+
+
+
+footer div#legend_wrapper {
+	display: table;
+	margin: 0 auto 120px;
+	text-align: center;
+}
+
+footer div#legend_wrapper h1 {
+	margin: 0;
+	margin-left: -4px;
+	font-family: 'Montserrat';
+	font-size: 2.5em;
+	color: var(--tertiary-gray);
+}
+
+footer div#legend_wrapper ul {
+	margin: 0;
+	margin-top: 20px;
+	padding: 0;
+	list-style-type: none;
+}
+
+footer div#legend_wrapper ul li {
+	display: inline-block;
+	width: 50%;
+	margin: 10px 0 10px 0;
+	position: relative;
+	float: left;
+	font-family: 'Open Sans';
+	font-weight: 300;
+	font-size: 1.25em;
+	color: var(--primary-gray);
+}
+
+footer div#legend_wrapper ul li span {
+	position: absolute;
+	margin-left: 10px
+}
+
+footer div#legend_wrapper ul li svg {
+	/*position: absolute;	*/
+}
+
+	footer div#legend_wrapper ul li:first-child svg {}
+	footer div#legend_wrapper ul li:nth-child(2) svg {}
+	footer div#legend_wrapper ul li:nth-child(3) span { margin-left: 15px }
+	footer div#legend_wrapper ul li:last-child svg {}
+
+footer div#legend_wrapper ul li svg * {
+	stroke: var(--main-blue);
+}
+
+footer div#legend_wrapper ul li:last-child svg * {
+	fill: var(--main-blue);
+}
+
+
+
+
+footer div#plug_wrapper {
+	display: table;
+	margin: 0 auto 120px;
+	position: absolute;
+	text-align: center;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+footer div#plug_wrapper h3.subtitle {
+	margin: 0;
+	margin-bottom: 15px;
+	font-family: 'Open Sans';
+	font-weight: 300;
+	color: var(--primary-gray);
+	font-size: 1.5em;
+}
+
+footer div#plug_wrapper h1 {
+	width: 200px;
+	margin: 0 auto;
+    font-family: 'Raleway';
+    font-weight: 300;
+    letter-spacing: 14px;
+    color: black;
+    font-size: 1.5em;
+    border: 2px solid black;
+    padding: 7px 15px;
+}
+
+footer div#plug_wrapper ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	position: relative;
+}
+
+footer div#plug_wrapper ul li {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	margin: 15px 10px 0;
+	position: absolute;
+}
+
+footer div#plug_wrapper ul li:first-child { left: 80px; }
+footer div#plug_wrapper ul li:last-child { left: 130px; }
+
+footer div#plug_wrapper ul li svg * {
+	/*stroke: var(--primary-gray) !important;*/
+	fill: var(--primary-gray) !important;
+}
+
+
+
+
+@media screen and (min-width: 1024px) {
+	footer div#projectInfo_wrapper p.aboutProject {
+		font-size: 1em;
+		line-height: 24px;
+	}
+
+	footer div#legend_wrapper {
+		display: table;
+		margin: 0 0 0 40px;
+		text-align: left;
+	}
+
+	footer div#plug_wrapper {
+		right: 0;
+		left: auto;
+		margin-right: 40px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}
+
+@media screen and (max-width: 440px) {
+	footer div#projectInfo_wrapper {
+		margin-left: 20px;
+	}
+
+	footer div#projectInfo_wrapper p.aboutProject {
+		width: 80%;
+	}
+
+	footer div#legend_wrapper ul li {
+		width: 100%;
+		margin: 10px auto;
+	}
 }

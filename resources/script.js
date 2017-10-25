@@ -1,4 +1,3 @@
-// This is just a sample script. Paste your real code (javascript or HTML) here.
 /*______________________________________________________________________
 
 	All ***Constant Elements*** for Entire File / Project
@@ -15,6 +14,7 @@ var landing = document.getElementById('landing'),
     header = document.getElementById('mainHeader_overlay'),
     headerH1 = document.querySelector('#mainHeader h1'),
     headerText = document.querySelector('#mainHeader p'),
+    controls = document.getElementById('controls'),
     overlay = document.getElementById('overlay'),
     openNav = document.getElementById('openNav'),
     closeNav = document.getElementById('closeNav'),
@@ -56,7 +56,10 @@ var landing = document.getElementById('landing'),
     inputs = document.querySelectorAll('#connections form .input'),
     message = document.querySelector('#connections form .message'),
     socialLinks = document.querySelectorAll('#connections #socialMedia a'),
-    whatIdoThere = document.querySelector('#connections #socialMedia p');
+    whatIdoThere = document.querySelector('#connections #socialMedia p'),
+    footer = document.getElementsByTagName('footer')[0],
+    btm = document.getElementById('backToMenu'),
+    toggleAbout = document.getElementById('toggleAbout');
 
 /*______________________________________________________________________
 
@@ -336,7 +339,6 @@ navlinks.forEach((el, index) => {
 
         hide(sections[current]);
         display(sections[index]);
-        opaOne(sections[index]);
         var siblings = getSiblings(sections[index]);
         siblings.forEach((element) => {
             element.classList.remove('active');
@@ -344,34 +346,94 @@ navlinks.forEach((el, index) => {
         changeHeaderInfo(index);
         current = index;
         sessionStorage.setItem('currentSlide', current);
-        overlay.classList.add('notActive');
-        overlay.classList.remove('active');
+        // overlay.classList.add('nonActive');
+        // overlay.classList.remove('active');
         setTimeout(_ => {
-            overlay.style.display = 'none';
-        }, 500);
+            opaNone(overlay);
+        }, 550);
+        setTimeout(_ => {
+            hide(overlay);
+        }, 1000);
+        setTimeout(_ => {
+            display(sectionsMainWrapper);
+        }, 1100);
+        setTimeout(_ => {
+            opaOne(sectionsMainWrapper);
+            opaOne(sections[current]);
+        }, 1150);
+
+
+        // display(sectionsMainWrapper);
+        // opaOne(sectionsMainWrapper);
+        // hide(sections[current]);
+        // display(sections[index]);
+        // opaOne(sections[index]);
+
+        // var siblings = getSiblings(sections[index]);
+        // siblings.forEach((element) => {
+        //     element.classList.remove('active');
+        // });
+        // changeHeaderInfo(index);
+        // current = index;
+        // sessionStorage.setItem('currentSlide', current);
+        // overlay.classList.add('nonActive');
+        // overlay.classList.remove('active');
+        // setTimeout(_ => {
+        //     overlay.style.display = 'none';
+        // }, 500);
     });
 });
 
 
 //	Functionality for button that opens Navigation menu
 openNav.addEventListener('click', () => {
-    overlay.style.display = 'block';
+    opaNone(sectionsMainWrapper);
+    setTimeout(_=> {
+        hide(sectionsMainWrapper);
+    }, 610)
+    setTimeout(_=> {
+        display(overlay);
+    }, 650)
     setTimeout(_ => {
-        (overlay.classList.contains('notActive') === true) ? overlay.classList.remove('Notactive') & overlay.classList.add('active'): overlay.classList.add('active');
-    }, 100)
-
+        opaOne(overlay);
+        // (overlay.classList.contains('notActive') === true) ? overlay.classList.remove('Notactive') & overlay.classList.add('active'): overlay.classList.add('active');
+    }, 800);
 });
 
 //	Functionality for button that closes Navigation menu
 closeNav.addEventListener('click', () => {
-    overlay.classList.add('notActive');
-    overlay.classList.remove('active');
+    opaNone(overlay);
     setTimeout(_ => {
         hide(overlay);
-    }, 500);
+    }, 610);
+    setTimeout(_ => {
+        display(sectionsMainWrapper);
+    }, 650);
+    setTimeout(_ => {
+        opaOne(sectionsMainWrapper);
+    }, 750);
 });
 
+toggleAbout.addEventListener('click', _=> {
+    opaNone(overlay);
+    setTimeout(_=> {
+        display(footer);
+    }, 510);
+    setTimeout(_=> {
+        opaOne(footer);
+    }, 550);
+})
 
+btm.addEventListener('click', _=> {
+    opaNone(footer);
+    setTimeout(_=> {
+        hide(footer);
+    }, 510);
+    setTimeout(_=> {
+        opaOne(overlay);
+    }, 550);
+
+})
 
 
 /*______________________________________________________________________
@@ -414,7 +476,7 @@ header.addEventListener('click', _ => {
         hide(headerText);
     }, 3450)
     setTimeout(_ => {
-        hide(headerH1);
+        display(headerH1);
     }, 3500)
     setTimeout(_ => {
         opaOne(headerH1);
@@ -560,6 +622,19 @@ var load_prevSlide = () => {
 prevSlide.addEventListener('click', load_prevSlide);
 
 
+var setSlidesHeight_mobile = () => {
+    var const1 = controls.offsetHeight,
+        const2 = header.offsetHeight,
+        difference = const1 + const2,
+        height = 'calc(100vh - ' +difference+ 'px)';
+
+    slides.style.height = height;
+    slides.style.marginBottom = const1;
+} 
+
+if (window.innerWidth <= 440) {
+    setSlidesHeight_mobile();
+}
 
 
 /*______________________________________________________________________
@@ -568,6 +643,15 @@ prevSlide.addEventListener('click', load_prevSlide);
 	E X P E R I E N C E S   	S E C T I O N
 ________________________________________________________________________
 */
+
+var setStoriesHeight_mobile = () => {
+    var const1 = controls.offsetHeight,
+        const2 = header.offsetHeight,
+        difference = const1 + const2,
+        height = 'calc(100vh - ' +difference+ 'px)';
+
+    mainWrapper.style.height = height;
+} 
 
 //Setting hover function for use
 hover(exploreStory_buttons, function() {
@@ -594,6 +678,13 @@ exploreStory_buttons.forEach((el, index) => {
             anExp.forEach((el) => { el.style.display = 'none'; });
         }, 1020);
         setTimeout(_ => {
+            if (window.innerWidth < 768) {
+                setStoriesHeight_mobile();
+                mainWrapper.classList.add('storyActive');
+            };
+            if (window.innerWidth >= 768) {
+                mainWrapper.classList.add('storyActive_desktop');
+            }
             story.style.backgroundImage = 'url(' + stories[index].bgImage + ')';
             storyNumber.innerText = stories[index].number;
             storyHeader.innerText = stories[index].title;
@@ -613,6 +704,13 @@ exitStory.addEventListener('click', _ => {
     story.style.opacity = 0;
     setTimeout(_ => {
         hide(story);
+        if (window.innerWidth < 768) {
+            mainWrapper.classList.remove('storyActive');
+            mainWrapper.style.height = "auto";
+        };
+        if (window.innerWidth >= 768) {
+            mainWrapper.classList.remove('storyActive_desktop');
+        }
         story.style.backgroundImage = '';
         storyNumber.innerText = '';
         storyHeader.innerText = '';
@@ -629,6 +727,11 @@ exitStory.addEventListener('click', _ => {
         })
     }, 1100);
 });
+
+
+
+
+
 
 
 
@@ -686,7 +789,7 @@ launchEntry.forEach((current, index) => {
         }, 950)
         setTimeout(_ => {
             display(articleBody);
-            articleWrapper.style.paddingRight = articleWrapper.offsetWidth - articleWrapper.clientWidth + "px";
+            //articleWrapper.style.paddingRight = articleWrapper.offsetWidth - articleWrapper.clientWidth + "px";
         }, 1050)
         setTimeout(_ => {
             opaOne(articleBody);
@@ -748,7 +851,7 @@ inputs.forEach((current, index) => {
                     if (event.which === 13) {
                         opaNone(inputs[3]);
                         setTimeout(_ => {
-                            opaNone(inputs[3]);
+                            hide(inputs[3]);
                         }, 520)
                         setTimeout(_ => {
                             display(message);
@@ -809,3 +912,19 @@ socialLinks.forEach((current, index, array) => {
         }, 550)
     });
 });
+
+
+
+
+
+
+
+
+
+/*______________________________________________________________________
+
+    Proprietary Code for
+    F O O T E R  /  A B O U T  P R O J E C T       S E C T I O N
+________________________________________________________________________
+*/
+
