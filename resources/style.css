@@ -297,7 +297,7 @@ div#mainHeader_overlay {
 	top: 0;
 	left: 0;
 	background-color: transparent;
-	border-bottom: 1px solid var(--secondary-gray);
+	border-bottom: 1px solid var(--tertiary-gray);
 	z-index: 3;
 }
 
@@ -362,6 +362,10 @@ nav#controls ul#iconList li svg {
 	transition: all ease-out 0.5s;
 }
 
+nav#controls ul#iconList li svg.disabled {
+    border-color: rgba(149, 152, 154, 0.25) !important;
+}
+
 nav#controls ul#iconList li svg:hover {
 	background-color: var(--primary-gray);
 	border-color: #ffffff;
@@ -371,9 +375,19 @@ nav#controls ul#iconList li svg:hover .inner {
 	stroke: #ffffff !important;
 }
 
+
 nav#controls ul#iconList li svg * {
 	transition: stroke ease-out 0.45s;
+	fill: none !important;
 	stroke: var(--primary-gray);
+}
+
+nav#controls ul#iconList li svg path.disabled {
+	stroke: rgba(149, 152, 154, 0.25) !important;
+}
+
+nav#controls ul#iconList li svg g path.disabled {
+	stroke: rgba(149, 152, 154, 0.25) !important;
 }
 
 nav#controls ul#iconList li:first-child svg { border-top: 2px solid var(--primary-gray); }
@@ -641,7 +655,7 @@ section#introduction article p {
 	}
 
 	section#introduction article {
-		margin-bottom: 80px;
+		margin-bottom: 90px;
 	}
 }
 
@@ -770,6 +784,10 @@ div#slides div.infoWrapper svg {
 	bottom: 0;
 }
 
+div#slides div.infoWrapper svg.disabled {
+	border-color: rgba(149, 152, 154, 0.25) !important;
+}
+
 div#slides div.infoWrapper svg:hover {
 	background-color: var(--primary-gray);
 	border-color: #ffffff;
@@ -796,7 +814,9 @@ div#slides div.infoWrapper svg * {
 	stroke: var(--primary-gray);
 }
 
-
+div#slides div.infoWrapper svg path.disabled {
+	stroke: rgba(149, 152, 154, 0.25) !important;
+}
 
 
 @media screen and (max-width: 440px) {

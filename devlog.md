@@ -1,5 +1,17 @@
 ###### Commit Entry 
 {
+	Date 10.26.17
+	Commit: 7th Commit
+	Project Verion: v1 Initial Release
+}
++ Initial Release
+
+
+###### Dev Notes @ 10.26.17
++ For Aspirations Section + Section controls, set functionality to have buttons "disabled" once user can no longer move/load content from that direction
+
+###### Commit Entry 
+{
 	Date 10.24.17
 	Commit: 6th Commit
 	Project Verion: v0 Uncompleted

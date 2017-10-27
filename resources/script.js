@@ -520,7 +520,31 @@ var loadNext = () => {
     	Do something, should current > sections.length
     */
 };
-nextSection.addEventListener('click', loadNext);
+var noNextCheck = () => {
+    
+};
+nextSection.addEventListener('click', function() {
+    var el = this;
+    if (current == 3) {
+        loadNext();
+        setTimeout(function() {
+            console.log(el);
+            el.disabled = true;
+            el.classList.add("disabled");
+            el.children[0].classList.add("disabled");
+        }, 500)
+    }
+    if (current == 4) { this.disabled = true; }
+    else {
+        this.disabled = false;
+        this.classList.remove("disabled");
+        this.children[0].classList.remove("disabled");
+        loadNext();
+        prevSection.classList.remove('disabled');
+        prevSection.children[0].classList.remove('disabled');
+    }
+});
+
 
 // Functionality to load the next section + linking the function to the button
 var loadPrev = () => {
@@ -547,7 +571,31 @@ var loadPrev = () => {
     	Do something, should current > sections.length
     */
 };
-prevSection.addEventListener('click', loadPrev);
+var noPrevCheck = () => {
+    if (current == 0) {
+        console.log(this);
+    }
+};
+prevSection.addEventListener('click', function() {
+    var el = this;
+    if (current == 1) {
+        loadPrev();
+        setTimeout(function() {
+            el.disabled = true;
+            el.classList.add("disabled");
+            el.children[0].classList.add("disabled");
+        }, 500)
+    }
+    if (current == 0) { this.disabled = true; }
+    else {
+        this.disabled = false;
+        this.classList.remove("disabled");
+        this.children[0].classList.remove("disabled");
+        loadPrev();
+        nextSection.classList.remove('disabled');
+        nextSection.children[0].classList.remove('disabled');
+    }
+});
 
 
 
@@ -596,7 +644,27 @@ var load_nextSlide = () => {
         opaOne(tellerWrapper);
     }, 500);
 }
-nextSlide.addEventListener('click', load_nextSlide);
+nextSlide.addEventListener('click', function() {
+    var el = this;
+    if (_current == 3) {
+        load_nextSlide();
+        setTimeout(function() {
+            console.log(el);
+            el.disabled = true;
+            el.classList.add("disabled");
+            el.children[0].classList.add("disabled");
+        }, 500)
+    }
+    if (_current == 4) { this.disabled = true; }
+    else {
+        this.disabled = false;
+        this.classList.remove("disabled");
+        this.children[0].classList.remove("disabled");
+        load_nextSlide();
+        prevSlide.classList.remove('disabled');
+        prevSlide.children[0].classList.remove('disabled');
+    }
+});
 
 var load_prevSlide = () => {
     fade.style.backgroundColor = 'rgb(247, 247, 247)';
@@ -619,7 +687,27 @@ var load_prevSlide = () => {
         opaOne(tellerWrapper);
     }, 500);
 }
-prevSlide.addEventListener('click', load_prevSlide);
+prevSlide.addEventListener('click', function() {
+    var el = this;
+    if (_current == 1) {
+        load_prevSlide();
+        setTimeout(function() {
+            console.log(el);
+            el.disabled = true;
+            el.classList.add("disabled");
+            el.children[0].classList.add("disabled");
+        }, 500)
+    }
+    if (_current == 0) { this.disabled = true; }
+    else {
+        this.disabled = false;
+        this.classList.remove("disabled");
+        this.children[0].classList.remove("disabled");
+        load_prevSlide();
+        prevSlide.classList.remove('disabled');
+        prevSlide.children[0].classList.remove('disabled');
+    }
+});
 
 
 var setSlidesHeight_mobile = () => {
