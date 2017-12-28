@@ -1,9 +1,13 @@
 ###### Commit Entry 
 {
-	Date 10.26.17
-	Commit: 7th Commit
-	Project Verion: v1 Initial Release
+	Date 12.27.17
+	Commit: 8th Commit
+	Project Verion: v1.1
 }
++ Updated to Version 2.0 in progress!
+	- Landing section updated to new designs (animations not yet in place)
+
+
 + Initial Release
 
 
