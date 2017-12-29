@@ -1,5 +1,19 @@
 ###### Commit Entry 
 {
+	Date 12.29.17
+	Commit: 9th Commit
+	Project Verion: v1.15
+}
++ Added Animations to Landing Section
+	- Includes rewriting and adding new CSS and JS
+
+
+###### Dev Notes @ 12.27.17
+- Improve transitions in aspirations section
+
+
+###### Commit Entry 
+{
 	Date 12.27.17
 	Commit: 8th Commit
 	Project Verion: v1.1
@@ -8,6 +22,13 @@
 	- Landing section updated to new designs (animations not yet in place)
 
 
+
+###### Commit Entry 
+{
+	Date 10.26.17
+	Commit: 7th Commit
+	Project Verion: v1 Initial Release
+}
 + Initial Release
 
 

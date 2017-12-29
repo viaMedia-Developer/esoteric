@@ -6,8 +6,8 @@ ________________________________________________________________________
 var landing = document.getElementById('landing'),
     sectionsMainWrapper = document.getElementById('wrapper'),
     logoSide = document.querySelector('#landing .logoSide'),
-    landingLinks = document.querySelectorAll('#landing ul.nav li p'),
-    landingLinks_info = document.querySelectorAll('#landing ul.nav li p .info'),
+    landingLinks = document.querySelectorAll('#landing ul.nav li'),
+    // landingLinks_info = document.querySelectorAll('#landing ul.nav li p .info'),
     sections = document.getElementsByClassName('main'),
     nextSection = document.querySelectorAll('#iconList li svg')[1],
     prevSection = document.querySelectorAll('#iconList li svg')[0],
@@ -67,8 +67,9 @@ var landing = document.getElementById('landing'),
 ________________________________________________________________________
 */
 
-var headerInfo = [
-        {
+var 
+    headerInfo = [
+        { 
             title: 'Introduction',
             description: 'A summary detailing who I am and what I\'m about'
 		},
@@ -168,7 +169,8 @@ var current,
 ________________________________________________________________________
 */
 
-var initialLoad = (index) => {
+var 
+    initialLoad = (index) => {
         sections[index].style.display = 'block';
         sections[index].style.opacity = 1;
         headerH1.innerText = headerInfo[index].title;
@@ -187,6 +189,11 @@ var initialLoad = (index) => {
             siblings.push(sibling);
         }
         return siblings;
+    },
+    forEach = function (array, callback, scope) {
+        for(var i = 0; i < array.length; i++) {
+            callback.call(scope, i, array[i]);
+        }
     };
 
 function hover(elements, onenter, onleave) {
@@ -210,52 +217,31 @@ display(landing);
 hide(sectionsMainWrapper);
 
 
-if (window.innerWidth >= 1024) {
-
-    //For Landing Section, Hovering over Landing Links to display span text
-    landingLinks.forEach((current, index) => {
-        current.addEventListener('mouseover', _ => {
-            opaOne(landingLinks_info[index]);
-        })
-        current.addEventListener('mouseout', _ => {
-            opaNone(landingLinks_info[index]);
-        })
-    })
-
-    // Keeps Navigation Links side of the landing section adequately sized in 
-    // consideration of the width of the Logo Side
-    var logoSideWidth = 332,
-        navSide = document.querySelector('#landing .navSide'),
-        setWidth_navSide = function() {
-            var width = 'calc(100% - ' + logoSideWidth + 'px)';
-            navSide.style.width = width;
-            console.log(navSide.offsetWidth);
-        };
-    setWidth_navSide()
-
-    //is this necessary?
-    window.addEventListener('resize', _ => {
-        var logoSideWidth = document.querySelector('#landing .logoSide').offsetWidth;
-        setWidth_navSide();
-        // console.log(navSide.offsetWidth);
-    })
-} //end of if Statement
-
-
 //Responsible for Landing Section's animation sequence
 var landingAnim = () => {
     var i = 1;
-    logoSide.classList.add('loaded');
     setTimeout(_ => {
-        landingLinks.forEach((current) => {
+        forEach(landingLinks, function(index, value) {
             setTimeout(_ => {
-                opaOne(current);
+                value.classList.add('fadeIn');
             }, 400 * i);
             i++;
         })
-    }, 3550)
+    }, 1400)
 }
 window.onload = () => { landingAnim() };
+/*
+    This code is necessary to remove the fadeIn class,
+    which when is present, prevents intended animation affect
+    when a link is selected
+*/
+setTimeout(_ => {
+    forEach(landingLinks, function(index, value) {
+        console.log(value);
+        value.className = 'present';
+    })
+}, 4000) 
+
 
 
 /*
@@ -275,6 +261,16 @@ if (sessionStorage.getItem('landingLinkClick') == "true") {
     landingLinks.forEach((el, index) => {
 
         el.addEventListener('click', _ => {
+            /*
+                Here lies the code that will allow for the animation sequence
+                in which clicking on a link causes the others to fade out
+            */
+            var siblings = getSiblings(landingLinks[index]);
+            console.log(siblings);
+            siblings.forEach((element) => {
+                opaNone(element);
+            });
+
             current = index;
             el.classList.add('selected');
             sessionStorage.setItem('currentSlide', current);

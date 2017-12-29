@@ -65,16 +65,32 @@ header#landing {
 			margin-left: -4px;
 			font-size: 3.5em;
 			color: var(--tertiary-gray);
+			opacity: 0;
+
+			animation-name: fadeIn_logo;
+			animation-duration: 1s;
+			animation-timing-function: ease-in;
+			animation-fill-mode: forwards;
+			animation-delay: 0.5s;
 		}
 
 		header#landing div.logoWrapper h3 {
 			font-weight: 300;
 			font-size: 1.25em;
-			color: var(--primary-gray);
+			color: black;
+			opacity: 0;
+
+			animation-name: fadeIn_logo;
+			animation-duration: 1s;
+			animation-timing-function: ease-in;
+			animation-fill-mode: forwards;
 		}
 
 
-
+@keyframes fadeIn_logo {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
 
 
 	header#landing ul.nav {
@@ -96,6 +112,20 @@ header#landing {
 		font-size: 1.25em;
 		color: black;
 		cursor: pointer;
+		transition: all ease-out 0.5s;
+		opacity: 0;
+	}
+
+	header#landing ul.nav li.present {
+		opacity: 1;
+		transition: opacity ease-out 0.5s;
+	}
+
+	header#landing ul.nav li.fadeIn {
+		animation-name: fadeIn_links;
+		animation-duration: 0.7s;
+		animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		animation-fill-mode: forwards;
 	}
 
 		header#landing ul.nav li span {
@@ -105,10 +135,16 @@ header#landing {
 		}
 
 
+@keyframes fadeIn_links {
+	0% {opacity: 0; transform: translateY(20px);}
+	100% {opacity: 1; transform: translateY(0px);}
+}
+
+
 @media screen and (max-width: 700px) {
 	header#landing div.logoWrapper h1 {
 			margin-top: -5px;
-			font-size: 2.5em;
+			font-size: 2.25em;
 		}
 
 		header#landing div.logoWrapper h3 {
@@ -117,6 +153,12 @@ header#landing {
 
 	header#landing ul.nav li {
 		display: block;
+		margin: 20px 10px;
+		font-size: 1.5em;
+	}
+
+	header#landing ul.nav li span{
+		font-size: 0.5em;
 	}
 }
 

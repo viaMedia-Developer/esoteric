@@ -1,0 +1,32 @@
+dilapitated Scripts
+
+// if (window.innerWidth >= 1024) {
+
+//     //For Landing Section, Hovering over Landing Links to display span text
+//     landingLinks.forEach((current, index) => {
+//         current.addEventListener('mouseover', _ => {
+//             opaOne(landingLinks_info[index]);
+//         })
+//         current.addEventListener('mouseout', _ => {
+//             opaNone(landingLinks_info[index]);
+//         })
+//     })
+
+//     // Keeps Navigation Links side of the landing section adequately sized in 
+//     // consideration of the width of the Logo Side
+//     var logoSideWidth = 332,
+//         navSide = document.querySelector('#landing .navSide'),
+//         setWidth_navSide = function() {
+//             var width = 'calc(100% - ' + logoSideWidth + 'px)';
+//             navSide.style.width = width;
+//             console.log(navSide.offsetWidth);
+//         };
+//     setWidth_navSide()
+
+//     //is this necessary?
+//     window.addEventListener('resize', _ => {
+//         var logoSideWidth = document.querySelector('#landing .logoSide').offsetWidth;
+//         setWidth_navSide();
+//         // console.log(navSide.offsetWidth);
+//     })
+// } //end of if Statement
