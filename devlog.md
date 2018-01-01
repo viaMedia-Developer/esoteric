@@ -1,5 +1,16 @@
 ###### Commit Entry 
 {
+	Date 12.31.17
+	Commit: 9th Commit
+	Project Verion: v1.15
+}
++ Introduction Section updated to new designs
++ Removed Aspirations section + Removal of associated images
++ Further Removal of Old Styles and Scripts for dilapitated and removed elements 
++ Updated the design of the mainHeader
+
+###### Commit Entry 
+{
 	Date 12.29.17
 	Commit: 9th Commit
 	Project Verion: v1.15
@@ -18,8 +29,8 @@
 	Commit: 8th Commit
 	Project Verion: v1.1
 }
-+ Updated to Version 2.0 in progress!
-	- Landing section updated to new designs (animations not yet in place)
++ Update to Version 2.0 in progress!
++ Landing section updated to new designs (animations not yet in place)
 
 
 

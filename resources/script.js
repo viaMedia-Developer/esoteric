@@ -13,7 +13,7 @@ var landing = document.getElementById('landing'),
     prevSection = document.querySelectorAll('#iconList li svg')[0],
     header = document.getElementById('mainHeader_overlay'),
     headerH1 = document.querySelector('#mainHeader h1'),
-    headerText = document.querySelector('#mainHeader p'),
+    headerText = document.getElementById('headerText'),
     controls = document.getElementById('controls'),
     overlay = document.getElementById('overlay'),
     openNav = document.getElementById('openNav'),
@@ -71,7 +71,7 @@ var
     headerInfo = [
         { 
             title: 'Introduction',
-            description: 'A summary detailing who I am and what I\'m about'
+            description: 'A foreward detailing who I am and the details that form my professional life'
 		},
         {
             title: 'Aspirations',
@@ -452,32 +452,32 @@ var changeHeaderInfo = (index) => {
 }
 
 //Functionality for transitioning between header title and summary on click
-header.addEventListener('click', _ => {
-    headerH1.style.opacity = 0;
-    setTimeout(_ => {
-        hide(headerH1);
-    }, 450);
-    setTimeout(_ => {
-        display(headerText);
-    }, 500);
-    setTimeout(_ => {
-        opaOne(headerText);
-    }, 550);
+// header.addEventListener('click', _ => {
+//     headerH1.style.opacity = 0;
+//     setTimeout(_ => {
+//         hide(headerH1);
+//     }, 450);
+//     setTimeout(_ => {
+//         display(headerText);
+//     }, 500);
+//     setTimeout(_ => {
+//         opaOne(headerText);
+//     }, 550);
 
 
-    setTimeout(_ => {
-        opaNone(headerText);
-    }, 3000);
-    setTimeout(_ => {
-        hide(headerText);
-    }, 3450)
-    setTimeout(_ => {
-        display(headerH1);
-    }, 3500)
-    setTimeout(_ => {
-        opaOne(headerH1);
-    }, 3550)
-});
+//     setTimeout(_ => {
+//         opaNone(headerText);
+//     }, 3000);
+//     setTimeout(_ => {
+//         hide(headerText);
+//     }, 3450)
+//     setTimeout(_ => {
+//         display(headerH1);
+//     }, 3500)
+//     setTimeout(_ => {
+//         opaOne(headerH1);
+//     }, 3550)
+// });
 
 
 // Functionality to load the previous section + linking the function to the button
@@ -519,27 +519,27 @@ var loadNext = () => {
 var noNextCheck = () => {
     
 };
-nextSection.addEventListener('click', function() {
-    var el = this;
-    if (current == 3) {
-        loadNext();
-        setTimeout(function() {
-            console.log(el);
-            el.disabled = true;
-            el.classList.add("disabled");
-            el.children[0].classList.add("disabled");
-        }, 500)
-    }
-    if (current == 4) { this.disabled = true; }
-    else {
-        this.disabled = false;
-        this.classList.remove("disabled");
-        this.children[0].classList.remove("disabled");
-        loadNext();
-        prevSection.classList.remove('disabled');
-        prevSection.children[0].classList.remove('disabled');
-    }
-});
+// nextSection.addEventListener('click', function() {
+//     var el = this;
+//     if (current == 3) {
+//         loadNext();
+//         setTimeout(function() {
+//             console.log(el);
+//             el.disabled = true;
+//             el.classList.add("disabled");
+//             el.children[0].classList.add("disabled");
+//         }, 500)
+//     }
+//     if (current == 4) { this.disabled = true; }
+//     else {
+//         this.disabled = false;
+//         this.classList.remove("disabled");
+//         this.children[0].classList.remove("disabled");
+//         loadNext();
+//         prevSection.classList.remove('disabled');
+//         prevSection.children[0].classList.remove('disabled');
+//     }
+// });
 
 
 // Functionality to load the next section + linking the function to the button
@@ -572,26 +572,26 @@ var noPrevCheck = () => {
         console.log(this);
     }
 };
-prevSection.addEventListener('click', function() {
-    var el = this;
-    if (current == 1) {
-        loadPrev();
-        setTimeout(function() {
-            el.disabled = true;
-            el.classList.add("disabled");
-            el.children[0].classList.add("disabled");
-        }, 500)
-    }
-    if (current == 0) { this.disabled = true; }
-    else {
-        this.disabled = false;
-        this.classList.remove("disabled");
-        this.children[0].classList.remove("disabled");
-        loadPrev();
-        nextSection.classList.remove('disabled');
-        nextSection.children[0].classList.remove('disabled');
-    }
-});
+// prevSection.addEventListener('click', function() {
+//     var el = this;
+//     if (current == 1) {
+//         loadPrev();
+//         setTimeout(function() {
+//             el.disabled = true;
+//             el.classList.add("disabled");
+//             el.children[0].classList.add("disabled");
+//         }, 500)
+//     }
+//     if (current == 0) { this.disabled = true; }
+//     else {
+//         this.disabled = false;
+//         this.classList.remove("disabled");
+//         this.children[0].classList.remove("disabled");
+//         loadPrev();
+//         nextSection.classList.remove('disabled');
+//         nextSection.children[0].classList.remove('disabled');
+//     }
+// });
 
 
 
@@ -604,121 +604,121 @@ ________________________________________________________________________
 */
 
 // Function to load data for the first slide + setting the first slide
-var loadInitial_slides = (num) => {
-    slides.style.backgroundImage = aspirations[num].bgImage;
-    slideHeader.innerText = aspirations[num].title;
-    slideDescription.innerText = aspirations[num].description;
-    trueNumber = num + 1,
-        place = '0' + trueNumber.toString();
-    currentSlide.innerText = place;
-}
-loadInitial_slides(0);
+// var loadInitial_slides = (num) => {
+//     slides.style.backgroundImage = aspirations[num].bgImage;
+//     slideHeader.innerText = aspirations[num].title;
+//     slideDescription.innerText = aspirations[num].description;
+//     trueNumber = num + 1,
+//         place = '0' + trueNumber.toString();
+//     currentSlide.innerText = place;
+// }
+// loadInitial_slides(0);
 
 /*
 	Functionality to advance and reversion through slides
 	+
 	linking functionalities to their respective buttons
 */
-var load_nextSlide = () => {
-    fade.style.backgroundColor = 'rgb(247, 247, 247)';
-    slideHeader.style.opacity = 0;
-    opaNone(slideDescription);
-    opaNone(tellerWrapper);
-    _current++;
-    trueNumber = _current + 1;
-    place = '0' + trueNumber.toString();
-    setTimeout(_ => {
-        slides.style.backgroundImage = aspirations[_current].bgImage;
-        slideHeader.innerText = aspirations[_current].title;
-        slideDescription.innerText = aspirations[_current].description;
-        currentSlide.innerText = place;
-    }, 420);
-    setTimeout(_ => {
-        fade.style.backgroundColor = 'rgba(255, 255, 255, 0.4)';
-        opaOne(slideHeader);
-        opaOne(slideDescription);
-        opaOne(tellerWrapper);
-    }, 500);
-}
-nextSlide.addEventListener('click', function() {
-    var el = this;
-    if (_current == 3) {
-        load_nextSlide();
-        setTimeout(function() {
-            console.log(el);
-            el.disabled = true;
-            el.classList.add("disabled");
-            el.children[0].classList.add("disabled");
-        }, 500)
-    }
-    if (_current == 4) { this.disabled = true; }
-    else {
-        this.disabled = false;
-        this.classList.remove("disabled");
-        this.children[0].classList.remove("disabled");
-        load_nextSlide();
-        prevSlide.classList.remove('disabled');
-        prevSlide.children[0].classList.remove('disabled');
-    }
-});
+// var load_nextSlide = () => {
+//     fade.style.backgroundColor = 'rgb(247, 247, 247)';
+//     slideHeader.style.opacity = 0;
+//     opaNone(slideDescription);
+//     opaNone(tellerWrapper);
+//     _current++;
+//     trueNumber = _current + 1;
+//     place = '0' + trueNumber.toString();
+//     setTimeout(_ => {
+//         slides.style.backgroundImage = aspirations[_current].bgImage;
+//         slideHeader.innerText = aspirations[_current].title;
+//         slideDescription.innerText = aspirations[_current].description;
+//         currentSlide.innerText = place;
+//     }, 420);
+//     setTimeout(_ => {
+//         fade.style.backgroundColor = 'rgba(255, 255, 255, 0.4)';
+//         opaOne(slideHeader);
+//         opaOne(slideDescription);
+//         opaOne(tellerWrapper);
+//     }, 500);
+// }
+// nextSlide.addEventListener('click', function() {
+//     var el = this;
+//     if (_current == 3) {
+//         load_nextSlide();
+//         setTimeout(function() {
+//             console.log(el);
+//             el.disabled = true;
+//             el.classList.add("disabled");
+//             el.children[0].classList.add("disabled");
+//         }, 500)
+//     }
+//     if (_current == 4) { this.disabled = true; }
+//     else {
+//         this.disabled = false;
+//         this.classList.remove("disabled");
+//         this.children[0].classList.remove("disabled");
+//         load_nextSlide();
+//         prevSlide.classList.remove('disabled');
+//         prevSlide.children[0].classList.remove('disabled');
+//     }
+// });
 
-var load_prevSlide = () => {
-    fade.style.backgroundColor = 'rgb(247, 247, 247)';
-    opaNone(slideHeader);
-    opaNone(slideDescription);
-    opaNone(tellerWrapper);
-    _current--;
-    trueNumber = _current + 1;
-    place = '0' + trueNumber.toString();
-    setTimeout(_ => {
-        slides.style.backgroundImage = aspirations[_current].bgImage;
-        slideHeader.innerText = aspirations[_current].title;
-        slideDescription.innerText = aspirations[_current].description;
-        currentSlide.innerText = place;
-    }, 420);
-    setTimeout(_ => {
-        fade.style.backgroundColor = 'rgba(255, 255, 255, 0.4)';
-        opaOne(slideHeader);
-        opaOne(slideDescription);
-        opaOne(tellerWrapper);
-    }, 500);
-}
-prevSlide.addEventListener('click', function() {
-    var el = this;
-    if (_current == 1) {
-        load_prevSlide();
-        setTimeout(function() {
-            console.log(el);
-            el.disabled = true;
-            el.classList.add("disabled");
-            el.children[0].classList.add("disabled");
-        }, 500)
-    }
-    if (_current == 0) { this.disabled = true; }
-    else {
-        this.disabled = false;
-        this.classList.remove("disabled");
-        this.children[0].classList.remove("disabled");
-        load_prevSlide();
-        prevSlide.classList.remove('disabled');
-        prevSlide.children[0].classList.remove('disabled');
-    }
-});
+// var load_prevSlide = () => {
+//     fade.style.backgroundColor = 'rgb(247, 247, 247)';
+//     opaNone(slideHeader);
+//     opaNone(slideDescription);
+//     opaNone(tellerWrapper);
+//     _current--;
+//     trueNumber = _current + 1;
+//     place = '0' + trueNumber.toString();
+//     setTimeout(_ => {
+//         slides.style.backgroundImage = aspirations[_current].bgImage;
+//         slideHeader.innerText = aspirations[_current].title;
+//         slideDescription.innerText = aspirations[_current].description;
+//         currentSlide.innerText = place;
+//     }, 420);
+//     setTimeout(_ => {
+//         fade.style.backgroundColor = 'rgba(255, 255, 255, 0.4)';
+//         opaOne(slideHeader);
+//         opaOne(slideDescription);
+//         opaOne(tellerWrapper);
+//     }, 500);
+// }
+// prevSlide.addEventListener('click', function() {
+//     var el = this;
+//     if (_current == 1) {
+//         load_prevSlide();
+//         setTimeout(function() {
+//             console.log(el);
+//             el.disabled = true;
+//             el.classList.add("disabled");
+//             el.children[0].classList.add("disabled");
+//         }, 500)
+//     }
+//     if (_current == 0) { this.disabled = true; }
+//     else {
+//         this.disabled = false;
+//         this.classList.remove("disabled");
+//         this.children[0].classList.remove("disabled");
+//         load_prevSlide();
+//         prevSlide.classList.remove('disabled');
+//         prevSlide.children[0].classList.remove('disabled');
+//     }
+// });
 
 
-var setSlidesHeight_mobile = () => {
-    var const1 = controls.offsetHeight,
-        const2 = header.offsetHeight,
-        difference = const1 + const2,
-        height = 'calc(100vh - ' +difference+ 'px)';
+// var setSlidesHeight_mobile = () => {
+//     var const1 = controls.offsetHeight,
+//         const2 = header.offsetHeight,
+//         difference = const1 + const2,
+//         height = 'calc(100vh - ' +difference+ 'px)';
 
-    slides.style.height = height;
-    slides.style.marginBottom = const1;
-} 
+//     slides.style.height = height;
+//     slides.style.marginBottom = const1;
+// } 
 
-if (window.innerWidth <= 440) {
-    setSlidesHeight_mobile();
-}
+// if (window.innerWidth <= 440) {
+//     setSlidesHeight_mobile();
+// }
 
 
 /*______________________________________________________________________

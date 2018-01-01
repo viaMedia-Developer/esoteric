@@ -40,7 +40,7 @@
 </header>
 
 
-<nav id="overlay">
+<!-- <nav id="overlay">
 		<ul id="menuList">
 			<li>
 				<svg id="closeNav" xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" viewBox="0 0 64 64">
@@ -66,90 +66,46 @@
 			i
 		</div>
 
-	</nav>
+</nav> -->
 
 <section id="wrapper">
 	<div id="mainHeader">
+		<span id="left">eso</span>
+		<span id="right">teric</span>
 		<!--- Header Text to be changed dynamically with js -->
 		<h1></h1>
-		<p></p>
 	</div>
-	<div id="mainHeader_overlay"></div>
 
-	
+	<p id="headerText"></p>
 
-	<nav id="controls">
-		<ul id="iconList">
-			<li>
-				<svg xmlns="http://www.w3.org/2000/svg" width="72px" height="72px" viewBox="0 0 32 32">
-  					<!-- <g fill="none" stroke="#000">
-   					<path d="M50 4v23l7-8"/> -->
-    				<path class="inner" d="M16 28.38v-23l-7 8.625" stroke-width=".979"/>
- 					<!-- </g> -->
-				</svg>
-			</li>
-			<li>
-				<svg xmlns="http://www.w3.org/2000/svg" width="72px" height="72px" viewBox="0 0 32 32">
- 					<path class="inner" d="M16 4v23l7-8" fill="none" stroke="#000"/>
-				</svg>
-			</li>
-			<li>
-				<svg id="openNav" xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 32 32">
-  					<circle class="inner" cx="16.0092" cy="16.0422" r="15.0434" fill="none" stroke="#000" stroke-width="2.1050"/>
-				</svg>
-			</li>
-		</ul>
-	</nav>
+<!-- 	<nav id="controls">
+		
+	</nav> -->
 
-	<div class="wrapper"> <!-- This wrapper exists for the purpose of having all main sections have the same parent, excluding other elements -->
+	<div class="wrapper"> 
+	<!-- 
+		This wrapper exists for the purpose of having all main sections have the same parent, excluding other elements 
+	-->
 		<section class="main" id="introduction">
-			<div id="headerImage"></div>
-			<article>
-				<p>
-					Mauris quam neque, rutrum sit amet elementum sed, luctus sed nunc. Quisque sollicitudin condimentum porttitor. Vestibulum cursus tincidunt erat, ac ullamcorper ligula sagittis vitae. Aliquam et feugiat neque. Nullam eu commodo dolor. Vestibulum tempor cursus leo, cursus imperdiet massa imperdiet quis. Fusce vitae ante eget augue efficitur sagittis id vel enim. Vestibulum in felis ullamcorper, luctus erat eget, efficitur dolor. Mauris mattis nulla lacus, eget scelerisque elit maximus ut. Nullam rutrum enim feugiat, elementum magna quis, auctor elit.
-				</p>
-				<p>
-					Suspendisse a dictum lectus. Donec aliquet rhoncus fermentum. Etiam tellus sapien, elementum gravida dictum ut, imperdiet quis enim. Integer vel ultricies mauris, ac dapibus ipsum. Sed pulvinar ipsum tristique est eleifend, vestibulum elementum lorem auctor. Vestibulum dignissim lacus at neque posuere, nec vulputate purus posuere.
-				</p>
-			</article>
 
-		</section>
+			<div class="first">
+				<div id="headerImage"></div>	
 
-		<section class="main" id="aspirations">
-			<article>
-				<h1>Dreams that Guide Me</h1>
-				<p>
-					Suspendisse a dictum lectus. Donec aliquet rhoncus fermentum. Etiam tellus sapien, elementum gravida dictum ut, imperdiet quis enim. Integer vel ultricies mauris, ac dapibus ipsum. Sed pulvinar ipsum tristique est eleifend, vestibulum elementum lorem auctor. Vestibulum dignissim lacus at neque posuere, nec vulputate purus posuere.
-				</p>	
-			</article>
+				<article>
+					<h1>I Am Make Mehzindabhet</h1>
+					<h3>Designer. Branding Specialist. Teller of Tales</h3>
+					<p>
+						Mauris quam neque, rutrum sit amet elementum sed, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices ipsum fermentum porttitor pharetra. Vivamus semper arcu eget sapien iaculis pharetra. Proin ut convallis ligula. Nullam tempus massa at arcu tempus molestie nec vitae augue. Donec luctus ex non lorem blandit scelerisque eu sit amet tellus. Donec aliquet ac risus sit amet pharetra. Maecenas viverra libero eget augue hendrerit, et suscipit justo rhoncus. In aliquet risus nec nunc fringilla elementum ut non arcu. Morbi rhoncus vel ligula vel molestie. In vitae mattis nulla, sit amet fermentum massa. Praesent tempus et lacus fringilla luctus.
+					</p>
+				</article>
+				
+			</div>
 
-			<div id="slides">
-				<div id="fade"></div>
-
-				<div class="infoWrapper">
-					<h1>Learn Taiwanese</h1>
-					<p>Suspendisse a dictum lectus. Donec aliquet rhoncus fermentum. Etiam tellus sapien, elementum gravida dictum ut, imperdiet quis enim</p>
-
-					<div class="tellerWrapper">
-						<p id="current">01</p>
-						<p id="total">05</p>
-						<div class="divider"></div>
-					</div>
-					
-					<!-- Arrow Left -->
-					<svg id="left" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
- 						<path d="M29 20H5l8-7" fill="none" stroke="#000"/>
-					</svg>
-
-
-					<!-- Arrow Right -->
-					<svg id="right" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-  						<path d="M4 13h24l-8 7" fill="none" stroke="#000"/>
-					</svg>
-
-				</div>
+			<div class="second">
+				
 			</div>
 			
+
 		</section>
 
 		<section class="main" id="experiences">
@@ -430,10 +386,10 @@
 
 	<script src="resources/script.js"></script>
 	<script>
-		// hide(landing);
-		// display(sectionsMainWrapper);
-		// opaOne(sectionsMainWrapper);
-		// initialLoad(1);
+		hide(landing);
+		display(sectionsMainWrapper);
+		opaOne(sectionsMainWrapper);
+		initialLoad(0);
 		// display(overlay); opaOne(overlay);
 		// display(footer);
 		// opaOne(footer);
