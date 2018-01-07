@@ -3,12 +3,17 @@
 	All ***Constant Elements*** for Entire File / Project
 ________________________________________________________________________
 */
-var landing = document.getElementById('landing'),
+var body = document.getElementsByTagName('body')[0],
+    landing = document.getElementById('landing'),
     sectionsMainWrapper = document.getElementById('wrapper'),
     logoSide = document.querySelector('#landing .logoSide'),
     landingLinks = document.querySelectorAll('#landing ul.nav li'),
     // landingLinks_info = document.querySelectorAll('#landing ul.nav li p .info'),
     sections = document.getElementsByClassName('main'),
+    introduction_first = document.querySelector('#introduction .first'),
+    introduction_second = document.querySelector('#introduction .second'),
+    switchSection_one = document.getElementById('switchSection_one'),
+    switchSection_two = document.getElementById('switchSection_two'),
     nextSection = document.querySelectorAll('#iconList li svg')[1],
     prevSection = document.querySelectorAll('#iconList li svg')[0],
     header = document.getElementById('mainHeader_overlay'),
@@ -171,10 +176,24 @@ ________________________________________________________________________
 
 var 
     initialLoad = (index) => {
+        // body.style.overflowY = 'hidden';
         sections[index].style.display = 'block';
-        sections[index].style.opacity = 1;
         headerH1.innerText = headerInfo[index].title;
         headerText.innerText = headerInfo[index].description;
+        setTimeout(_=> {
+            opaOne(headerH1);
+        }, 400);
+        setTimeout(_=> {
+            opaOne(headerText);
+        }, 800);
+        setTimeout(_=> {
+            sections[index].classList.add('transitioned');
+        }, 1200);
+        setTimeout(_=> {
+            opaOne(sections[index]);
+            sections[index].classList.remove('transitioned');
+            // body.style.overflowY = "auto";
+        }, 2100);
         current = index;
     },
     opaNone = function(element) { element.style.opacity = 0; },
@@ -250,7 +269,7 @@ setTimeout(_ => {
  that the section for that link is the one that appears upon reload: not the 
  landing section 
 */
-
+// temporarily commented out
 if (sessionStorage.getItem('landingLinkClick') == "true") {
     hide(landing);
     display(sectionsMainWrapper);
@@ -286,11 +305,11 @@ if (sessionStorage.getItem('landingLinkClick') == "true") {
                 display(sectionsMainWrapper);
             }, 1100);
             setTimeout(_ => {
-                initialLoad(current);
+                opaOne(sectionsMainWrapper);
             }, 1150);
             setTimeout(_ => {
-                opaOne(sectionsMainWrapper);
-            });
+                initialLoad(current);
+            }, 1200);
         })
     })
 }; //end of else
@@ -410,15 +429,15 @@ closeNav.addEventListener('click', () => {
     }, 750);
 });
 
-toggleAbout.addEventListener('click', _=> {
-    opaNone(overlay);
-    setTimeout(_=> {
-        display(footer);
-    }, 510);
-    setTimeout(_=> {
-        opaOne(footer);
-    }, 550);
-})
+// toggleAbout.addEventListener('click', _=> {
+//     opaNone(overlay);
+//     setTimeout(_=> {
+//         display(footer);
+//     }, 510);
+//     setTimeout(_=> {
+//         opaOne(footer);
+//     }, 550);
+// })
 
 btm.addEventListener('click', _=> {
     opaNone(footer);
@@ -596,129 +615,58 @@ var noPrevCheck = () => {
 
 
 
+
+
+
+
+
 /*______________________________________________________________________
 
-	Proprietary Code for
-	A S P I R A T I O N S 	S E C T I O N
+    Proprietary Code for
+    I N T R O D U C T I O N   S E C T I O N
 ________________________________________________________________________
 */
 
-// Function to load data for the first slide + setting the first slide
-// var loadInitial_slides = (num) => {
-//     slides.style.backgroundImage = aspirations[num].bgImage;
-//     slideHeader.innerText = aspirations[num].title;
-//     slideDescription.innerText = aspirations[num].description;
-//     trueNumber = num + 1,
-//         place = '0' + trueNumber.toString();
-//     currentSlide.innerText = place;
-// }
-// loadInitial_slides(0);
+switchSection_one.addEventListener('click', _=> {
+    introduction_first.classList.add('switchUp_disa');
+    setTimeout(_=> {
+        hide(introduction_first)
+        introduction_first.classList.remove('switchUp_disa');
+    }, 800);
+    setTimeout(_=> {
+        display(introduction_second);
+    }, 900);
+    setTimeout(_=> {
+        introduction_second.classList.add('switchUp_appe');
+    }, 1000);
+    setTimeout(_=> {
+        opaOne(introduction_second);
+        opaNone(introduction_first);
+        introduction_first.style.marginTop = "60px";
+        introduction_second.style.marginTop = "0px";
+        introduction_second.classList.remove('switchUp_appe');
+    }, 1800);
+})
 
-/*
-	Functionality to advance and reversion through slides
-	+
-	linking functionalities to their respective buttons
-*/
-// var load_nextSlide = () => {
-//     fade.style.backgroundColor = 'rgb(247, 247, 247)';
-//     slideHeader.style.opacity = 0;
-//     opaNone(slideDescription);
-//     opaNone(tellerWrapper);
-//     _current++;
-//     trueNumber = _current + 1;
-//     place = '0' + trueNumber.toString();
-//     setTimeout(_ => {
-//         slides.style.backgroundImage = aspirations[_current].bgImage;
-//         slideHeader.innerText = aspirations[_current].title;
-//         slideDescription.innerText = aspirations[_current].description;
-//         currentSlide.innerText = place;
-//     }, 420);
-//     setTimeout(_ => {
-//         fade.style.backgroundColor = 'rgba(255, 255, 255, 0.4)';
-//         opaOne(slideHeader);
-//         opaOne(slideDescription);
-//         opaOne(tellerWrapper);
-//     }, 500);
-// }
-// nextSlide.addEventListener('click', function() {
-//     var el = this;
-//     if (_current == 3) {
-//         load_nextSlide();
-//         setTimeout(function() {
-//             console.log(el);
-//             el.disabled = true;
-//             el.classList.add("disabled");
-//             el.children[0].classList.add("disabled");
-//         }, 500)
-//     }
-//     if (_current == 4) { this.disabled = true; }
-//     else {
-//         this.disabled = false;
-//         this.classList.remove("disabled");
-//         this.children[0].classList.remove("disabled");
-//         load_nextSlide();
-//         prevSlide.classList.remove('disabled');
-//         prevSlide.children[0].classList.remove('disabled');
-//     }
-// });
+switchSection_two.addEventListener('click', _=> {
+    introduction_second.classList.add('switchUp_disa');
+    setTimeout(_=> {
+        hide(introduction_second)
+        introduction_second.classList.remove('switchUp_disa');
+    }, 800);
+    setTimeout(_=> {
+        display(introduction_first);
+    }, 900);
+    setTimeout(_=> {
+        introduction_first.classList.add('switchUp_appe');
+    }, 1000);
+    setTimeout(_=> {
+        opaOne(introduction_first);
+        introduction_first.style.marginTop = "0px";
+        introduction_second.classList.remove('switchUp_appe');
+    }, 1800);
+})
 
-// var load_prevSlide = () => {
-//     fade.style.backgroundColor = 'rgb(247, 247, 247)';
-//     opaNone(slideHeader);
-//     opaNone(slideDescription);
-//     opaNone(tellerWrapper);
-//     _current--;
-//     trueNumber = _current + 1;
-//     place = '0' + trueNumber.toString();
-//     setTimeout(_ => {
-//         slides.style.backgroundImage = aspirations[_current].bgImage;
-//         slideHeader.innerText = aspirations[_current].title;
-//         slideDescription.innerText = aspirations[_current].description;
-//         currentSlide.innerText = place;
-//     }, 420);
-//     setTimeout(_ => {
-//         fade.style.backgroundColor = 'rgba(255, 255, 255, 0.4)';
-//         opaOne(slideHeader);
-//         opaOne(slideDescription);
-//         opaOne(tellerWrapper);
-//     }, 500);
-// }
-// prevSlide.addEventListener('click', function() {
-//     var el = this;
-//     if (_current == 1) {
-//         load_prevSlide();
-//         setTimeout(function() {
-//             console.log(el);
-//             el.disabled = true;
-//             el.classList.add("disabled");
-//             el.children[0].classList.add("disabled");
-//         }, 500)
-//     }
-//     if (_current == 0) { this.disabled = true; }
-//     else {
-//         this.disabled = false;
-//         this.classList.remove("disabled");
-//         this.children[0].classList.remove("disabled");
-//         load_prevSlide();
-//         prevSlide.classList.remove('disabled');
-//         prevSlide.children[0].classList.remove('disabled');
-//     }
-// });
-
-
-// var setSlidesHeight_mobile = () => {
-//     var const1 = controls.offsetHeight,
-//         const2 = header.offsetHeight,
-//         difference = const1 + const2,
-//         height = 'calc(100vh - ' +difference+ 'px)';
-
-//     slides.style.height = height;
-//     slides.style.marginBottom = const1;
-// } 
-
-// if (window.innerWidth <= 440) {
-//     setSlidesHeight_mobile();
-// }
 
 
 /*______________________________________________________________________

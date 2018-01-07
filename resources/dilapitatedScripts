@@ -30,3 +30,129 @@ dilapitated Scripts
 //         // console.log(navSide.offsetWidth);
 //     })
 // } //end of if Statement
+
+
+
+/*______________________________________________________________________
+
+	Proprietary Code for
+	A S P I R A T I O N S 	S E C T I O N
+________________________________________________________________________
+*/
+
+// Function to load data for the first slide + setting the first slide
+// var loadInitial_slides = (num) => {
+//     slides.style.backgroundImage = aspirations[num].bgImage;
+//     slideHeader.innerText = aspirations[num].title;
+//     slideDescription.innerText = aspirations[num].description;
+//     trueNumber = num + 1,
+//         place = '0' + trueNumber.toString();
+//     currentSlide.innerText = place;
+// }
+// loadInitial_slides(0);
+
+/*
+	Functionality to advance and reversion through slides
+	+
+	linking functionalities to their respective buttons
+*/
+// var load_nextSlide = () => {
+//     fade.style.backgroundColor = 'rgb(247, 247, 247)';
+//     slideHeader.style.opacity = 0;
+//     opaNone(slideDescription);
+//     opaNone(tellerWrapper);
+//     _current++;
+//     trueNumber = _current + 1;
+//     place = '0' + trueNumber.toString();
+//     setTimeout(_ => {
+//         slides.style.backgroundImage = aspirations[_current].bgImage;
+//         slideHeader.innerText = aspirations[_current].title;
+//         slideDescription.innerText = aspirations[_current].description;
+//         currentSlide.innerText = place;
+//     }, 420);
+//     setTimeout(_ => {
+//         fade.style.backgroundColor = 'rgba(255, 255, 255, 0.4)';
+//         opaOne(slideHeader);
+//         opaOne(slideDescription);
+//         opaOne(tellerWrapper);
+//     }, 500);
+// }
+// nextSlide.addEventListener('click', function() {
+//     var el = this;
+//     if (_current == 3) {
+//         load_nextSlide();
+//         setTimeout(function() {
+//             console.log(el);
+//             el.disabled = true;
+//             el.classList.add("disabled");
+//             el.children[0].classList.add("disabled");
+//         }, 500)
+//     }
+//     if (_current == 4) { this.disabled = true; }
+//     else {
+//         this.disabled = false;
+//         this.classList.remove("disabled");
+//         this.children[0].classList.remove("disabled");
+//         load_nextSlide();
+//         prevSlide.classList.remove('disabled');
+//         prevSlide.children[0].classList.remove('disabled');
+//     }
+// });
+
+// var load_prevSlide = () => {
+//     fade.style.backgroundColor = 'rgb(247, 247, 247)';
+//     opaNone(slideHeader);
+//     opaNone(slideDescription);
+//     opaNone(tellerWrapper);
+//     _current--;
+//     trueNumber = _current + 1;
+//     place = '0' + trueNumber.toString();
+//     setTimeout(_ => {
+//         slides.style.backgroundImage = aspirations[_current].bgImage;
+//         slideHeader.innerText = aspirations[_current].title;
+//         slideDescription.innerText = aspirations[_current].description;
+//         currentSlide.innerText = place;
+//     }, 420);
+//     setTimeout(_ => {
+//         fade.style.backgroundColor = 'rgba(255, 255, 255, 0.4)';
+//         opaOne(slideHeader);
+//         opaOne(slideDescription);
+//         opaOne(tellerWrapper);
+//     }, 500);
+// }
+// prevSlide.addEventListener('click', function() {
+//     var el = this;
+//     if (_current == 1) {
+//         load_prevSlide();
+//         setTimeout(function() {
+//             console.log(el);
+//             el.disabled = true;
+//             el.classList.add("disabled");
+//             el.children[0].classList.add("disabled");
+//         }, 500)
+//     }
+//     if (_current == 0) { this.disabled = true; }
+//     else {
+//         this.disabled = false;
+//         this.classList.remove("disabled");
+//         this.children[0].classList.remove("disabled");
+//         load_prevSlide();
+//         prevSlide.classList.remove('disabled');
+//         prevSlide.children[0].classList.remove('disabled');
+//     }
+// });
+
+
+// var setSlidesHeight_mobile = () => {
+//     var const1 = controls.offsetHeight,
+//         const2 = header.offsetHeight,
+//         difference = const1 + const2,
+//         height = 'calc(100vh - ' +difference+ 'px)';
+
+//     slides.style.height = height;
+//     slides.style.marginBottom = const1;
+// } 
+
+// if (window.innerWidth <= 440) {
+//     setSlidesHeight_mobile();
+// }

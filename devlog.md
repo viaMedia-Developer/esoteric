@@ -1,7 +1,32 @@
 ###### Commit Entry 
 {
+	Date 1.07.2018
+	Commit: 12th Commit
+	Project Verion: v1.25
+}
++ Added animations when transitioning between sections
++ Added initial animations for headerH1 and header text
++ Added toggle between Introduction's 2 sections
+- (Note) 
+	- Issues with transition animations on mobile??
+	- Transition between sections not as smooth as desired
+
+###### Commit Entry 
+{
+	Date 1.01.2018
+	Commit: 11th Commit
+	Project Verion: v1.2
+}
++ Happy New Year's!
++ Added the Second Part of the Introduction Section
+
+###### Dev Notes @ 12.31.17
+- When a new section becomes active, change the innertext within the title tag to denote the new section
+
+###### Commit Entry 
+{
 	Date 12.31.17
-	Commit: 9th Commit
+	Commit: 10th Commit
 	Project Verion: v1.15
 }
 + Introduction Section updated to new designs

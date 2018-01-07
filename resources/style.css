@@ -2,7 +2,15 @@
 @font-face {
 	src: url('fonts/Montserrat-ExtraLight.otf');
 	font-family: 'Montserrat';
+	font-weight: 300;
 }
+
+@font-face {
+	src: url('fonts/Montserrat-Regular.otf');
+	font-family: 'Montserrat';
+	font-weight: 400;
+}
+
 @font-face {
 	src: url('fonts/ProximaNovaAlt_Regular-webfont.ttf');
 	font-family: 'Proxima Nova';
@@ -29,11 +37,35 @@ button:focus {
 }
 
 
+button.esoteric {
+	display: block;
+	font-family: 'Montserrat';
+	font-size: 1em;
+	font-weight: 400;
+	color: black;
+	
+	background-color: white;
+	border: none;
+	border-bottom: 2px solid black;
+	padding: 0;
+	padding-bottom: 5px;
+
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
 body {
 	width: 100%;
 	margin: 0;
 	padding: 0;
 	overflow-x: hidden;
+	// min-height: 101vh;
 }
 
 header#landing { 
@@ -64,6 +96,7 @@ header#landing {
 			margin-top: -10px;
 			margin-left: -4px;
 			font-size: 3.5em;
+			font-weight: 300;
 			color: var(--tertiary-gray);
 			opacity: 0;
 
@@ -175,6 +208,7 @@ section#wrapper {
 	position: relative;
 	opacity: 0;
 	transition: opacity ease-out 0.5s;
+	// padding-right: 17px;
 }
 
 div#mainHeader {
@@ -194,6 +228,7 @@ div#mainHeader {
 		top: 47%;
 		transform: translateY(-50%);
 		font-family: 'Montserrat';
+		font-weight: 300;
 		font-size: 2em;
 		color: var(--tertiary-gray);
 	}
@@ -219,7 +254,8 @@ div#mainHeader {
 		font-size: 1.2em;
 		font-weight: 100;
 		color: black;
-		transition: opacity ease-out 0.4s;
+		transition: opacity ease-out 0.7s;
+		opacity: 0;
 	}
 
 
@@ -235,6 +271,8 @@ section#wrapper p#headerText {
 	line-height: 16px;
 	text-align: center;
 	color: rgba(72, 72, 72, 0.5);
+	transition: opacity ease-out 0.7s;
+	opacity: 0;
 }
 
 @media screen and (max-width: 440px) {
@@ -257,11 +295,26 @@ section.main {
 	// min-height: 100vh;
 	margin: 0 auto;
 	position: relative;
+	// top: 100px;
 	padding-top: 200px;
-	transition: opacity ease-out 0.4s;
+	// transition: ease-out .75s;
 	z-index: 1;
 	opacity: 0;
 }
+
+	section.transitioned {
+		animation-name: transitioned;
+		animation-duration: .7s;
+		animation-fill-mode: forwards;
+		// animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+		animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	}
+
+	@keyframes transitioned {
+		// 0% {top: 100px; opacity: 0;}
+		0% {opacity: 0; transform: translateY(40px);}
+		100% {opacity: 1; transform: translateY(0px);}
+	}
 
 @media screen and (max-width: 1024px) {
 	section.main { width: 100%; }
@@ -283,8 +336,66 @@ section.main {
 
 section#introduction {}
 
+section#introduction div.switchUp_disa {
+	animation-name: switchUp_disa;
+	animation-duration: .7s;
+	animation-fill-mode: forwards;
+	animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+	@keyframes switchUp_disa {
+		0% {opacity: 1; }
+		100% {opacity: 0; margin-top: -60px;}
+	}
+
+section#introduction div.switchUp_appe {
+	animation-name: switchUp_appe;
+	animation-duration: .7s;
+	animation-fill-mode: forwards;
+	animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+	@keyframes switchUp_appe {
+		0% {opacity: 0;}
+		100% {opacity: 1; margin-top: 0px;}
+	}
+
+section#introduction div.switchDown_disa {
+	animation-name: switchUp_disa;
+	animation-duration: .7s;
+	animation-fill-mode: forwards;
+	animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+
+	@keyframes switchDown_disa {
+		0% {opacity: 1; transform: translateY(40px);}
+		100% {opacity: 0; transform: translateY(0px);}
+	}
+
+section#introduction div.switchDown_appe {
+	animation-name: switchUp_disa;
+	animation-duration: .7s;
+	animation-fill-mode: forwards;
+	animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+
+
+
+
+
+
+
+
 section#introduction div.first {
+	position: relative;
 	width: 100%;
+}
+
+section#introduction div.first div.contentWrapper {
+	width: 100%;
+	position: relative;
 	overflow: hidden;
 }
 
@@ -295,7 +406,8 @@ section#introduction div#headerImage {
 	float: left;
 	margin-left: 20px;
 	position: absolute;
-	top: 50%;
+	top: 53%;
+	transform: translateY(-50%);
 
 	background-image: url('images/mubarizMehdizadeh_portrait.jpg');
 	background-size: cover;
@@ -336,6 +448,10 @@ section#introduction article p {
 	color: black;
 }
 
+section#introduction button#switchSection_one {
+	margin: 100px auto 60px;
+}
+
 
 
 
@@ -358,6 +474,7 @@ section#introduction article p {
 @media screen and (max-width: 440px) {
 	section#introduction div#headerImage {
 		height: 150px;
+		transform: translateY(-0%);
 	}
 
 	section#introduction article h1 {
@@ -374,6 +491,150 @@ section#introduction article p {
 }
 
 
+
+
+section#introduction div.second {
+	display: none;
+	width: 100%;
+	margin-top: 60px;
+	opacity: 0;
+	overflow: hidden;
+}
+
+	div.second div.title {
+		display: table;
+		margin: 40px auto 100px;
+	}
+
+		div.second div.title h1 {
+			margin: 0;
+			margin-bottom: 2px;
+			font-family: 'Montserrat';
+			font-weight: 300;
+			font-size: 1.75em;
+			color: black;
+		}
+
+		div.second div.title h3 {
+			margin: 0;
+			font-family: 'Open Sans';
+			font-weight: 300;
+			font-size: 1em;
+			color: #b8b8b8;
+		}
+
+	div.second div.resumeEntry {
+		width: 95%;
+		margin: 40px auto;
+		overflow: hidden;
+	} 
+
+		div.second div.resumeEntry > div.info {
+			display: inline-block;
+			width: 50%;
+			float: left;
+		}
+
+			div.second div.resumeEntry > div.info h1 {
+				margin: 0;
+				margin-bottom: 10px;
+				font-family: 'Montserrat';
+				font-size: 2.25em;
+				font-weight: 400;
+				color: black;
+			}
+
+			div.second div.resumeEntry > div.info h3 {
+				margin: 0;
+				margin-bottom: 5px;
+				font-family: 'Open Sans';
+				font-weight: 300;
+				font-size: 1em;
+				color: #b8b8b8;
+			}
+
+			div.second div.resumeEntry > div.info h3 span {
+				font-size: 2em;
+				line-height: 0;
+				color: black;
+			}
+
+		div.second div.resumeEntry > div.description {
+			display: inline-block;
+			width: 50%;
+			float: right;
+		}
+
+			div.second div.resumeEntry > div.description p {
+				width: 90%;
+				margin: 0 auto;
+				font-family: 'Open Sans';
+				font-weight: 300;
+				font-size: 0.8em;
+				line-height: 26px; 
+				color: #707070;
+			}
+
+section#introduction div.second button#switchSection_two {
+	margin: 100px auto 60px;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+	div.second div.resumeEntry > div.info,
+	div.second div.resumeEntry > div.description {
+		width: 90%;
+		margin-top: 20px;
+		margin-left: 15px;
+		float: none;
+		
+	}
+
+	div.second div.resumeEntry > div.description p {
+		width: 100%;
+		margin: 0;
+	}
+}
+
+@media screen and (max-width: 440px) {
+		div.second div.title {
+			margin-top: 60px;
+			margin-bottom: 80px;
+		}	
+
+		div.second div.title h1 {
+			font-size: 1.2em;
+		}
+
+		div.second div.title h3 {
+			margin: 0;
+			font-family: 'Open Sans';
+			font-weight: 300;
+			font-size: 0.7em;
+			color: #b8b8b8;
+		}
+
+
+		div.second div.resumeEntry > div.info h1 {
+				font-size: 1.5em;
+			}
+
+		div.second div.resumeEntry > div.info h3 {
+			margin-top: 10px;
+			font-size: 0.85em;
+		}
+
+		div.second div.resumeEntry > div.info h3 span {
+			font-size: 1em;
+			line-height: 0;
+			color: black;
+		}
+
+		div.second div.resumeEntry > div.description p {
+			font-size: 0.8em;
+		}
+}
 
 
 

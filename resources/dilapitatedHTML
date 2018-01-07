@@ -1,0 +1,29 @@
+dilapitated html
+
+<!-- <nav id="overlay">
+		<ul id="menuList">
+			<li>
+				<svg id="closeNav" xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" viewBox="0 0 64 64">
+  					<path d="M44.237 16.351L31.99 28.69 19.651 16.443l-1.408 1.42 12.339 12.246-12.247 12.34 1.42 1.409 12.247-12.339 12.339 12.247 1.408-1.42L33.41 30.1l12.247-12.34"/>
+				</svg>
+			</li>
+			<li><a href="#" class="moveLeft">Introduction</a></li>
+			<li><a href="#" class="moveLeft">Aspirations</a></li>
+			<li><a href="#" class="moveLeft">Experience</a></li>
+			<li><a href="#" class="moveLeft">Recollections</a></li>
+			<li><a href="#" class="moveLeft">Connections</a></li>
+		</ul>
+
+		<ul id="scmList">
+			<li><a href="#">Fb</a></li>
+			<li><a href="#">Tw</a></li>
+			<li><a href="#">In</a></li>
+			<li><a href="#">Gp</a></li>
+			<li><a href="#">Db</a></li>
+		</ul>
+
+		<div id="toggleAbout">
+			i
+		</div>
+
+</nav> -->
