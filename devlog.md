@@ -1,5 +1,15 @@
 ###### Commit Entry 
 {
+	Date 1.09.2018
+	Commit: 13th Commit
+	Project Verion: v1.255
+}
++ Changed the inner workings of the transition animations between section#introduction's sections
++ Minor edits to some styling
++ More CSS added to dilapitated file
+
+###### Commit Entry 
+{
 	Date 1.07.2018
 	Commit: 12th Commit
 	Project Verion: v1.25

@@ -187,11 +187,11 @@ var
             opaOne(headerText);
         }, 800);
         setTimeout(_=> {
-            sections[index].classList.add('transitioned');
+            sections[index].classList.add('transitionUp_a');
         }, 1200);
         setTimeout(_=> {
             opaOne(sections[index]);
-            sections[index].classList.remove('transitioned');
+            sections[index].classList.remove('transitionUp_a');
             // body.style.overflowY = "auto";
         }, 2100);
         current = index;
@@ -628,42 +628,45 @@ ________________________________________________________________________
 */
 
 switchSection_one.addEventListener('click', _=> {
-    introduction_first.classList.add('switchUp_disa');
+    sections[0].classList.add('transitionUp_d');
     setTimeout(_=> {
-        hide(introduction_first)
-        introduction_first.classList.remove('switchUp_disa');
+        hide(introduction_first);
+        sections[0].classList.remove('transitionUp_d');
+        sections[0].style.transform = 'translateY(-40px)';
+        sections[0].style.opacity = '0';
     }, 800);
     setTimeout(_=> {
         display(introduction_second);
-    }, 900);
-    setTimeout(_=> {
-        introduction_second.classList.add('switchUp_appe');
+        // sections[0].style.backgroundColor = 'blue';
     }, 1000);
     setTimeout(_=> {
-        opaOne(introduction_second);
-        opaNone(introduction_first);
-        introduction_first.style.marginTop = "60px";
-        introduction_second.style.marginTop = "0px";
-        introduction_second.classList.remove('switchUp_appe');
-    }, 1800);
+        sections[0].classList.add('transitionUp_a');
+    }, 1100);
+    setTimeout(_=> {
+        sections[0].classList.remove('transitionUp_a');
+        sections[0].style.transform = 'translateY(0px)';
+        sections[0].style.opacity = '1';
+    }, 1900);
 })
 
 switchSection_two.addEventListener('click', _=> {
-    introduction_second.classList.add('switchUp_disa');
+    sections[0].classList.add('transitionDown_d');
     setTimeout(_=> {
         hide(introduction_second)
-        introduction_second.classList.remove('switchUp_disa');
+        sections[0].classList.remove('transitionDown_d');
+        sections[0].style.transform = 'translateY(40px)';
+        sections[0].style.opacity = '0';
     }, 800);
     setTimeout(_=> {
         display(introduction_first);
+        // sections[0].style.backgroundColor = 'red';
     }, 900);
     setTimeout(_=> {
-        introduction_first.classList.add('switchUp_appe');
+        sections[0].classList.add('transitionDown_a');
     }, 1000);
     setTimeout(_=> {
-        opaOne(introduction_first);
-        introduction_first.style.marginTop = "0px";
-        introduction_second.classList.remove('switchUp_appe');
+        sections[0].classList.remove('transitionDown_a');
+        sections[0].style.opacity = '1';
     }, 1800);
 })
 

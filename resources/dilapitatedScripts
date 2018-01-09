@@ -156,3 +156,169 @@ ________________________________________________________________________
 // if (window.innerWidth <= 440) {
 //     setSlidesHeight_mobile();
 // }
+
+
+
+
+
+
+
+
+
+section#aspirations {}
+
+section#aspirations article {
+	width: 100%;
+	margin-left: -20px;
+	margin-bottom: 60px;
+	font-family: 'Open Sans', sans-serif;
+	text-align: right;
+	font-weight: 300 !important;
+	line-height: 24px;  
+	color: var(--primary-gray);
+	padding-top: 110px;
+}
+
+section#aspirations article h1 {
+	margin: 20px 0;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	font-size: 1.9em;
+	font-weight: 300;
+}
+section#aspirations article p {
+	margin-left: auto;
+	width: 80%;
+	font-size: 0.95em;
+}
+
+
+
+
+section#aspirations div#slides {
+	width: 100%;
+	height: 50vh;
+	margin-bottom: 90px;
+	position: relative;
+
+	background-image: url('images/tommyTaipeiTaiwan.jpg');
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+section#aspirations div#slides * { transition: all ease-out 0.4s; }
+
+div#slides div#fade {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.4);
+}
+
+div#slides div.infoWrapper {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+
+    text-align: center;
+    font-weight: 300;
+    color: var(--primary-gray);
+}
+
+
+div#slides div.infoWrapper h1 {
+	width: 95%;
+	margin: 20px auto 10px;
+	font-family: 'Montserrat';
+	font-weight: 300;
+	font-size: 1.9em;
+}
+div#slides div.infoWrapper p {
+	width: 98%;
+	margin: 10px auto 30px;
+	font-family: 'Open Sans';
+	font-size: 0.9em;
+}
+
+div#slides div.infoWrapper div.tellerWrapper {
+	margin-bottom: 10px
+}
+div#slides div.infoWrapper div.tellerWrapper p {
+	margin: 0;
+}
+div#slides div.infoWrapper div.tellerWrapper p#current{
+	margin-left: -15px;
+}
+div#slides div.infoWrapper div.tellerWrapper p#total{
+	margin-left: 15px;
+}
+div#slides div.infoWrapper div.tellerWrapper div.divider{
+	width: 40px;
+    border: 0.5px solid var(--primary-gray);
+    position: relative;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-60%) rotate(-45deg);
+}
+
+div#slides div.infoWrapper svg {
+	width: 40px;
+    height: 40px;
+	margin-bottom: 10px;
+	position: absolute;
+	bottom: 0;
+}
+
+div#slides div.infoWrapper svg.disabled {
+	border-color: rgba(149, 152, 154, 0.25) !important;
+}
+
+div#slides div.infoWrapper svg:hover {
+	background-color: var(--primary-gray);
+	border-color: #ffffff;
+}
+
+div#slides div.infoWrapper svg:hover * {
+	stroke: #ffffff !important;
+}
+
+div#slides div.infoWrapper svg#left {
+	left: 0;
+	margin-left: 10px;
+	border-left: 1px solid var(--primary-gray);
+}
+div#slides div.infoWrapper svg#right {
+	right: 0;
+	margin-right: 10px;
+	border-right: 1px solid var(--primary-gray);
+}
+
+
+div#slides div.infoWrapper svg * {
+	transition: stroke ease-out 0.45s;
+	stroke: var(--primary-gray);
+}
+
+div#slides div.infoWrapper svg path.disabled {
+	stroke: rgba(149, 152, 154, 0.25) !important;
+}
+
+
+@media screen and (max-width: 440px) {
+	section#aspirations article h1 {
+		font-size: 1.5em;
+	}
+
+	section#aspirations article p {
+		font-size: 0.85em;
+    	line-height: 22px;
+	}
+
+	/*section#aspirations div#slides {}*/
+
+	div#slides div.infoWrapper {
+		width: 90%;
+	}
+}

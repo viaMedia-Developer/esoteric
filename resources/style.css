@@ -302,19 +302,54 @@ section.main {
 	opacity: 0;
 }
 
-	section.transitioned {
-		animation-name: transitioned;
+	section.transitionUp_a {
+		animation-name: transitionUp_a;
 		animation-duration: .7s;
 		animation-fill-mode: forwards;
 		// animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 		animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 	}
+		@keyframes transitionUp_a {
+			0% {opacity: 0; transform: translateY(40px);}
+			100% {opacity: 1; transform: translateY(0px);}
+		}
 
-	@keyframes transitioned {
-		// 0% {top: 100px; opacity: 0;}
-		0% {opacity: 0; transform: translateY(40px);}
-		100% {opacity: 1; transform: translateY(0px);}
+
+	section.transitionUp_d {
+		animation-name: transitionUp_d;
+		animation-duration: .7s;
+		animation-fill-mode: forwards;
+		animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 	}
+		@keyframes transitionUp_d {
+			0% {opacity: 1; transform: translateY(0px);}
+			100% {opacity: 0; transform: translateY(-40px);}
+		}
+
+
+	section.transitionDown_a {
+		animation-name: transitionDown_a;
+		animation-duration: .7s;
+		animation-fill-mode: forwards;
+		animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	}
+
+		@keyframes transitionDown_a {
+			0% {opacity: 0; transform: translateY(0px);}
+			100% {opacity: 1; transform: translateY(40px);}
+		}
+
+	section.transitionDown_d {
+		animation-name: transitionDown_d;
+		animation-duration: .7s;
+		animation-fill-mode: forwards;
+		animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	}
+		@keyframes transitionDown_d {
+			0% {opacity: 1; transform: translateY(0px);}
+			100% {opacity: 0; transform: translateY(40px);}
+		}
+
 
 @media screen and (max-width: 1024px) {
 	section.main { width: 100%; }
@@ -335,58 +370,6 @@ section.main {
 
 
 section#introduction {}
-
-section#introduction div.switchUp_disa {
-	animation-name: switchUp_disa;
-	animation-duration: .7s;
-	animation-fill-mode: forwards;
-	animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-	@keyframes switchUp_disa {
-		0% {opacity: 1; }
-		100% {opacity: 0; margin-top: -60px;}
-	}
-
-section#introduction div.switchUp_appe {
-	animation-name: switchUp_appe;
-	animation-duration: .7s;
-	animation-fill-mode: forwards;
-	animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-	@keyframes switchUp_appe {
-		0% {opacity: 0;}
-		100% {opacity: 1; margin-top: 0px;}
-	}
-
-section#introduction div.switchDown_disa {
-	animation-name: switchUp_disa;
-	animation-duration: .7s;
-	animation-fill-mode: forwards;
-	animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-
-	@keyframes switchDown_disa {
-		0% {opacity: 1; transform: translateY(40px);}
-		100% {opacity: 0; transform: translateY(0px);}
-	}
-
-section#introduction div.switchDown_appe {
-	animation-name: switchUp_disa;
-	animation-duration: .7s;
-	animation-fill-mode: forwards;
-	animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-
-
-
-
-
-
-
 
 section#introduction div.first {
 	position: relative;
@@ -449,7 +432,7 @@ section#introduction article p {
 }
 
 section#introduction button#switchSection_one {
-	margin: 100px auto 60px;
+	margin: 60px auto;
 }
 
 
@@ -467,7 +450,8 @@ section#introduction button#switchSection_one {
 	section#introduction div#headerImage {
 		height: 250px;
 		position: relative;
-		margin-bottom: 20px;
+		margin-bottom: 40px;
+		transform: translateY(0%);
 	}
 }
 
@@ -493,17 +477,22 @@ section#introduction button#switchSection_one {
 
 
 
+
+
+
+
+
 section#introduction div.second {
 	display: none;
+	position: relative;
 	width: 100%;
-	margin-top: 60px;
-	opacity: 0;
-	overflow: hidden;
+	padding-top: 80px;
+	// overflow: hidden;
 }
 
 	div.second div.title {
 		display: table;
-		margin: 40px auto 100px;
+		margin: 0px auto 100px;
 	}
 
 		div.second div.title h1 {
@@ -546,7 +535,7 @@ section#introduction div.second {
 
 			div.second div.resumeEntry > div.info h3 {
 				margin: 0;
-				margin-bottom: 5px;
+				margin-bottom: 10px;
 				font-family: 'Open Sans';
 				font-weight: 300;
 				font-size: 1em;
@@ -642,163 +631,9 @@ section#introduction div.second button#switchSection_two {
 
 
 
-section#aspirations {}
-
-section#aspirations article {
-	width: 100%;
-	margin-left: -20px;
-	margin-bottom: 60px;
-	font-family: 'Open Sans', sans-serif;
-	text-align: right;
-	font-weight: 300 !important;
-	line-height: 24px;  
-	color: var(--primary-gray);
-	padding-top: 110px;
-}
-
-section#aspirations article h1 {
-	margin: 20px 0;
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 300;
-	font-size: 1.9em;
-	font-weight: 300;
-}
-section#aspirations article p {
-	margin-left: auto;
-	width: 80%;
-	font-size: 0.95em;
-}
 
 
 
-
-section#aspirations div#slides {
-	width: 100%;
-	height: 50vh;
-	margin-bottom: 90px;
-	position: relative;
-
-	background-image: url('images/tommyTaipeiTaiwan.jpg');
-	background-size: cover;
-	background-position: center center;
-	background-repeat: no-repeat;
-}
-
-section#aspirations div#slides * { transition: all ease-out 0.4s; }
-
-div#slides div#fade {
-	width: 100%;
-	height: 100%;
-	background-color: rgba(255, 255, 255, 0.4);
-}
-
-div#slides div.infoWrapper {
-	position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.8);
-
-    text-align: center;
-    font-weight: 300;
-    color: var(--primary-gray);
-}
-
-
-div#slides div.infoWrapper h1 {
-	width: 95%;
-	margin: 20px auto 10px;
-	font-family: 'Montserrat';
-	font-weight: 300;
-	font-size: 1.9em;
-}
-div#slides div.infoWrapper p {
-	width: 98%;
-	margin: 10px auto 30px;
-	font-family: 'Open Sans';
-	font-size: 0.9em;
-}
-
-div#slides div.infoWrapper div.tellerWrapper {
-	margin-bottom: 10px
-}
-div#slides div.infoWrapper div.tellerWrapper p {
-	margin: 0;
-}
-div#slides div.infoWrapper div.tellerWrapper p#current{
-	margin-left: -15px;
-}
-div#slides div.infoWrapper div.tellerWrapper p#total{
-	margin-left: 15px;
-}
-div#slides div.infoWrapper div.tellerWrapper div.divider{
-	width: 40px;
-    border: 0.5px solid var(--primary-gray);
-    position: relative;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-60%) rotate(-45deg);
-}
-
-div#slides div.infoWrapper svg {
-	width: 40px;
-    height: 40px;
-	margin-bottom: 10px;
-	position: absolute;
-	bottom: 0;
-}
-
-div#slides div.infoWrapper svg.disabled {
-	border-color: rgba(149, 152, 154, 0.25) !important;
-}
-
-div#slides div.infoWrapper svg:hover {
-	background-color: var(--primary-gray);
-	border-color: #ffffff;
-}
-
-div#slides div.infoWrapper svg:hover * {
-	stroke: #ffffff !important;
-}
-
-div#slides div.infoWrapper svg#left {
-	left: 0;
-	margin-left: 10px;
-	border-left: 1px solid var(--primary-gray);
-}
-div#slides div.infoWrapper svg#right {
-	right: 0;
-	margin-right: 10px;
-	border-right: 1px solid var(--primary-gray);
-}
-
-
-div#slides div.infoWrapper svg * {
-	transition: stroke ease-out 0.45s;
-	stroke: var(--primary-gray);
-}
-
-div#slides div.infoWrapper svg path.disabled {
-	stroke: rgba(149, 152, 154, 0.25) !important;
-}
-
-
-@media screen and (max-width: 440px) {
-	section#aspirations article h1 {
-		font-size: 1.5em;
-	}
-
-	section#aspirations article p {
-		font-size: 0.85em;
-    	line-height: 22px;
-	}
-
-	/*section#aspirations div#slides {}*/
-
-	div#slides div.infoWrapper {
-		width: 90%;
-	}
-}
 
 
 
