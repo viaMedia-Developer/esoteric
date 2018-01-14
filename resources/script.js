@@ -14,34 +14,40 @@ var body = document.getElementsByTagName('body')[0],
     introduction_second = document.querySelector('#introduction .second'),
     switchSection_one = document.getElementById('switchSection_one'),
     switchSection_two = document.getElementById('switchSection_two'),
-    nextSection = document.querySelectorAll('#iconList li svg')[1],
-    prevSection = document.querySelectorAll('#iconList li svg')[0],
+
+    // nextSection = document.querySelectorAll('#iconList li svg')[1],
+    // prevSection = document.querySelectorAll('#iconList li svg')[0],
     header = document.getElementById('mainHeader_overlay'),
     headerH1 = document.querySelector('#mainHeader h1'),
     headerText = document.getElementById('headerText'),
-    controls = document.getElementById('controls'),
-    overlay = document.getElementById('overlay'),
-    openNav = document.getElementById('openNav'),
-    closeNav = document.getElementById('closeNav'),
-    navlinks = document.querySelectorAll('#menuList li a'),
-    moveLeft = document.querySelectorAll('.moveLeft'),
-    scmLinks = document.querySelectorAll('#scmList li a'),
-    slides = document.getElementById('slides'),
-    fade = document.getElementById('fade'),
-    slideHeader = document.querySelector('.infoWrapper h1'),
-    slideDescription = document.querySelector('.infoWrapper p'),
-    tellerWrapper = document.getElementsByClassName('tellerWrapper')[0],
-    currentSlide = document.getElementById('current'),
-    prevSlide = document.querySelector('#slides #left'),
-    nextSlide = document.querySelector('#slides #right'),
-    mainWrapper = document.getElementsByClassName('mainWrapper')[0],
-    story = document.getElementsByClassName('story')[0],
-    storyNumber = document.querySelector('.aboutStory h1 #number'),
-    storyHeader = document.querySelector('.aboutStory h1 #title'),
-    storyAbout = document.querySelector('.aboutStory p'),
-    exitStory = document.querySelector('.aboutStory #exit'),
+    // controls = document.getElementById('controls'),
+    // overlay = document.getElementById('overlay'),
+    // openNav = document.getElementById('openNav'),
+    // closeNav = document.getElementById('closeNav'),
+    // navlinks = document.querySelectorAll('#menuList li a'),
+    // moveLeft = document.querySelectorAll('.moveLeft'),
+    // scmLinks = document.querySelectorAll('#scmList li a'),
+    // slides = document.getElementById('slides'),
+    // fade = document.getElementById('fade'),
+    // slideHeader = document.querySelector('.infoWrapper h1'),
+    // slideDescription = document.querySelector('.infoWrapper p'),
+    // tellerWrapper = document.getElementsByClassName('tellerWrapper')[0],
+    // currentSlide = document.getElementById('current'),
+    // prevSlide = document.querySelector('#slides #left'),
+    // nextSlide = document.querySelector('#slides #right'),
+    // mainWrapper = document.getElementsByClassName('mainWrapper')[0],
+    // story = document.getElementsByClassName('story')[0],
+    // storyNumber = document.querySelector('.aboutStory h1 #number'),
+    // storyHeader = document.querySelector('.aboutStory h1 #title'),
+    // storyAbout = document.querySelector('.aboutStory p'),
+    // exitStory = document.querySelector('.aboutStory #exit'),
+    listOfExps = document.getElementById('listOfExps'),
     anExp = document.querySelectorAll('.anExp'),
-    exploreStory_buttons = document.querySelectorAll('.anExp button'),
+    expExp = document.getElementById('expExp'),
+    expExp_h1 = document.querySelector('#expExp article h1'),
+    expExp_h3 = document.querySelector('#expExp article h3'),
+    backToList = document.getElementById('backToList'),
+
     upNdown = document.getElementById('upNdown'),
     arrowUp = document.querySelectorAll('#upNdown #arrowUp path')[1],
     arrowDown = document.querySelector('#upNdown #arrowDown path'),
@@ -76,15 +82,11 @@ var
     headerInfo = [
         { 
             title: 'Introduction',
-            description: 'A foreward detailing who I am and the details that form my professional life'
-		},
-        {
-            title: 'Aspirations',
-            description: 'Insight into the dreams and goals that both inspire and keep me motivated'
+            description: 'A Foreward Detailing who I am and the Details that form my Professional Life'
 		},
         {
             title: 'Experiences',
-            description: 'Collection of experiences that I\'ve had working in my profession that I found pivotal to my career'
+            description: 'A collection of Past Work that I\'ve found Truly Pivotal to my Career'
 		},
         {
             title: 'Recollections',
@@ -95,33 +97,28 @@ var
             description: 'Shoot me a message and ways to connect with me online, along with what I do there'
 		}
 	],
-    aspirations = [
+    expInfo = [
         {
-            bgImage: 'url(\'resources/images/tommyTaipeiTaiwan.jpg\')',
-            title: "Learn Taiwanese",
-            description: "Suspendisse a dictum lectus. Donec aliquet rhoncus fermentum. Etiam tellus sapien, elementum gravida dictum ut, imperdiet quis enim",
-	      },
+            number: '01.',
+            title: 'City Ventures'
+        },
         {
-            bgImage: 'url(\'resources/images/ehmirBautista_elNido.jpg\')',
-            title: "Canooeing in the Lagoon of El Nido",
-            description: "Nullam at elementum nisl, vel elementum orci. Nullam ut lacinia mi, eget condimentum velit. Maecenas posuere sagittis nunc, ut faucibus lorem. Nam tristique leo ac nisi varius blandit.",
-	      },
+            number: '02.',
+            title: 'Appalachian Life'
+        },
         {
-            bgImage: 'url(\'resources/images/mandyBeerley_kilauea.jpg\')',
-            title: "Experience Kilauea",
-            description: "Donec ac nisi auctor, blandit ex vitae, aliquam orci. Nam at metus non augue aliquam bibendum. Phasellus tincidunt ipsum sed eros vulputate, quis sodales nunc sagittis.",
-	      },
+            number: '03.',
+            title: 'Travel Europe'
+        },
         {
-            bgImage: 'url(\'resources/images/amarYashlaha_lion.jpg \')',
-            title: "Walk with the Lions",
-            description: "Sed vitae dolor a enim dapibus maximus. Pellentesque aliquet pretium metus, ac tempor lorem.In commodo ligula in dolor egestas pulvinar eu vel arcu. Nunc ultrices turpis quis mattis vehicula. In in ornare tortor.",
-	      },
+            number: '04.',
+            title: 'Far and Wide'
+        },
         {
-            bgImage: 'url(\'resources/images/clayBanks_japan.jpg\')',
-            title: "Enjoy a bowl of Ramen in Japan",
-            description: "Donec eget lectus nec dolor pellentesque placerat non ac odio. Nulla vitae ligula nec lacus vestibulum faucibus eu gravida massa. Fusce ornare sit amet dui et tempus.",
-	      }
-	],
+            number: '05.',
+            title: 'MaukaMakai'
+        },
+    ]
     stories = [
         {
             bgImage: 'resources/images/paulJarvis.jpg',
@@ -196,8 +193,6 @@ var
         }, 2100);
         current = index;
     },
-    opaNone = function(element) { element.style.opacity = 0; },
-    opaOne = function(element) { element.style.opacity = 1; },
     hide = function(element) { element.style.display = 'none'; },
     display = function(element) { element.style.display = 'block'; },
     getSiblings = (elem) => {
@@ -213,7 +208,9 @@ var
         for(var i = 0; i < array.length; i++) {
             callback.call(scope, i, array[i]);
         }
-    };
+    },
+    opaNone = function(element) { element.style.opacity = 0; },
+    opaOne = function(element) { element.style.opacity = 1; };
 
 function hover(elements, onenter, onleave) {
     elements.forEach(el => {
@@ -317,138 +314,7 @@ if (sessionStorage.getItem('landingLinkClick') == "true") {
 
 
 
-/*______________________________________________________________________
 
-	Proprietary Code for
-	N A V I G A T I O N 	O V E R L A Y
-________________________________________________________________________
-*/
-
-// Allows for on hover animation for links in the Navigation Menu
-moveLeft.forEach((el) => {
-            el.addEventListener('mouseover', function() {
-                (this.classList.contains('active') === true) ? this.classList.remove('active') & this.classList.add('active'): this.classList.add('active');
-                el.addEventListener('mouseout', function() {
-                    this.classList.remove('active');
-                })
-            });
-
-            // Allows for on click animation for links in the Navigation Menu
-            scmLinks.forEach((el) => {
-                el.addEventListener('click', _ => {
-                    el.style.backgroundColor = 'var(--main-blue)';
-                    el.style.color = '#ffffff';
-                    setTimeout(_ => {
-                        el.style.backgroundColor = 'transparent';
-                        el.style.color = 'var(--secondary-gray)';
-                    }, 510);
-                })
-            });
-        });
-
-//functionality for Navigation links to peruse sections, make them the active
-//currently viewed one
-navlinks.forEach((el, index) => {
-    el.addEventListener('click', function(e) {
-        e.preventDefault(); //Gotta add it
-
-        hide(sections[current]);
-        display(sections[index]);
-        var siblings = getSiblings(sections[index]);
-        siblings.forEach((element) => {
-            element.classList.remove('active');
-        });
-        changeHeaderInfo(index);
-        current = index;
-        sessionStorage.setItem('currentSlide', current);
-        // overlay.classList.add('nonActive');
-        // overlay.classList.remove('active');
-        setTimeout(_ => {
-            opaNone(overlay);
-        }, 550);
-        setTimeout(_ => {
-            hide(overlay);
-        }, 1000);
-        setTimeout(_ => {
-            display(sectionsMainWrapper);
-        }, 1100);
-        setTimeout(_ => {
-            opaOne(sectionsMainWrapper);
-            opaOne(sections[current]);
-        }, 1150);
-
-
-        // display(sectionsMainWrapper);
-        // opaOne(sectionsMainWrapper);
-        // hide(sections[current]);
-        // display(sections[index]);
-        // opaOne(sections[index]);
-
-        // var siblings = getSiblings(sections[index]);
-        // siblings.forEach((element) => {
-        //     element.classList.remove('active');
-        // });
-        // changeHeaderInfo(index);
-        // current = index;
-        // sessionStorage.setItem('currentSlide', current);
-        // overlay.classList.add('nonActive');
-        // overlay.classList.remove('active');
-        // setTimeout(_ => {
-        //     overlay.style.display = 'none';
-        // }, 500);
-    });
-});
-
-
-//	Functionality for button that opens Navigation menu
-openNav.addEventListener('click', () => {
-    opaNone(sectionsMainWrapper);
-    setTimeout(_=> {
-        hide(sectionsMainWrapper);
-    }, 610)
-    setTimeout(_=> {
-        display(overlay);
-    }, 650)
-    setTimeout(_ => {
-        opaOne(overlay);
-        // (overlay.classList.contains('notActive') === true) ? overlay.classList.remove('Notactive') & overlay.classList.add('active'): overlay.classList.add('active');
-    }, 800);
-});
-
-//	Functionality for button that closes Navigation menu
-closeNav.addEventListener('click', () => {
-    opaNone(overlay);
-    setTimeout(_ => {
-        hide(overlay);
-    }, 610);
-    setTimeout(_ => {
-        display(sectionsMainWrapper);
-    }, 650);
-    setTimeout(_ => {
-        opaOne(sectionsMainWrapper);
-    }, 750);
-});
-
-// toggleAbout.addEventListener('click', _=> {
-//     opaNone(overlay);
-//     setTimeout(_=> {
-//         display(footer);
-//     }, 510);
-//     setTimeout(_=> {
-//         opaOne(footer);
-//     }, 550);
-// })
-
-btm.addEventListener('click', _=> {
-    opaNone(footer);
-    setTimeout(_=> {
-        hide(footer);
-    }, 510);
-    setTimeout(_=> {
-        opaOne(overlay);
-    }, 550);
-
-})
 
 
 /*______________________________________________________________________
@@ -672,6 +538,26 @@ switchSection_two.addEventListener('click', _=> {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*______________________________________________________________________
 
 	Proprietary Code for
@@ -679,89 +565,57 @@ switchSection_two.addEventListener('click', _=> {
 ________________________________________________________________________
 */
 
-var setStoriesHeight_mobile = () => {
-    var const1 = controls.offsetHeight,
-        const2 = header.offsetHeight,
-        difference = const1 + const2,
-        height = 'calc(100vh - ' +difference+ 'px)';
 
-    mainWrapper.style.height = height;
-} 
-
-//Setting hover function for use
-hover(exploreStory_buttons, function() {
-    this.classList.add('active');
-}, function() {
-    this.classList.remove('active');
-});
-
-//Shows / Hides Story Launching button upon hovering on said section
 anExp.forEach((current, index) => {
-    current.addEventListener('mouseover', _ => {
-        opaOne(exploreStory_buttons[index]);
+    current.addEventListener('click', _=> {
+        expExp_h3.innerText = expInfo[index].number;
+        expExp_h1.innerText = expInfo[index].title;
+        sections[1].classList.add('transitionLeft_d');
+        opaNone(headerText);
+        setTimeout(_=> {
+            hide(listOfExps);
+            sections[1].classList.remove('transitionLeft_d');
+            sections[1].style.transform = 'translateX(40px)';
+            opaNone(sections[1]);
+        }, 800);
+        setTimeout(_=> {
+            display(expExp);
+        }, 900);
+        setTimeout(_=> {
+            sections[1].classList.add('transitionRight_a');
+        }, 1000);
+        setTimeout(_=> {
+            sections[1].classList.remove('transitionRight_a');
+            sections[1].style.transform = 'translateX(0px)';
+            opaOne(sections[1]);
+        }, 1800);
     })
-    current.addEventListener('mouseout', _ => {
-        opaNone(exploreStory_buttons[index]);
-    })
-});
+})
 
-// Functionality for buttons to launch their respective story
-exploreStory_buttons.forEach((el, index) => {
-    el.addEventListener('click', _ => {
-        anExp.forEach((el) => { el.style.opacity = 0; });
-        setTimeout(_ => {
-            anExp.forEach((el) => { el.style.display = 'none'; });
-        }, 1020);
-        setTimeout(_ => {
-            if (window.innerWidth < 768) {
-                setStoriesHeight_mobile();
-                mainWrapper.classList.add('storyActive');
-            };
-            if (window.innerWidth >= 768) {
-                mainWrapper.classList.add('storyActive_desktop');
-            }
-            story.style.backgroundImage = 'url(' + stories[index].bgImage + ')';
-            storyNumber.innerText = stories[index].number;
-            storyHeader.innerText = stories[index].title;
-            storyAbout.innerText = stories[index].about;
-        }, 1050);
-        setTimeout(_ => {
-            display(story);
-        }, 1100);
-        setTimeout(_ => {
-            opaOne(story);
-        }, 1120);
-    })
-});
 
-// Functionality for button to exit / close currently open story
-exitStory.addEventListener('click', _ => {
-    story.style.opacity = 0;
-    setTimeout(_ => {
-        hide(story);
-        if (window.innerWidth < 768) {
-            mainWrapper.classList.remove('storyActive');
-            mainWrapper.style.height = "auto";
-        };
-        if (window.innerWidth >= 768) {
-            mainWrapper.classList.remove('storyActive_desktop');
-        }
-        story.style.backgroundImage = '';
-        storyNumber.innerText = '';
-        storyHeader.innerText = '';
-        storyAbout.innerText = '';
-    }, 1020);
-    setTimeout(_ => {
-        anExp.forEach((el) => {
-            display(el);
-        })
-    }, 1050);
-    setTimeout(_ => {
-        anExp.forEach((el) => {
-            opaOne(el);
-        })
-    }, 1100);
-});
+
+
+backToList.addEventListener('click', _=> {
+    sections[1].classList.add('transitionToRight_d');
+    setTimeout(_=> {
+        hide(expExp);
+        sections[1].classList.remove('transitionToRight_d');
+        sections[1].style.transform = 'translateX(40px)';
+        opaNone(sections[1]);
+    }, 800);
+    setTimeout(_=> {
+        listOfExps.style.display = 'table';
+    }, 900);
+    setTimeout(_=> {
+        sections[1].classList.add('transitionToRight_a');
+    }, 1000);
+    setTimeout(_=> {
+        sections[1].classList.remove('transitionToRight_a');
+        sections[1].style.transform = 'translateX(0px)';
+        opaOne(sections[1]);
+        opaOne(headerText);
+    }, 1800);
+})
 
 
 

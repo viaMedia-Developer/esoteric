@@ -1,5 +1,17 @@
 ###### Commit Entry 
 {
+	Date 1.13.2018
+	Commit: 14th Commit
+	Project Verion: v1.3
+}
++ Updated the Design of the 'Experiences' section
+	- Design + Transition animations, Desktop + Mobile design, the whole 9 yards
++ (!) Still need to add different images to appear with each different entry 
++ Added new font weight to Montserrat Font within the project
+	- Updated elements to use proper font weight 
+
+###### Commit Entry 
+{
 	Date 1.09.2018
 	Commit: 13th Commit
 	Project Verion: v1.255

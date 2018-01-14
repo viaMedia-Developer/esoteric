@@ -36,6 +36,141 @@ dilapitated Scripts
 /*______________________________________________________________________
 
 	Proprietary Code for
+	N A V I G A T I O N 	O V E R L A Y
+________________________________________________________________________
+*/
+
+// Allows for on hover animation for links in the Navigation Menu
+// moveLeft.forEach((el) => {
+//             el.addEventListener('mouseover', function() {
+//                 (this.classList.contains('active') === true) ? this.classList.remove('active') & this.classList.add('active'): this.classList.add('active');
+//                 el.addEventListener('mouseout', function() {
+//                     this.classList.remove('active');
+//                 })
+//             });
+
+//             // Allows for on click animation for links in the Navigation Menu
+//             scmLinks.forEach((el) => {
+//                 el.addEventListener('click', _ => {
+//                     el.style.backgroundColor = 'var(--main-blue)';
+//                     el.style.color = '#ffffff';
+//                     setTimeout(_ => {
+//                         el.style.backgroundColor = 'transparent';
+//                         el.style.color = 'var(--secondary-gray)';
+//                     }, 510);
+//                 })
+//             });
+//         });
+
+//functionality for Navigation links to peruse sections, make them the active
+//currently viewed one
+navlinks.forEach((el, index) => {
+    el.addEventListener('click', function(e) {
+        e.preventDefault(); //Gotta add it
+
+        hide(sections[current]);
+        display(sections[index]);
+        var siblings = getSiblings(sections[index]);
+        siblings.forEach((element) => {
+            element.classList.remove('active');
+        });
+        changeHeaderInfo(index);
+        current = index;
+        sessionStorage.setItem('currentSlide', current);
+        // overlay.classList.add('nonActive');
+        // overlay.classList.remove('active');
+        setTimeout(_ => {
+            opaNone(overlay);
+        }, 550);
+        setTimeout(_ => {
+            hide(overlay);
+        }, 1000);
+        setTimeout(_ => {
+            display(sectionsMainWrapper);
+        }, 1100);
+        setTimeout(_ => {
+            opaOne(sectionsMainWrapper);
+            opaOne(sections[current]);
+        }, 1150);
+
+
+        // display(sectionsMainWrapper);
+        // opaOne(sectionsMainWrapper);
+        // hide(sections[current]);
+        // display(sections[index]);
+        // opaOne(sections[index]);
+
+        // var siblings = getSiblings(sections[index]);
+        // siblings.forEach((element) => {
+        //     element.classList.remove('active');
+        // });
+        // changeHeaderInfo(index);
+        // current = index;
+        // sessionStorage.setItem('currentSlide', current);
+        // overlay.classList.add('nonActive');
+        // overlay.classList.remove('active');
+        // setTimeout(_ => {
+        //     overlay.style.display = 'none';
+        // }, 500);
+    });
+});
+
+
+//	Functionality for button that opens Navigation menu
+openNav.addEventListener('click', () => {
+    opaNone(sectionsMainWrapper);
+    setTimeout(_=> {
+        hide(sectionsMainWrapper);
+    }, 610)
+    setTimeout(_=> {
+        display(overlay);
+    }, 650)
+    setTimeout(_ => {
+        opaOne(overlay);
+        // (overlay.classList.contains('notActive') === true) ? overlay.classList.remove('Notactive') & overlay.classList.add('active'): overlay.classList.add('active');
+    }, 800);
+});
+
+//	Functionality for button that closes Navigation menu
+closeNav.addEventListener('click', () => {
+    opaNone(overlay);
+    setTimeout(_ => {
+        hide(overlay);
+    }, 610);
+    setTimeout(_ => {
+        display(sectionsMainWrapper);
+    }, 650);
+    setTimeout(_ => {
+        opaOne(sectionsMainWrapper);
+    }, 750);
+});
+
+// toggleAbout.addEventListener('click', _=> {
+//     opaNone(overlay);
+//     setTimeout(_=> {
+//         display(footer);
+//     }, 510);
+//     setTimeout(_=> {
+//         opaOne(footer);
+//     }, 550);
+// })
+
+btm.addEventListener('click', _=> {
+    opaNone(footer);
+    setTimeout(_=> {
+        hide(footer);
+    }, 510);
+    setTimeout(_=> {
+        opaOne(overlay);
+    }, 550);
+
+})
+
+
+
+/*______________________________________________________________________
+
+	Proprietary Code for
 	A S P I R A T I O N S 	S E C T I O N
 ________________________________________________________________________
 */
@@ -322,3 +457,94 @@ div#slides div.infoWrapper svg path.disabled {
 		width: 90%;
 	}
 }
+
+/*______________________________________________________________________
+
+	Proprietary Code for
+	E X P E R I E N C E S   	S E C T I O N
+________________________________________________________________________
+*/
+
+var setStoriesHeight_mobile = () => {
+    var const1 = controls.offsetHeight,
+        const2 = header.offsetHeight,
+        difference = const1 + const2,
+        height = 'calc(100vh - ' +difference+ 'px)';
+
+    mainWrapper.style.height = height;
+} 
+
+//Setting hover function for use
+hover(exploreStory_buttons, function() {
+    this.classList.add('active');
+}, function() {
+    this.classList.remove('active');
+});
+
+//Shows / Hides Story Launching button upon hovering on said section
+anExp.forEach((current, index) => {
+    current.addEventListener('mouseover', _ => {
+        opaOne(exploreStory_buttons[index]);
+    })
+    current.addEventListener('mouseout', _ => {
+        opaNone(exploreStory_buttons[index]);
+    })
+});
+
+// Functionality for buttons to launch their respective story
+exploreStory_buttons.forEach((el, index) => {
+    el.addEventListener('click', _ => {
+        anExp.forEach((el) => { el.style.opacity = 0; });
+        setTimeout(_ => {
+            anExp.forEach((el) => { el.style.display = 'none'; });
+        }, 1020);
+        setTimeout(_ => {
+            if (window.innerWidth < 768) {
+                setStoriesHeight_mobile();
+                mainWrapper.classList.add('storyActive');
+            };
+            if (window.innerWidth >= 768) {
+                mainWrapper.classList.add('storyActive_desktop');
+            }
+            story.style.backgroundImage = 'url(' + stories[index].bgImage + ')';
+            storyNumber.innerText = stories[index].number;
+            storyHeader.innerText = stories[index].title;
+            storyAbout.innerText = stories[index].about;
+        }, 1050);
+        setTimeout(_ => {
+            display(story);
+        }, 1100);
+        setTimeout(_ => {
+            opaOne(story);
+        }, 1120);
+    })
+});
+
+// Functionality for button to exit / close currently open story
+exitStory.addEventListener('click', _ => {
+    story.style.opacity = 0;
+    setTimeout(_ => {
+        hide(story);
+        if (window.innerWidth < 768) {
+            mainWrapper.classList.remove('storyActive');
+            mainWrapper.style.height = "auto";
+        };
+        if (window.innerWidth >= 768) {
+            mainWrapper.classList.remove('storyActive_desktop');
+        }
+        story.style.backgroundImage = '';
+        storyNumber.innerText = '';
+        storyHeader.innerText = '';
+        storyAbout.innerText = '';
+    }, 1020);
+    setTimeout(_ => {
+        anExp.forEach((el) => {
+            display(el);
+        })
+    }, 1050);
+    setTimeout(_ => {
+        anExp.forEach((el) => {
+            opaOne(el);
+        })
+    }, 1100);
+});

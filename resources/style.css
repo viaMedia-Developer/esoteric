@@ -6,9 +6,21 @@
 }
 
 @font-face {
-	src: url('fonts/Montserrat-Regular.otf');
+	src: url('fonts/Montserrat-Light.otf');
 	font-family: 'Montserrat';
 	font-weight: 400;
+}
+
+@font-face {
+	src: url('fonts/Montserrat-Regular_2.otf');
+	font-family: 'Montserrat';
+	font-weight: 450;
+}
+
+@font-face {
+	src: url('fonts/Montserrat-Regular.otf');
+	font-family: 'Montserrat';
+	font-weight: 500;
 }
 
 @font-face {
@@ -41,7 +53,7 @@ button.esoteric {
 	display: block;
 	font-family: 'Montserrat';
 	font-size: 1em;
-	font-weight: 400;
+	font-weight: 500;
 	color: black;
 	
 	background-color: white;
@@ -228,7 +240,7 @@ div#mainHeader {
 		top: 47%;
 		transform: translateY(-50%);
 		font-family: 'Montserrat';
-		font-weight: 300;
+		font-weight: 450;
 		font-size: 2em;
 		color: var(--tertiary-gray);
 	}
@@ -292,12 +304,12 @@ section#wrapper p#headerText {
 section.main {
 	display: none;
 	width: 90%;
-	// min-height: 100vh;
+	/*min-height: 100vh;*/
 	margin: 0 auto;
 	position: relative;
-	// top: 100px;
+	/*top: 100px;*/
 	padding-top: 200px;
-	// transition: ease-out .75s;
+	/* transition: ease-out .75s;*/
 	z-index: 1;
 	opacity: 0;
 }
@@ -349,6 +361,75 @@ section.main {
 			0% {opacity: 1; transform: translateY(0px);}
 			100% {opacity: 0; transform: translateY(40px);}
 		}
+
+
+	section.transitionLeft_d {
+		animation-name: transitionLeft_d;
+		animation-duration: .7s;
+		animation-fill-mode: forwards;
+		animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	}
+		@keyframes transitionLeft_d {
+			0% {opacity: 1; transform: translateX(0px);}
+			100% {opacity: 0; transform: translateX(-40px);}
+		}
+
+	section.transitionLeft_a {
+		animation-name: transitionLeft_a;
+		animation-duration: .7s;
+		animation-fill-mode: forwards;
+		animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	}
+		@keyframes transitionLeft_a {
+			0% {opacity: 0; transform: translateX(0px);}
+			100% {opacity: 1; transform: translateX(-40px);}
+		}
+
+	section.transitionRight_d {
+		animation-name: transitionRight_d;
+		animation-duration: .7s;
+		animation-fill-mode: forwards;
+		animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	}
+		@keyframes transitionRight_d {
+			0% {opacity: 1; transform: translateX(40px);}
+			100% {opacity: 0; transform: translateX(0px);}
+		}
+
+	section.transitionRight_a {
+		animation-name: transitionRight_a;
+		animation-duration: .7s;
+		animation-fill-mode: forwards;
+		animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	}
+		@keyframes transitionRight_a {
+			0% {opacity: 0; transform: translateX(40px);}
+			100% {opacity: 1; transform: translateX(0px);}
+		}
+
+	section.transitionToRight_d {
+		animation-name: transitionToRight_d;
+		animation-duration: .7s;
+		animation-fill-mode: forwards;
+		animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	}
+		@keyframes transitionToRight_d {
+			0% {opacity: 1; transform: translateX(0px);}
+			100% {opacity: 0; transform: translateX(40px);}
+		}
+
+	section.transitionToRight_a {
+		animation-name: transitionToRight_a;
+		animation-duration: .7s;
+		animation-fill-mode: forwards;
+		animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	}
+		@keyframes transitionToRight_a {
+			0% {opacity: 0; transform: translateX(-40px);}
+			100% {opacity: 1; transform: translateX(0px);}
+		}
+	
+
 
 
 @media screen and (max-width: 1024px) {
@@ -587,6 +668,11 @@ section#introduction div.second button#switchSection_two {
 }
 
 @media screen and (max-width: 440px) {
+
+		section#introduction div.second {
+			padding-top: 20px;	
+		}
+
 		div.second div.title {
 			margin-top: 60px;
 			margin-bottom: 80px;
@@ -645,226 +731,172 @@ section#introduction div.second button#switchSection_two {
 
 section#experiences {}
 
-section#experiences div.mainWrapper {
-	width: 85%;
-	float: left;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-section#experiences div.mainWrapper.storyActive_desktop {
-	height: 345px;
-}
-
-/*While Designing div.story*/
-/*section#experiences div.mainWrapper {
-	height: 345px;
-}*/
-
-section#experiences div.mainWrapper div.anExp {
-	display: inline-block;
-	/*display: none; temporary, so that I can design div.story*/
-	width: 50%;
-	margin-bottom: 5px;
+section#experiences div#listOfExps {
+	display: table;
+	margin: 0 auto;
 	position: relative;
-	float: left;
-	text-align: center;
-	font-family: 'Open Sans';
-	padding: 30px 0 50px;
-	transition: box-shadow ease-out 0.7s, opacity ease-out 1s;
-	cursor: initial;
 }
 
-section#experiences div.mainWrapper div.anExp:hover {
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
-}
+	section#experiences div#listOfExps div.anExp {
+		margin: 120px auto;
+		margin-left: 120px;
+		cursor: pointer;
+	}
 
-section#experiences div.mainWrapper div.anExp h3 {
-	display: inline-block;
-	margin: 10px auto 5px;
-	font-size: 1.25em;
-	font-weight: 300;
-	color: var(--main-blue);
-	border-bottom: 1px solid var(--main-blue);
-	padding-bottom: 2px;
-}
+	section#experiences div#listOfExps div.anExp:first-child {
+		margin-top: 60px;
+	}
 
-section#experiences div.mainWrapper div.anExp h1 {
-	margin: 5px auto 10px;
-	font-size: 1.25em;
-	color: var(--primary-gray);
-	font-weight: 300;
-}
+		section#experiences div#listOfExps div.anExp h3 {
+			margin: 0;
+			font-family: 'Open Sans';
+			font-weight: 300;
+			font-size: 1.25em;
+			color: rgba(72, 72, 72, 0.5);
+		}
 
-section#experiences div.mainWrapper div.anExp button {
-	position: absolute;
-    top: 125px;
-    transform: translateX(-50%);	
-	
-	font-family: 'Open Sans';
-	font-weight: 300;
-	font-size: 0.9em;
-    color: var(--main-blue);
-    border: none;
-	background-color: white;
-	padding-bottom: 5px;
-	transition: all ease-out 0.3s;
-	opacity: 0;
-}
+		section#experiences div#listOfExps div.anExp h1 {
+			margin: 0;
+			font-family: 'Montserrat';
+			font-weight: 400;
+			font-size: 2em;
+			color: black;
+		}
 
-section#experiences div.mainWrapper div.anExp button:focus {
-	color: white;
-	background-color: var(--main-blue);
-}
-
-section#experiences div.mainWrapper div.anExp button:before {
-	height: 1px;
-	position: absolute;
-	left: 100%;
-	right: 0;
-	bottom: 0;
-	background-color: var(--main-blue);
-	transition: left ease-out 0.3s;
-	content: "";
-}
-
-section#experiences div.mainWrapper div.anExp button.active:before {
-	left: 0;
-}
+		section#experiences div#listOfExps div.anExp p {
+			margin: 0;
+			margin-top: 2px;
+			font-family: 'Open Sans';
+			font-weight: 300;
+			font-size: 1em;
+			color: rgba(72, 72, 72, 0.5);
+		}
 
 
-section#experiences div.mainWrapper div.story {
+
+
+section#experiences div#expExp {
 	display: none;
 	width: 100%;
-	height: 100%;
 	position: relative;
-	background-size: cover;
-	background-position: center center;
-	background-repeat: no-repeat;
-	transition: opacity ease-out 1s;
-	opacity: 0;
-}
+	overflow: hidden;
+	padding-top: 40px;
+} 
 
-section#experiences div.mainWrapper div.story div.fade {
-	width: 100%;
-	height: 100%;
-	background-color: rgba(255, 255, 255, 0.4);
-	z-index: 2;
-}
+	section#experiences div#expExp div.image {
+		display: inline-block;
+		width: 49%;
+		height: 300px;
+		float: right;
 
-section#experiences div.mainWrapper div.story div.aboutStory {
-	width: 90%;
-	margin: 0;
-	margin-bottom: 20px;
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	transform: translateX(-50%);
-	font-family: 'Open Sans';
-	background-color: rgba(255, 255, 255, 0.8);
-	z-index: 3;
-}
+		background-image: url('images/charlesForerunner.jpg');
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+	}
 
+	section#experiences div#expExp article {
+		display: inline-block;
+		width: 49%;
+		float: left;
+	}
 
-section#experiences div.mainWrapper div.story div.aboutStory h1 {
-	margin: 20px 0 5px 10px;
-	font-size: 1.75em;
-	font-weight: 300;
-	color: #000000;
-	padding: 3px 0;
-}
+		section#experiences div#expExp article h3 {
+			margin: 0;
+			font-family: 'Open Sans';
+			font-weight: 300;
+			font-size: 1.25em;
+			color: rgba(72, 72, 72, 0.5);
+		}
+		section#experiences div#expExp article h1 {
+			margin: 0;
+			font-family: 'Montserrat';
+			font-weight: 400;
+			font-size: 2em;
+			color: black;
+		}
+		section#experiences div#expExp article p  {
+			width: 90%;
+			margin: 0;
+			margin-top: 20px;
+			font-family: 'Open Sans';
+			font-weight: 300;
+			font-size: 0.85em;
+			line-height: 24px;
+			color: #707070;
+		}
 
-section#experiences div.mainWrapper div.story div.aboutStory h1 #number {
-	color: var(--main-blue);
-	border-right: 2px solid var(--main-blue);
-	padding-right: 10px;
-}
-
-section#experiences div.mainWrapper div.story div.aboutStory h1 #title {
-	padding-left: 10px;
-}
-
-section#experiences div.mainWrapper div.story div.aboutStory p {
-	width: 75%;
-	margin: 0 0 20px 70px;
-	font-size: 1em;
-	font-weight: 300;
-	line-height: 24px;
-	color: var(--primary-gray);
-}
-
-section#experiences div.mainWrapper div.story div.aboutStory svg {
-	margin: 10px 10px 0 0;
-	position: absolute;
-	top: 0;
-	right: 0;
-	transition: fill ease-out 0.3s;
-}
-
-section#experiences div.mainWrapper div.story div.aboutStory svg:hover {
-	fill: var(--cancel-orange);
-}
+	section#experiences div#expExp #backToList {
+		margin: 420px auto 60px;
+	}
 
 
+@media screen and (max-width: 1024px) {
+	section#experiences div#expExp {
+		padding-top: 0;
+	}
+
+	section#experiences div#expExp article,
+	section#experiences div#expExp div.image {
+		display: block;
+		float: none;
+	}
+
+	section#experiences div#expExp div.image {
+		width: 90%;
+		margin-bottom: 40px;
+	}
+
+	section#experiences div#expExp article {
+		width: 90%;
+		margin: 0 auto 60px;
+	}
+} 
 
 @media screen and (max-width: 440px) {
-	section#experiences div.mainWrapper {
-		width: 100%;
-		margin: 90px auto;
-		top: 0;
-		transform: translateX(-50%);
+	section#experiences div#expExp div.image {
+		height: 180px;
 	}
 
-	section#experiences div.mainWrapper.storyActive {
-		margin-top: -10px;
-		margin-bottom: 0;
-		top: 50%;
-		transform: translate(-50%, -50%);
-	}	
-
-	section#experiences div.mainWrapper div.story div.aboutStory {
-		display: table;
-		margin-bottom: 0;
-		top: 50%;
-    	transform: translate(-50%, -50%);
-	}
-
-	section#experiences div.mainWrapper div.story div.aboutStory svg {
-		margin: 20px 0;
-    	left: 50%;
-    	transform: translateX(-50%);
-	}
-
-	section#experiences div.mainWrapper div.story div.aboutStory h1 {
-		max-width: 300px;
-		margin-top: 100px;
-		font-size: 1.5em;
-	}
-
-	section#experiences div.mainWrapper div.story div.aboutStory h1 #number {
-		display: table;
-    	float: left;
-    	height: 64px;
-    	margin-right: 10px;
-	}
-
-	section#experiences div.mainWrapper div.story div.aboutStory h1 #title {
-		padding-left: 0px;
-	}
-
-	section#experiences div.mainWrapper div.story div.aboutStory p {
+	section#experiences div#listOfExps div.anExp {
+		margin: 120px auto;
 		margin-left: 60px;
 	}
 
-	section#experiences div.mainWrapper div.anExp {
-		display: table;
-		width: 80%;
-    	margin: 5px auto;
-    	float: none;
+	section#experiences div#listOfExps div.anExp h3 {
+		font-size: 1em;
+	}
+
+	section#experiences div#listOfExps div.anExp h1 {
+		font-size: 1.8em;
+	}
+
+	section#experiences div#listOfExps div.anExp p {
+		width: 90%;
+		margin-top: 5px;
+		font-size: 0.8em;
+		line-height: 20px;
+	}
+
+	section#experiences div#expExp article p  {
+		font-size: 0.8em;
+	}
+
+	section#experiences div#expExp #backToList {
+		margin: 60px auto 60px;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
