@@ -46,7 +46,18 @@ var body = document.getElementsByTagName('body')[0],
     expExp = document.getElementById('expExp'),
     expExp_h1 = document.querySelector('#expExp article h1'),
     expExp_h3 = document.querySelector('#expExp article h3'),
+    expExp_image = document.querySelector('#expExp .image'),
     backToList = document.getElementById('backToList'),
+
+    listOfRecollections = document.getElementsByClassName('listOfRecollections')[0],
+    anEntry = document.querySelectorAll('.entry'),
+    entryTitle = document.getElementsByClassName('entryTitle'),
+    // _entryTitle = Array.from(entryTitle),
+    entryDate = document.getElementsByClassName('entryDate'),
+    recollection_article = document.querySelector('#recollections article'),
+    recollectionTitle = document.querySelector('#aRecollection h1'),
+    recollectionDate = document.querySelector('#aRecollection h3'),
+    backToRecollections = document.getElementById('backToRecollections'),
 
     upNdown = document.getElementById('upNdown'),
     arrowUp = document.querySelectorAll('#upNdown #arrowUp path')[1],
@@ -100,23 +111,28 @@ var
     expInfo = [
         {
             number: '01.',
-            title: 'City Ventures'
+            title: 'City Ventures',
+            img: "url('resources/images/charlesForerunner.jpg')"
         },
         {
             number: '02.',
-            title: 'Appalachian Life'
+            title: 'Appalachian Life',
+            img: "url('resources/images/emmaFrancesLogan_appalachian_nbnw.jpg')"
         },
         {
             number: '03.',
-            title: 'Travel Europe'
+            title: 'Travel Europe',
+            img: "url('resources/images/louisPellissier_eiffelTower.jpg')"
         },
         {
             number: '04.',
-            title: 'Far and Wide'
+            title: 'Far and Wide',
+            img: "url('resources/images/dariuszSankowski_map_bnw.jpg')"
         },
         {
             number: '05.',
-            title: 'MaukaMakai'
+            title: 'MaukaMakai',
+            img: "url('resources/images/christianJoudrey_hawaii_bnw.jpg')"
         },
     ]
     stories = [
@@ -570,6 +586,7 @@ anExp.forEach((current, index) => {
     current.addEventListener('click', _=> {
         expExp_h3.innerText = expInfo[index].number;
         expExp_h1.innerText = expInfo[index].title;
+        expExp_image.style.backgroundImage = expInfo[index].img;
         sections[1].classList.add('transitionLeft_d');
         opaNone(headerText);
         setTimeout(_=> {
@@ -625,93 +642,84 @@ backToList.addEventListener('click', _=> {
 
 
 
+
+
+
+
+
+
+
+
+
+
 /*______________________________________________________________________
 
-	Proprietary Code for
-	R E C O L L E C T I O N S   	S E C T I O N
+    Proprietary Code for
+    R E C O L L E C T I O N S       S E C T I O N
 ________________________________________________________________________
 */
 
+anEntry.forEach((current, index, array) => {
+    current.addEventListener('click', _=> {
+        recollectionTitle.innerText = entryTitle[index].innerText;
+        recollectionDate.innerText = entryDate[index].innerText;
 
-/* 
-	Tracks user's scrolling of element
-	shows / hides arrows based on scroll scroll
-	relative to / from top and bottom 
-*/
-entries.addEventListener('scroll', function() {
-    var scrollAmount = this.scrollTop,
-        max = (this.scrollHeight - this.clientHeight) - 150;
+        sections[2].classList.add('transitionLeft_d');
+        opaNone(headerText);
+        setTimeout(_=> {
+            hide(listOfRecollections);
+            sections[2].classList.remove('transitionLeft_d');
+            sections[2].style.transform = 'translateX(40px)';
+            opaNone(sections[2]);
+        }, 800)
+        setTimeout(_=> {
+            display(recollection_article);
+        }, 900);
+        setTimeout(_=> {
+            sections[2].classList.add('transitionRight_a');
+        }, 1000);
+        setTimeout(_=> {
+            sections[2].classList.remove('transitionRight_a');
+            sections[2].style.transform = 'translateX(0px)';
+            opaOne(sections[2]);
+        }, 1800);
+    })  
+})
 
-    // console.log(this.scrollHeight);
-    // console.log(scrollAmount);
-    if (scrollAmount <= 150) {
-        arrowUp.style.stroke = 'rgba(255, 255, 255, 1)';
-    }
-    if (scrollAmount > 100) {
-        arrowUp.style.stroke = '#ADD9F4';
-    }
-    if (scrollAmount >= max) {
-        arrowDown.style.stroke = 'rgba(255, 255, 255, 1)';
-    }
-    if (scrollAmount > 0 && scrollAmount < max) {
-        arrowUp.style.stroke = '#ADD9F4';
-        arrowDown.style.stroke = '#ADD9F4';
-    }
-});
-
-/* 
-	Takes entry title and date from list items, entries,
-	injects them into main article's h1 and h3 
-	and opens main article body
-*/
-launchEntry.forEach((current, index) => {
-    current.addEventListener('click', _ => {
-        articleTitle.innerText = entryHeader[index].innerText;
-        articleDate.innerText = entryDate[index].innerText;
-        setTimeout(_ => {
-            opaNone(upNdown);
-            opaNone(entryWrapper);
-        }, 400)
-        setTimeout(_ => {
-            hide(upNdown);
-            hide(entryWrapper);
-        }, 950)
-        setTimeout(_ => {
-            display(articleBody);
-            //articleWrapper.style.paddingRight = articleWrapper.offsetWidth - articleWrapper.clientWidth + "px";
-        }, 1050)
-        setTimeout(_ => {
-            opaOne(articleBody);
-        }, 1150)
-    });
-});
+backToRecollections.addEventListener('click', _=> {
+    sections[2].classList.add('transitionToRight_d');
+    setTimeout(_=> {
+        hide(recollection_article);
+        sections[2].classList.remove('transitionToRight_d');
+        sections[2].style.transform = 'translateX(-40px)';
+        opaNone(sections[2]);
+    }, 800)
+    setTimeout(_=> {
+        display(listOfRecollections);
+    }, 900);
+    setTimeout(_=> {
+        sections[2].classList.add('transitionToRight_a');
+        opaOne(headerText);
+    }, 1000);
+    setTimeout(_=> {
+        sections[2].classList.remove('transitionToRight_a');
+        sections[2].style.transform = 'translateX(0px)';
+        opaOne(sections[2]);
+    }, 1800);
+})
 
 
-// Closes article body, redisplays entries
-closeArticle.addEventListener('click', _ => {
-    articleBody.style.opacity = 0;
-    setTimeout(_ => {
-        opaNone(articleBody);
-    }, 550)
-    setTimeout(_ => {
-        display(upNdown);
-        display(entryWrapper);
-    }, 600)
-    setTimeout(_ => {
-        opaOne(upNdown);
-        opaOne(entryWrapper);
-    }, 650)
-});
 
 
-// Button to toggle menu open + Button to close menu
-toggleMenu.addEventListener('click', _ => {
-    articleMenu.classList.add('active');
-});
 
-closeMenu.addEventListener('click', _ => {
-    articleMenu.classList.remove('active');
-});
+
+
+
+
+
+
+
+
 
 
 

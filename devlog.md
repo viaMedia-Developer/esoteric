@@ -1,3 +1,21 @@
+
+###### Commit Entry 
+{
+	Date 2.15.2018
+	Commit: 15th Commit
+	Project Verion: v1.4
+}
++ Begun Design Changes to 'Recollections' Section
++ Added Different images for each story in 'Experiences' section
++ More dilapitated Scripts and CSS
++ Finished work on Recollections Sections
+- Been gone from this project for a while: about a whole month! But I'm back now
+
+
+##### Dev Notes @ 1.14.18
++ Have body overflow set to 'scroll' when experiences section is up
+
+
 ###### Commit Entry 
 {
 	Date 1.13.2018

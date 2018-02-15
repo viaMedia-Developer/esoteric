@@ -548,3 +548,96 @@ exitStory.addEventListener('click', _ => {
         })
     }, 1100);
 });
+
+
+
+
+
+
+/*______________________________________________________________________
+
+	Proprietary Code for
+	R E C O L L E C T I O N S   	S E C T I O N
+________________________________________________________________________
+*/
+
+
+/* 
+	Tracks user's scrolling of element
+	shows / hides arrows based on scroll scroll
+	relative to / from top and bottom 
+*/
+entries.addEventListener('scroll', function() {
+    var scrollAmount = this.scrollTop,
+        max = (this.scrollHeight - this.clientHeight) - 150;
+
+    // console.log(this.scrollHeight);
+    // console.log(scrollAmount);
+    if (scrollAmount <= 150) {
+        arrowUp.style.stroke = 'rgba(255, 255, 255, 1)';
+    }
+    if (scrollAmount > 100) {
+        arrowUp.style.stroke = '#ADD9F4';
+    }
+    if (scrollAmount >= max) {
+        arrowDown.style.stroke = 'rgba(255, 255, 255, 1)';
+    }
+    if (scrollAmount > 0 && scrollAmount < max) {
+        arrowUp.style.stroke = '#ADD9F4';
+        arrowDown.style.stroke = '#ADD9F4';
+    }
+});
+
+/* 
+	Takes entry title and date from list items, entries,
+	injects them into main article's h1 and h3 
+	and opens main article body
+*/
+launchEntry.forEach((current, index) => {
+    current.addEventListener('click', _ => {
+        articleTitle.innerText = entryHeader[index].innerText;
+        articleDate.innerText = entryDate[index].innerText;
+        setTimeout(_ => {
+            opaNone(upNdown);
+            opaNone(entryWrapper);
+        }, 400)
+        setTimeout(_ => {
+            hide(upNdown);
+            hide(entryWrapper);
+        }, 950)
+        setTimeout(_ => {
+            display(articleBody);
+            //articleWrapper.style.paddingRight = articleWrapper.offsetWidth - articleWrapper.clientWidth + "px";
+        }, 1050)
+        setTimeout(_ => {
+            opaOne(articleBody);
+        }, 1150)
+    });
+});
+
+
+// Closes article body, redisplays entries
+closeArticle.addEventListener('click', _ => {
+    articleBody.style.opacity = 0;
+    setTimeout(_ => {
+        opaNone(articleBody);
+    }, 550)
+    setTimeout(_ => {
+        display(upNdown);
+        display(entryWrapper);
+    }, 600)
+    setTimeout(_ => {
+        opaOne(upNdown);
+        opaOne(entryWrapper);
+    }, 650)
+});
+
+
+// Button to toggle menu open + Button to close menu
+toggleMenu.addEventListener('click', _ => {
+    articleMenu.classList.add('active');
+});
+
+closeMenu.addEventListener('click', _ => {
+    articleMenu.classList.remove('active');
+});
