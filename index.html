@@ -241,34 +241,26 @@
 		</section>
 
 		<section class="main" id="connections">
-			<h1>Send Me a Message
-			<br>I Would Love to Hear Your Stunning Ideas</h1>
 			
-			<div id="formWrapper">
-				<form>
-					<input type="text" class="input" placeholder="First, Enter Your Name">
+			<button class="esoteric" id="initiateInputs">Send Me a Message</button>
 
-					<input type="email" class="input" placeholder="Second, An Email Address Please">
+			<form id="inputForm">
+				<input type="text" class="input" placeholder="Enter Your First Name">
+				<input type="email" class="input" placeholder="Enter Your Email Address">
+				<input type="text" class="input" placeholder="Purpose of Inquiry?">
+				<textarea name="message" class="input" rows="5" placeholder="Enter Your Message"></textarea>
+				<p id="messageSent">Message Sent</p>
+				<p id="inputHelp">Press Enter to Move to the Next Section</p>
 
-					<input type="text" class="input" placeholder="With a Company? If So, Say So. If No, Just Press Enter">
+			</form>
 
-					<textarea name="message" class="input" rows="5" placeholder=" Write here what you wish to send my way (Press Enter Twice to Submit)"></textarea>
+			<ul id="socials">
+				<li class="socialLinks">Fb</li>
+				<li class="socialLinks">Tw</li>
+				<li class="socialLinks">In</li>
+				<li class="socialLinks">Db</li>
+			</ul>
 
-					<p class="message"> Message Delievered !</p>
-				</form>
-			</div>
-
-			<div id="socialMedia">
-				<ul>
-					<li><a href="#">Fb</a></li>
-					<li><a href="#">Tw</a></li>
-					<li><a href="#">In</a></li>
-					<li><a href="#">Rd</a></li>
-					<li><a href="#">Ln</a></li>
-					<li><a href="#">Db</a></li>
-				</ul>
-				<p id="whatIdoThere">Placeholder text: For the Masses, for the Wins!</p>
-			</div>
 		</section>
 	</div>
 	
@@ -359,10 +351,7 @@
 		hide(landing);
 		display(sectionsMainWrapper);
 		opaOne(sectionsMainWrapper);
-		initialLoad(2);
-		// hide(listOfExps);
-		display(listOfRecollections);
-		hide(recollection_article);
+		initialLoad(3); 
 	</script>
 </body>
 </html>

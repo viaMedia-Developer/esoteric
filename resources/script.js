@@ -52,12 +52,19 @@ var body = document.getElementsByTagName('body')[0],
     listOfRecollections = document.getElementsByClassName('listOfRecollections')[0],
     anEntry = document.querySelectorAll('.entry'),
     entryTitle = document.getElementsByClassName('entryTitle'),
-    // _entryTitle = Array.from(entryTitle),
     entryDate = document.getElementsByClassName('entryDate'),
     recollection_article = document.querySelector('#recollections article'),
     recollectionTitle = document.querySelector('#aRecollection h1'),
     recollectionDate = document.querySelector('#aRecollection h3'),
     backToRecollections = document.getElementById('backToRecollections'),
+
+    // Connections Section Vars.
+    initiateInputs = document.getElementById('initiateInputs'),
+    inputForm = document.getElementById('inputForm'),
+    inputs = document.getElementsByClassName('input'),
+    messageSent = document.getElementById('messageSent'),
+    inputHelp = document.getElementById('inputHelp'),
+    
 
     upNdown = document.getElementById('upNdown'),
     arrowUp = document.querySelectorAll('#upNdown #arrowUp path')[1],
@@ -105,7 +112,7 @@ var
 		},
         {
             title: 'Connections',
-            description: 'Shoot me a message and ways to connect with me online, along with what I do there'
+            description: 'Various Methods of Communicating With Me '
 		}
 	],
     expInfo = [
@@ -731,84 +738,17 @@ backToRecollections.addEventListener('click', _=> {
 ________________________________________________________________________
 */
 
-//Setting the first input to display + be visible
-display(inputs[0]);
-opaOne(inputs[0]);
 
 
-// Displays next input area after user has pressed 'enter' on keyboard
-inputs.forEach((current, index) => {
 
-    current.addEventListener('keydown', function(event) {
-        if (event.which === 13) {
-            console.log(index === 3);
-            // After last input, displays the 'Message Delievered' .... message
-            if (index == 3) {
-                inputs[3].addEventListener('keydown', function(event) {
-                    if (event.which === 13) {
-                        opaNone(inputs[3]);
-                        setTimeout(_ => {
-                            hide(inputs[3]);
-                        }, 520)
-                        setTimeout(_ => {
-                            display(message);
-                        }, 530)
-                        setTimeout(_ => {
-                            opaOne(message);
-                        }, 550)
-                    }
-                })
-            } else {
-                opaNone(current);
-                setTimeout(_ => {
-                    hide(current);
-                }, 520);
-                setTimeout(_ => {
-                    display(inputs[index + 1]);
-                    //inputs[index + 1].style.display = 'block';
-                }, 530);
-                setTimeout(_ => {
-                    opaOne(inputs[index + 1]);
-                    //inputs[index + 1].style.opacity = '1';
-                }, 550);
-            }
-        }
-    })
-});
 
-// For social media links onHover and onClick animations and functionality
-socialLinks.forEach((current, index, array) => {
 
-    current.addEventListener('mouseover', _ => {
-        current.classList.add('active');
 
-        //gets siblings of current, all other elements in array other than current
-        var siblings = [];
-        for (let i = 0; i < array.length; i++) {
-            siblings.push(socialLinks[i]);
-            if (i == index) {
-                var thePos = i;
-                siblings.splice(thePos, 1);
-            }
-        }
 
-        siblings.forEach((el) => { el.classList.remove('active'); })
 
-        whatIdoThere.innerText = captions[index];
-        setTimeout(_ => {
-            opaOne(whatIdoThere);
-        }, 50)
-    })
-    current.addEventListener('click', _ => {
-        current.style.backgroundColor = 'var(--main-blue)';
-        current.style.color = '#ffffff';
-        setTimeout(_ => {
-            current.style.backgroundColor = 'transparent';
-            current.style.color = 'var(--secondary-gray)';
-            current.style.borderBottomColor = "rgba(0, 0, 0, 0)";
-        }, 550)
-    });
-});
+
+
+
 
 
 

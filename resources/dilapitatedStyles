@@ -1026,3 +1026,215 @@ section#recollections article p {
     	transform: scale(0.85);
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*______________________________________________________________________
+	Connections Area 
+________________________________________________________________________
+*/
+
+section#connections {}
+
+section#connections h1 {
+	margin: 0 0 30px 20px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	font-size: 1.25em;
+	color: var(--primary-gray);
+
+	padding-top: 100px;
+}
+
+section#connections div#formWrapper {
+	width: 60%;
+	/*height: ;*/
+	margin: 30px 0 60px 17px;
+	overflow-x: hidden;
+}
+
+section#connections form {
+	width: 100%;
+	margin: 0;
+	position: relative;
+	padding: 2px 0;
+	list-style-type: none;
+}
+
+
+section#connections form input {
+	display: inline-block;
+	width: 98%;
+	height: 50px;
+	margin: 5px auto;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 1em;
+	color: var(--main-blue);
+	background-color: var(--tertiary-gray);
+	border-radius: 2px;
+	border: 2px solid transparent;
+	transition: all ease-out 0.5s;
+}
+
+section#connections form .input {
+	display: none;
+	opacity: 0;
+	transition: all ease-out 0.5s;
+}
+
+section#connections form input:focus {
+	outline: none;
+	border-color: var(--main-blue)
+}
+
+section#connections form input::placeholder {
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 1em;
+	color: #B8B8B8
+}
+
+section#connections form textarea {
+	display: inline-block;
+	width: 98%;
+	margin: 5px auto;
+	text-align: left;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 0.9em;
+	color: #B8B8B8;
+	background-color: var(--tertiary-gray);
+	border: 1px solid transparent;
+	box-sizing: border-box;
+    padding: 7px;
+    transition: all ease-out 0.5s;
+}
+
+section#connections form textarea::placeholder {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 1em;
+	color: #B8B8B8
+}
+
+section#connections form textarea:focus {
+	outline: none;
+	border-color: var(--main-blue)
+}
+
+section#connections form p.message {
+	display: none;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 1.25em;
+	color: var(--main-blue);
+	transition: all ease-out 0.5s;
+	opacity: 0;
+}
+
+section#connections div#socialMedia {
+	display: table;
+	position: relative;
+	margin-left: 20px;
+}
+
+section#connections div#socialMedia ul {
+	display: table;
+	/*width: 100%;*/
+	margin: 0;
+	padding: 0;
+	border-bottom: 1px solid var(--secondary-gray);
+}
+
+section#connections div#socialMedia ul li {
+	display: inline-block;
+	margin: 0 10px;
+	padding: 10px 0px;
+}
+
+section#connections div#socialMedia ul li a {
+	text-decoration: none;
+	font-family: 'Proxima Nova';
+	font-size: 1.25em;
+	color: var(--secondary-gray);
+	border-bottom: 4px solid;
+	border-bottom-color: rgba(0, 0, 0, 0);
+	padding: 10px 10px 8px;
+	transition: all ease-out 0.5s;
+}
+
+section#connections div#socialMedia ul li a:hover {
+	/*color: var(--main-blue) !important;*/
+	border-bottom-color: var(--main-blue) !important;
+}
+
+section#connections div#socialMedia ul li a.active {
+	color: var(--main-blue);
+	border-bottom-color: var(--main-blue);
+}
+
+section#connections div#socialMedia ul li a:focus {
+
+}
+
+section#connections div#socialMedia p#whatIdoThere {
+	margin: 10px auto;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 1em;
+	color: var(--main-blue);
+	transition: opacity ease-out 0.5s;
+	opacity: 0;
+}
+
+
+
+
+@media screen and (max-width: 440px) {
+	section#connections h1 {
+		width: 90%;
+		margin: 0 auto 30px;
+		text-align: center;
+		padding-top: 140px;
+	}
+
+	section#connections div#formWrapper {
+		width: 90%;
+		margin: 40px auto 60px;
+	}
+
+	section#connections div#socialMedia {
+		margin: 0 auto;
+	}
+
+	section#connections div#socialMedia ul {
+		margin: 0 auto;
+	}
+
+	section#connections div#socialMedia ul li {
+		margin: 0 7px;
+	}
+}

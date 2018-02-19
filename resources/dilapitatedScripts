@@ -641,3 +641,320 @@ toggleMenu.addEventListener('click', _ => {
 closeMenu.addEventListener('click', _ => {
     articleMenu.classList.remove('active');
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*______________________________________________________________________
+
+    Connections Area 
+________________________________________________________________________
+*/
+
+section#connections {}
+
+section#connections h1 {
+    margin: 0 0 30px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 1.25em;
+    color: var(--primary-gray);
+
+    padding-top: 100px;
+}
+
+section#connections div#formWrapper {
+    width: 60%;
+    /*height: ;*/
+    margin: 30px 0 60px 17px;
+    overflow-x: hidden;
+}
+
+section#connections form {
+    width: 100%;
+    margin: 0;
+    position: relative;
+    padding: 2px 0;
+    list-style-type: none;
+}
+
+
+section#connections form input {
+    display: inline-block;
+    width: 98%;
+    height: 50px;
+    margin: 5px auto;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1em;
+    color: var(--main-blue);
+    background-color: var(--tertiary-gray);
+    border-radius: 2px;
+    border: 2px solid transparent;
+    transition: all ease-out 0.5s;
+}
+
+section#connections form .input {
+    display: none;
+    opacity: 0;
+    transition: all ease-out 0.5s;
+}
+
+section#connections form input:focus {
+    outline: none;
+    border-color: var(--main-blue)
+}
+
+section#connections form input::placeholder {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1em;
+    color: #B8B8B8
+}
+
+section#connections form textarea {
+    display: inline-block;
+    width: 98%;
+    margin: 5px auto;
+    text-align: left;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 0.9em;
+    color: #B8B8B8;
+    background-color: var(--tertiary-gray);
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    padding: 7px;
+    transition: all ease-out 0.5s;
+}
+
+section#connections form textarea::placeholder {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1em;
+    color: #B8B8B8
+}
+
+section#connections form textarea:focus {
+    outline: none;
+    border-color: var(--main-blue)
+}
+
+section#connections form p.message {
+    display: none;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.25em;
+    color: var(--main-blue);
+    transition: all ease-out 0.5s;
+    opacity: 0;
+}
+
+section#connections div#socialMedia {
+    display: table;
+    position: relative;
+    margin-left: 20px;
+}
+
+section#connections div#socialMedia ul {
+    display: table;
+    /*width: 100%;*/
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid var(--secondary-gray);
+}
+
+section#connections div#socialMedia ul li {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px 0px;
+}
+
+section#connections div#socialMedia ul li a {
+    text-decoration: none;
+    font-family: 'Proxima Nova';
+    font-size: 1.25em;
+    color: var(--secondary-gray);
+    border-bottom: 4px solid;
+    border-bottom-color: rgba(0, 0, 0, 0);
+    padding: 10px 10px 8px;
+    transition: all ease-out 0.5s;
+}
+
+section#connections div#socialMedia ul li a:hover {
+    /*color: var(--main-blue) !important;*/
+    border-bottom-color: var(--main-blue) !important;
+}
+
+section#connections div#socialMedia ul li a.active {
+    color: var(--main-blue);
+    border-bottom-color: var(--main-blue);
+}
+
+section#connections div#socialMedia ul li a:focus {
+
+}
+
+section#connections div#socialMedia p#whatIdoThere {
+    margin: 10px auto;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1em;
+    color: var(--main-blue);
+    transition: opacity ease-out 0.5s;
+    opacity: 0;
+}
+
+
+
+
+@media screen and (max-width: 440px) {
+    section#connections h1 {
+        width: 90%;
+        margin: 0 auto 30px;
+        text-align: center;
+        padding-top: 140px;
+    }
+
+    section#connections div#formWrapper {
+        width: 90%;
+        margin: 40px auto 60px;
+    }
+
+    section#connections div#socialMedia {
+        margin: 0 auto;
+    }
+
+    section#connections div#socialMedia ul {
+        margin: 0 auto;
+    }
+
+    section#connections div#socialMedia ul li {
+        margin: 0 7px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*______________________________________________________________________
+
+    Proprietary Code for
+    C O N N E C T I O N S       S E C T I O N
+________________________________________________________________________
+*/
+
+//Setting the first input to display + be visible
+display(inputs[0]);
+opaOne(inputs[0]);
+
+
+// Displays next input area after user has pressed 'enter' on keyboard
+inputs.forEach((current, index) => {
+
+    current.addEventListener('keydown', function(event) {
+        if (event.which === 13) {
+            console.log(index === 3);
+            // After last input, displays the 'Message Delievered' .... message
+            if (index == 3) {
+                inputs[3].addEventListener('keydown', function(event) {
+                    if (event.which === 13) {
+                        opaNone(inputs[3]);
+                        setTimeout(_ => {
+                            hide(inputs[3]);
+                        }, 520)
+                        setTimeout(_ => {
+                            display(message);
+                        }, 530)
+                        setTimeout(_ => {
+                            opaOne(message);
+                        }, 550)
+                    }
+                })
+            } else {
+                opaNone(current);
+                setTimeout(_ => {
+                    hide(current);
+                }, 520);
+                setTimeout(_ => {
+                    display(inputs[index + 1]);
+                    //inputs[index + 1].style.display = 'block';
+                }, 530);
+                setTimeout(_ => {
+                    opaOne(inputs[index + 1]);
+                    //inputs[index + 1].style.opacity = '1';
+                }, 550);
+            }
+        }
+    })
+});
+
+// For social media links onHover and onClick animations and functionality
+socialLinks.forEach((current, index, array) => {
+
+    current.addEventListener('mouseover', _ => {
+        current.classList.add('active');
+
+        //gets siblings of current, all other elements in array other than current
+        var siblings = [];
+        for (let i = 0; i < array.length; i++) {
+            siblings.push(socialLinks[i]);
+            if (i == index) {
+                var thePos = i;
+                siblings.splice(thePos, 1);
+            }
+        }
+
+        siblings.forEach((el) => { el.classList.remove('active'); })
+
+        whatIdoThere.innerText = captions[index];
+        setTimeout(_ => {
+            opaOne(whatIdoThere);
+        }, 50)
+    })
+    current.addEventListener('click', _ => {
+        current.style.backgroundColor = 'var(--main-blue)';
+        current.style.color = '#ffffff';
+        setTimeout(_ => {
+            current.style.backgroundColor = 'transparent';
+            current.style.color = 'var(--secondary-gray)';
+            current.style.borderBottomColor = "rgba(0, 0, 0, 0)";
+        }, 550)
+    });
+});

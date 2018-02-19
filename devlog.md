@@ -1,3 +1,15 @@
+###### Commit Entry 
+{
+	Date: 2.18.2018
+	Commit: 16th Commit
+	Project Version: v1.5
+}
++ Old styles for 'Connections' section added to Dilapitated css file
++ Editted JS in HTML file to reflect site updates
++ Styling completed for all elements within the Connections section
+
+
+
 
 ###### Commit Entry 
 {
