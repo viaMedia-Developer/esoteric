@@ -738,7 +738,94 @@ backToRecollections.addEventListener('click', _=> {
 ________________________________________________________________________
 */
 
+initiateInputs.addEventListener('click', function() {
+    var _this = this;
+    this.style.color = 'white';
+    this.style.borderColor = 'white';
+    setTimeout(_=> {
+        hide(_this);
+    }, 300);
+    setTimeout(_=> {
+        display(inputForm);
+    }, 400);
+    setTimeout(_=> {
+        opaOne(inputForm);
+    }, 500);
+})
 
+//Setting the first input to display + be visible
+display(inputs[0]);
+opaOne(inputs[0]);
+
+
+// Displays next input area after user has pressed 'enter' on keyboard
+inputs.forEach((current, index) => {
+
+    current.addEventListener('keydown', function(event) {
+        if (event.which === 13) {
+
+            // After last input, displays the 'Message Delievered' .... message
+            if(index == 3) {
+                inputs[3].addEventListener('keydown', function(event) {
+                    if (event.which === 13) {
+                        opaNone(inputs[3]);
+                        opaNone(inputHelp);
+                        setTimeout(_ => {
+                            hide(inputs[3]);
+                        }, 520)
+                        setTimeout(_ => {
+                            display(messageSent);
+                        }, 530)
+                        setTimeout(_ => {
+                            opaOne(messageSent);
+                        }, 550)
+                        setTimeout(_ => {
+                            hide(inputHelp);
+                        }, 1050)
+                    }
+                })
+            }
+
+
+            // Moves the inputHelp downwards then transitions to the next input
+            else if(index == 2) {
+                inputs[2].addEventListener('keydown', function(event) {
+                    if (event.which === 13) {
+                        console.log('enter key pressed for 3rd input');
+                        opaNone(inputs[2]);
+                        setTimeout(_ => {
+                            inputHelp.style["top"] = '150px';
+                        }, 500)
+                        setTimeout(_ => {
+                            hide(current);
+                        }, 600);
+                        setTimeout(_ => {
+                            display(inputs[index + 1]);
+                        }, 700);
+                        setTimeout(_ => {
+                            opaOne(inputs[index + 1]);
+                        }, 850);
+                    }
+                })
+            } 
+
+
+            // Switches from the current input box to the next 
+            else {
+                opaNone(current);
+                setTimeout(_ => {
+                    hide(current);
+                }, 600);
+                setTimeout(_ => {
+                    display(inputs[index + 1]);
+                }, 700);
+                setTimeout(_ => {
+                    opaOne(inputs[index + 1]);
+                }, 850);
+            }
+        }
+    })
+});
 
 
 

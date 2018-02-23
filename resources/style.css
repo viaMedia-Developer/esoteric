@@ -1075,14 +1075,17 @@ section#connections button#initiateInputs {
 section#connections form {
 	display: none;
 	width: 70%;
+	min-height: 118px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	transition: all ease-out 0.5s;
+	opacity: 0;
 }
 
 section#connections form .input {
-	display: inline-block;
+	display: none;
 	width: 100%;
 	height: 60px;
 
@@ -1094,7 +1097,8 @@ section#connections form .input {
 	
 	border: none;
 	border-bottom: 2px solid black;
-	transition: all ease-out 0.3s;
+	transition: all ease-out 0.5s;
+	opacity: 0;
 }
 
 section#connections form .input::placeholder {
@@ -1126,13 +1130,21 @@ section#connections form #messageSent {
     font-weight: 500;
     color: black;
     text-align: center;
+    transition: all ease-out 0.5s;
+    opacity: 0;
 }
 
 section#connections form #inputHelp {
+	position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+
 	font-family: 'Open Sans';
 	font-weight: 300;
 	color: #b8b8b8;
 	text-align: center;
+	transition: all ease-out 0.5s;
 }
 
 
