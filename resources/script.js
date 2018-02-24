@@ -15,8 +15,8 @@ var body = document.getElementsByTagName('body')[0],
     switchSection_one = document.getElementById('switchSection_one'),
     switchSection_two = document.getElementById('switchSection_two'),
 
-    // nextSection = document.querySelectorAll('#iconList li svg')[1],
-    // prevSection = document.querySelectorAll('#iconList li svg')[0],
+
+    //Header Element Variables
     header = document.getElementById('mainHeader_overlay'),
     headerH1 = document.querySelector('#mainHeader h1'),
     headerText = document.getElementById('headerText'),
@@ -41,6 +41,12 @@ var body = document.getElementsByTagName('body')[0],
     // storyHeader = document.querySelector('.aboutStory h1 #title'),
     // storyAbout = document.querySelector('.aboutStory p'),
     // exitStory = document.querySelector('.aboutStory #exit'),
+
+    // Nav Element Variables 
+    navToggle = document.querySelector('nav span'),
+    navName = document.querySelector('nav p'),
+
+
     listOfExps = document.getElementById('listOfExps'),
     anExp = document.querySelectorAll('.anExp'),
     expExp = document.getElementById('expExp'),
@@ -64,6 +70,8 @@ var body = document.getElementsByTagName('body')[0],
     inputs = document.getElementsByClassName('input'),
     messageSent = document.getElementById('messageSent'),
     inputHelp = document.getElementById('inputHelp'),
+    socials = [...document.getElementsByClassName('socialLinks')],
+    fullNames = [...document.querySelectorAll('#fullNames li')],
     
 
     upNdown = document.getElementById('upNdown'),
@@ -245,6 +253,21 @@ function hover(elements, onenter, onleave) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*______________________________________________________________________
 
 	Proprietary Code for
@@ -333,6 +356,46 @@ if (sessionStorage.getItem('landingLinkClick') == "true") {
         })
     })
 }; //end of else
+
+
+
+
+
+
+
+
+
+/*______________________________________________________________________
+
+    Proprietary Code for
+    N A V I G A T I O N   B A R   A N D   M E N U
+________________________________________________________________________
+*/
+
+navToggle.addEventListener('mouseover', _=> {
+    opaNone(navToggle)
+    setTimeout(_=> {
+        opaOne(navName);
+    }, 100)
+})
+
+navToggle.addEventListener('mouseout', _=> {
+    opaNone(navName);
+    setTimeout(_=> {
+        opaOne(navToggle);
+    }, 100)
+})
+
+navToggle.addEventListener('click', _=> {
+    console.log('this is it');
+})
+
+
+
+
+
+
+
 
 
 
@@ -766,47 +829,43 @@ inputs.forEach((current, index) => {
 
             // After last input, displays the 'Message Delievered' .... message
             if(index == 3) {
-                inputs[3].addEventListener('keydown', function(event) {
-                    if (event.which === 13) {
-                        opaNone(inputs[3]);
-                        opaNone(inputHelp);
-                        setTimeout(_ => {
-                            hide(inputs[3]);
-                        }, 520)
-                        setTimeout(_ => {
-                            display(messageSent);
-                        }, 530)
-                        setTimeout(_ => {
-                            opaOne(messageSent);
-                        }, 550)
-                        setTimeout(_ => {
-                            hide(inputHelp);
-                        }, 1050)
-                    }
-                })
+                if (event.which === 13) {
+                    opaNone(inputs[3]);
+                    opaNone(inputHelp);
+                    setTimeout(_ => {
+                        hide(inputs[3]);
+                    }, 520)
+                    setTimeout(_ => {
+                        display(messageSent);
+                    }, 530)
+                    setTimeout(_ => {
+                        opaOne(messageSent);
+                    }, 550)
+                    setTimeout(_ => {
+                        hide(inputHelp);
+                    }, 1050)
+                }
             }
 
 
             // Moves the inputHelp downwards then transitions to the next input
             else if(index == 2) {
-                inputs[2].addEventListener('keydown', function(event) {
-                    if (event.which === 13) {
-                        console.log('enter key pressed for 3rd input');
-                        opaNone(inputs[2]);
-                        setTimeout(_ => {
-                            inputHelp.style["top"] = '150px';
-                        }, 500)
-                        setTimeout(_ => {
-                            hide(current);
-                        }, 600);
-                        setTimeout(_ => {
-                            display(inputs[index + 1]);
-                        }, 700);
-                        setTimeout(_ => {
-                            opaOne(inputs[index + 1]);
-                        }, 850);
-                    }
-                })
+                if (event.which === 13) {
+                    console.log('enter key pressed for 3rd input');
+                    opaNone(inputs[2]);
+                    setTimeout(_ => {
+                        inputHelp.style["top"] = '150px';
+                    }, 500)
+                    setTimeout(_ => {
+                        hide(current);
+                    }, 600);
+                    setTimeout(_ => {
+                        display(inputs[index + 1]);
+                    }, 700);
+                    setTimeout(_ => {
+                        opaOne(inputs[index + 1]);
+                    }, 850);
+                }
             } 
 
 
@@ -830,7 +889,18 @@ inputs.forEach((current, index) => {
 
 
 
-
+socials.forEach((current, index) => {
+    current.addEventListener('mouseover', function() {
+        var siblings = getSiblings(fullNames[index]);
+        opaOne(fullNames[index]);
+        siblings.forEach((element) => {
+            opaNone(element);
+        })
+        setTimeout(_=> {
+            opaNone(fullNames[index]);
+        }, 1000)
+    })
+})
 
 
 

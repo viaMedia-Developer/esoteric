@@ -1,3 +1,27 @@
+###### Dev Notes @ 2.24.2018 
+- Have a kink to fix with how Experiences and Recollections section expands the site past 100% width on mobile
+- Have to work on how the keyboard popping up affects the site on mobile
+
+###### Commit Entry 
+{
+
+	Date: 2.24.2018
+
+	Commit: 18th Commit
+
+	Project Version: v1.56
+
+}
+
++ Mobile Style rules added for Connections section
++ Fixed issue with having to press enter twice on 3rd input for Connections section
++ Added hover effects for the social links in Connections section
++ Added Navigation Menu button and effects (not yet operational) and it's mobile style rules
+
+
+
+
+
 ###### Commit Entry 
 {
 	Date: 2.23.2018

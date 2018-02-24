@@ -214,6 +214,68 @@ header#landing {
 
 
 
+
+
+
+
+
+nav {
+	display: block;
+	width: 80px;
+	height: 100vh;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	background-color: white;
+	z-index: 2;
+}
+
+nav span {
+	display: block;
+	width: 30px;
+	height: 15px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	transition: all ease-out 0.3s;
+	cursor: pointer;
+	z-index: 2;
+}
+
+
+nav p {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 0px;
+    font-family: 'Open Sans';
+    font-weight: 300;
+    font-size: 1.25em;
+    color: #b8b8b8;
+    opacity: 0;
+    transition: all ease-out 0.3s;
+    z-index: 1;
+}
+
+
+@media screen and (max-width: 440px) {
+	nav {
+		position: fixed;
+		width: 100%;
+		height: 50px;
+	}
+
+	nav p {
+		font-size: 0.9em;
+	}
+}
+
+
+
 	
 
 
@@ -305,6 +367,13 @@ section#wrapper p#headerText {
 
 
 
+
+
+
+
+
+
+
 section.main {
 	display: none;
 	width: 90%;
@@ -316,6 +385,12 @@ section.main {
 	/* transition: ease-out .75s;*/
 	z-index: 1;
 	opacity: 0;
+}
+
+@media screen and (max-width: 440px) {
+	section.main {
+		margin-bottom: 70px;
+	}
 }
 
 	section.transitionUp_a {
@@ -930,6 +1005,7 @@ section#recollections div.listOfRecollections {
 		width: 49%;
 		margin: 60px auto;
 		float: left;
+		cursor: pointer;
 	}
 
 		section#recollections div.listOfRecollections div.entry h3 {
@@ -1154,10 +1230,10 @@ section#connections ul#socials {
 	display: table;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
     bottom: 0px;
+    transform: translateX(-50%);
     margin: 0;
-    margin-bottom: 80px;
+    margin-bottom: 100px;
     padding: 0;
     list-style-type: none;
 }
@@ -1177,6 +1253,71 @@ section#connections ul#socials li.socialLinks {
 
 section#connections ul#socials li.socialLinks:hover {
 	border-bottom-color: black;
+}
+
+
+
+
+section#connections ul#fullNames {
+	display: table;
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+    transform: translateX(-50%);
+    margin: 0;
+    margin-bottom: 60px;
+    padding: 0;
+    list-style-type: none;
+}
+
+section#connections ul#fullNames li {
+	display: inline-block;
+	position: absolute;
+	position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+	margin: 0 auto;
+	font-family: 'Open Sans';
+	font-weight: 300;
+	font-size: 1.25em;
+	color: #b8b8b8;
+
+	cursor: pointer;
+	transition: all ease-out 0.3s;
+	opacity: 0;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 440px) {
+	
+	section#connections button#initiateInputs {
+		font-size: 1em;
+	}
+
+	section#connections ul#socials li.socialLinks {
+		font-size: 1.75em;
+	}
+
+	section#connections form .input {
+		height: 50px;
+		font-size: 1em;
+	}
+
+	section#connections form .input:nth-child(4n) {
+		margin-left: -10px;
+	}
+
+	section#connections form #inputHelp {
+		width: 100%;
+		font-size: 0.8em;
+		top: 60px;
+	}
 }
 
 
